@@ -1,0 +1,112 @@
+body{
+	padding: 16px 16px 8px 16px;
+	font-family: Segoe UI;
+	text-align: center;
+	clear: both;
+}
+
+#clock{
+	width: 100%;
+	font-size: 52px;
+	font-weight: 400;
+	color: #737373;
+	margin-bottom: 4px;
+}
+
+#caption{
+	font-size: 13px;
+	color: #737373;
+	margin-bottom: 20px;
+}
+
+#pomodoros{
+	height: 16px;
+	padding: 10px 0;
+	float: left;
+	font-size: 11px;
+	color: #737373;
+}
+
+#footer{
+	width: 100%;
+	height: 32px;
+	margin-top: 20px;
+}
+
+#settings{
+	float: left;
+	clear: both;
+}
+
+#github{
+	float: right;
+}
+
+.button{
+	width: auto;
+	height: 24px;
+	padding-top: 8px;
+	margin-bottom: 8px;
+	border-radius: 2px;
+	font-size: 13px;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+.primary{
+	background-color: #0060df;
+	color: #ffffff;
+}
+
+.primary:hover{
+	background-color: #003eaa;
+}
+
+.primary:active{
+	background-color: #002275;
+}
+
+.primary[disabled]{
+	background-color: #0060df;
+	cursor: default;
+	opacity: 0.4;
+}
+
+.default{
+	background-color: rgba(12, 12, 13, 0.1);
+	color: #0c0c0d;
+}
+
+.default:hover{
+	background-color: rgba(12, 12, 13, 0.2);
+}
+
+.default:active{
+	background-color: rgba(12, 12, 13, 0.3);
+}
+
+.default[disabled]{
+	background-color: rgba(12, 12, 13, 0.1);
+	cursor: default;
+	opacity: 0.4;
+}
+
+.ghost{
+	width: 16px;
+	height: 16px;
+	padding: 8px;
+	cursor: pointer;
+	border-radius: 2px;
+}
+
+.ghost:hover{
+	background-color: rgba(12, 12, 13, 0.1);
+}
+
+.ghost:active{
+	background-color: rgba(12, 12, 13, 0.2);
+}
+
+.ghost img{
+	width: 16px;
+}
