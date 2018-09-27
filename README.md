@@ -8,10 +8,12 @@ This technique was made by Francesco Cirillo, owner of Cirillo Consulting. Franc
 
 Francesco has worked at the forefront of the software industry for more than 20 years.
 
-More informations: [Cirillo Consulting's Website] (https://francescocirillo.com/)
+More informations: https://francescocirillo.com/
 
 # How to have this extension
-*Currently not available*
+- Firefox - Access the extension official page on Firefox Add-ons Store: https://addons.mozilla.org/pt-BR/firefox/addon/studytimer/
+
+Versions for Chrome, Opera, Safari and Edge may be released in the future.
 
 # How to use it
 - After downloading, click on the icon created on the browser bar to open a popup;
@@ -19,9 +21,9 @@ More informations: [Cirillo Consulting's Website] (https://francescocirillo.com/
 
 Use that time to study, it's recommended to choose a theme for each pomodoro.
 
-As you can see there is a badge now on the icon, it will gonna show how much time rests to clock reaches 00:00, badge colors means which clock is current working: 
+As you can see there is a badge now on the icon, it is goint to show how much time rests to clock reaches 00:00, badge colors means which clock is current working: 
 - Grey: Study;
 - Green: Short Break;
 - Blue: Long Break. 
 
-When clock reaches 00:00 first time you had completed your first pomodoro, it will start the break timer and show a notification to warn you about, now you need to stop and rest, if you are busy and can't stop you can pause the clock until you end your task, if you need to. This cycle will continue until you complete the pomodoro cycle, then it's time for the long break, after the long break the cycle is repeated.
+When clock reaches 00:00 first time you had completed your first pomodoro, it will start the break timer and show a notification to warn you about, now you need to stop and rest, if you are busy and can't stop you can pause the clock until you end up your task, if you need to. This cycle will continue until you complete the pomodoro cycle, then it's time for the long break, after the long break the cycle is repeated.
