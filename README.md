@@ -8,10 +8,10 @@ Francesco has worked at the forefront of the software industry for more than 20 
 
 More informations: [Cirillo Consulting's Website] (https://francescocirillo.com/)
 
-#How to have this extension
+#H ow to have this extension
 *Currently not available*
 
-#How to use it
+# How to use it
 - After downloading, click on the icon created on the browser bar to open a popup;
 - Click play to start the clock, after that you can close the popup.
 
