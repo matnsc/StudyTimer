@@ -8,7 +8,7 @@ Francesco has worked at the forefront of the software industry for more than 20 
 
 More informations: [Cirillo Consulting's Website] (https://francescocirillo.com/)
 
-#H ow to have this extension
+# How to have this extension
 *Currently not available*
 
 # How to use it
