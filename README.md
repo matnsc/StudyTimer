@@ -3,7 +3,9 @@ Wants to make progress on your studies without getting overwhelm? StudyTimer is 
 
 # Pomodoro Technique
 Pomodoro Technique consists in split your study time into 25 minutes time cores called 'pomodoros' interleaved with small breaks of 5 minutes, when you complete 4 pomodoros you have a longer break of 30 minutes to rest more.
+
 This technique was made by Francesco Cirillo, owner of Cirillo Consulting. Francesco’s core focus has always been improving productivity and efficiency, by finding ways to achieve better results with less time and less effort. 
+
 Francesco has worked at the forefront of the software industry for more than 20 years.
 
 More informations: [Cirillo Consulting's Website] (https://francescocirillo.com/)
