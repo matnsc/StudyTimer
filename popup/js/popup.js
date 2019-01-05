@@ -1,4 +1,4 @@
-var background = browser.extension.getBackgroundPage();
+let background = browser.extension.getBackgroundPage();
 
 function init() {
 	
@@ -11,7 +11,7 @@ function init() {
 
 function updateButtonState() {
 	
-	var backgroundRunning = background.playing;
+	let backgroundRunning = background.playing;
 	
 	if( backgroundRunning ) {
 		
@@ -59,7 +59,7 @@ function clickListener() {
 	
 	document.addEventListener( "click", ( e ) => {
 		
-		var id = e.target.getAttribute( "id" );
+		let id = e.target.getAttribute( "id" );
 		
 		if( id == "play"){
 			

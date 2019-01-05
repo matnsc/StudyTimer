@@ -9,36 +9,52 @@ class UserSettings {
 		
 	}
 	
-	get pomodoros(){
+	get pomodoros() {
+		
 		return this._pomodoros;
+		
 	}
 	
-	get studytime(){
+	get studytime() {
+		
 		return this._studytime;
+		
 	}
 	
-	get shortbreak(){
+	get shortbreak() {
+		
 		return this._shortbreak;
+		
 	}
 	
-	get longbreak(){
+	get longbreak() {
+		
 		return this._longbreak;
+		
 	}
 	
-	set pomodoros(pomodoros){
+	set pomodoros( pomodoros ) {
+		
 		this._pomodoros = pomodoros;
+		
 	}
 	
-	set studytime(studytime){
+	set studytime( studytime ) {
+		
 		this._studytime = studytime;
+		
 	}
 	
-	set shortbreak(shortbreak){
+	set shortbreak( shortbreak ) {
+		
 		this._shortbreak = shortbreak;
+		
 	}
 	
-	set longbreak(longbreak){
+	set longbreak( longbreak ) {
+		
 		this._longbreak = longbreak;
+		
 	}
 
 }

@@ -1,6 +1,6 @@
 class Timer {
 	
-	constructor( time ){
+	constructor( time ) {
 		
 		this._time = time;
 		this._init = new Date().getTime();
@@ -8,9 +8,9 @@ class Timer {
 		
 	}
 	
-	update(){
+	update() {
 		
-		var now = new Date().getTime();
+		let now = new Date().getTime();
 		
 		if( now <= this._endtime ){
 			
