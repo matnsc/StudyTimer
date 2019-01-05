@@ -1,6 +1,6 @@
 //default settings
-var settings   = new UserSettings( 4, "25:00", "05:00", "30:00" );
-browser.browserAction.setBadgeBackgroundColor( { color: "#737373" } );
+let settings = new UserSettings( 4, "00:30", "00:30", "30:00" );
+let badge    = new Badge( "#737373", "#006504", "#0060df" );
 
 //global variables
 var actualTime = settings.studytime;
@@ -9,30 +9,32 @@ var timer 	   = null;
 var timerState = "Study";
 var completedPomodoros = 0;
 
+badge.changeToStudyColor();
+
 function setStudyTime() {
 	
 	actualTime = settings.studytime;
-	browser.browserAction.setBadgeBackgroundColor( { color: "#737373" } );
+	badge.changeToStudyColor();
 	
 }
 
 function setShortBreak() {
 	
 	actualTime = settings.shortbreak;
-	browser.browserAction.setBadgeBackgroundColor( { color: "#006504" } );
+	badge.changeToShortBreakColor();
 	
 }
 
 function setLongBreak() {
 	
 	actualTime = settings.longbreak;
-	browser.browserAction.setBadgeBackgroundColor( { color: "#0060df" } );
+	badge.changeToLongBreakColor();
 	
 }
 
 function play() {
 	
-	var mil  = TimerFormat.formatTextToMil( actualTime );
+	let mil  = TimerFormat.formatTextToMil( actualTime );
 	timer 	 = new Timer( mil );
 	playing  = true;
 	
@@ -49,7 +51,7 @@ function reset() {
 	completedPomodoros = 0;
 	timerState = "Study";
 	pause();
-	updateBadge( null );
+	badge.updateText( null );
 	setStudyTime();
 	
 }
@@ -60,7 +62,7 @@ function backgroundTimer() {
 		
 		if( playing ) {
 		
-			var timeLeft = timer.update();
+			let timeLeft = timer.update();
 			
 			dueTimeVerifier( timeLeft );
 			
@@ -86,7 +88,7 @@ function dueTimeVerifier( value ) {
 	
 	if( value > 0 ) {
 		
-		updateBadge( TimerFormat.formatMilToMinuteText( value ).toString() );
+		badge.updateText( TimerFormat.formatMilToMinuteText( value ).toString() );
 		
 	}
 	
@@ -123,21 +125,17 @@ function changeTimer() {
 	
 }
 
-function updateBadge( value ) {
-	
-	browser.browserAction.setBadgeText( { text: value } );
-	
-}
-
 function showNotification() {
+	
+	let message;
+	
+	let notificationImage = timerState == "Study" ? "../icons/studyIcon.png" : "../icons/breakIcon.png";
 	
 	switch ( timerState ) {
 			
 		case "Short Break":
 		
-			var message = "It's time to take a break and do other things.\n\nIf you are really busy and can't stop right now, you can pause the clock meanwhile.";
-	
-			var notificationImage = "../icons/breakIcon.png";
+			message = "It's time to take a break and do other things.\n\nIf you are really busy and can't stop right now, you can pause the clock meanwhile.";
 			
 			createNotification( "Short Break Time", message, notificationImage );
 			
@@ -145,9 +143,7 @@ function showNotification() {
 		
 		case "Long Break":
 			
-			var message = "You completed the pomodoro cycle! Now is time for the long break. Enjoy.";
-			
-			var notificationImage = "../icons/breakIcon.png";
+			message = "You completed the pomodoro cycle! Now is time for the long break. Enjoy.";
 			
 			createNotification( "Long Break Time!", message, notificationImage );
 			
@@ -155,9 +151,7 @@ function showNotification() {
 			
 		case "Study":
 		
-			var message = "Your time to rest has ended.\nGo back to work!";
-			
-			var notificationImage = "../icons/studyIcon.png";
+			message = "Your time to rest has ended.\nGo back to work!";
 			
 			createNotification( "Study Time", message, notificationImage );
 			
