@@ -9,7 +9,7 @@
 	},
 	"background": 
 	{
-		"scripts": [ "script/objects/timer.js", "script/objects/timerFormat.js", "script/objects/userSettings.js", "script/objects/badge.js", "script/background-script.js" ]
+		"scripts": [ "script/objects/timer.js", "script/objects/timerFormat.js", "script/objects/userSettings.js", "script/objects/badge.js", "script/objects/notification.js", "script/background-script.js" ]
 	},
 	"browser_action": {
 		"default_icon": {

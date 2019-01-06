@@ -8,6 +8,7 @@ var playing    = false;
 var timer 	   = null;
 var timerState = "Study";
 var completedPomodoros = 0;
+var notification;
 
 badge.changeToStudyColor();
 
@@ -16,6 +17,9 @@ function setStudyTime() {
 	actualTime = settings.studytime;
 	badge.changeToStudyColor();
 	
+	let message = "Your time to rest has ended.\nGo back to work!";	
+	notification = new Notification( "Study Time", message, "../icons/studyIcon.png" );
+	
 }
 
 function setShortBreak() {
@@ -23,12 +27,18 @@ function setShortBreak() {
 	actualTime = settings.shortbreak;
 	badge.changeToShortBreakColor();
 	
+	let message = "It's time to take a break and do other things.\n\nIf you are really busy and can't stop right now, you can pause the clock meanwhile.";
+	notification = new Notification( "Short Break Time", message, "../icons/breakIcon.png" );
+	
 }
 
 function setLongBreak() {
 	
 	actualTime = settings.longbreak;
 	badge.changeToLongBreakColor();
+	
+	let message = "You completed the pomodoro cycle! Now is time for the long break. Enjoy.";	
+	notification = new Notification( "Long Break Time!", message, "../icons/breakIcon.png" );
 	
 }
 
@@ -80,7 +90,7 @@ function dueTimeVerifier( value ) {
 		
 		changeTimer();
 		
-		showNotification();
+		notification.show();
 		
 		play();
 		
@@ -122,53 +132,5 @@ function changeTimer() {
 		setStudyTime();
 		
 	}
-	
-}
-
-function showNotification() {
-	
-	let message;
-	
-	let notificationImage = timerState == "Study" ? "../icons/studyIcon.png" : "../icons/breakIcon.png";
-	
-	switch ( timerState ) {
-			
-		case "Short Break":
-		
-			message = "It's time to take a break and do other things.\n\nIf you are really busy and can't stop right now, you can pause the clock meanwhile.";
-			
-			createNotification( "Short Break Time", message, notificationImage );
-			
-			break;
-		
-		case "Long Break":
-			
-			message = "You completed the pomodoro cycle! Now is time for the long break. Enjoy.";
-			
-			createNotification( "Long Break Time!", message, notificationImage );
-			
-			break;
-			
-		case "Study":
-		
-			message = "Your time to rest has ended.\nGo back to work!";
-			
-			createNotification( "Study Time", message, notificationImage );
-			
-			break;
-	}
-	
-}
-
-function createNotification( title, message, notificationImage ) {
-	
-	browser.notifications.create( {
-			
-		"type"	  : "basic",
-		"iconUrl" : browser.extension.getURL( notificationImage ),
-		"title"   : title,
-		"message" : message
-			
-	} );
 	
 }
