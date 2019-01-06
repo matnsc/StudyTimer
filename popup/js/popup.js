@@ -11,7 +11,7 @@ function init() {
 
 function updateButtonState() {
 	
-	let backgroundRunning = background.playing;
+	let backgroundRunning = background.timer.playing;
 	
 	if( backgroundRunning ) {
 		
@@ -29,11 +29,11 @@ function updateButtonState() {
 
 function interfaceUpdater() {
 	
-	interfaceUpdate( background.completedPomodoros, background.timerState, background.actualTime );
+	interfaceUpdate( background.timer.completedPomodoros, background.timer.type, background.getActualTime() );
 
 	setInterval( function() {
 		
-		interfaceUpdate( background.completedPomodoros, background.timerState, background.actualTime );
+		interfaceUpdate( background.timer.completedPomodoros, background.timer.type, background.getActualTime() );
 		
 	}, 200 );
 	
@@ -63,17 +63,17 @@ function clickListener() {
 		
 		if( id == "play"){
 			
-			background.play();
+			background.timer.play();
 			
 		} else if( id == "pause" ) {
 			
-			background.pause();
+			background.timer.pause();
 			
 		} else if( id == "reset" ) {
 			
 			background.reset();
 			
-			interfaceUpdate( background.completedPomodoros, background.timerState, background.actualTime );
+			interfaceUpdate( background.timer.completedPomodoros, background.timer.type, background.getActualTime() );
 			
 		}
 		
