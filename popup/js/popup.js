@@ -1,57 +1,25 @@
-let background = browser.extension.getBackgroundPage();
+let timerController  = browser.extension.getBackgroundPage();
+let interfaceService = new InterfaceService();
 
 function init() {
 	
-	updateButtonState();
-	background.backgroundTimer();
+	timerController.init()
 	interfaceUpdater();
 	clickListener();
 	
 }
 
-function updateButtonState() {
-	
-	let backgroundRunning = background.timer.playing;
-	
-	if( backgroundRunning ) {
-		
-		document.getElementById( "play" ).setAttribute( "disabled", "disabled" );
-		document.getElementById( "pause" ).removeAttribute( "disabled" );
-		
-	} else {
-		
-		document.getElementById( "pause" ).setAttribute( "disabled", "disabled" );
-		document.getElementById( "play" ).removeAttribute( "disabled" );
-		
-	}
-	
-}
-
 function interfaceUpdater() {
 	
-	interfaceUpdate( background.timer.completedPomodoros, background.timer.type, background.getActualTime() );
+	interfaceService.updateButtonState( timerController.getPlaying() );
+	
+	interfaceService.updateTimerValues( timerController.getCompletedPomodoros(), timerController.getTimerType(), timerController.getTime() );
 
 	setInterval( function() {
 		
-		interfaceUpdate( background.timer.completedPomodoros, background.timer.type, background.getActualTime() );
+		interfaceService.updateTimerValues( timerController.getCompletedPomodoros(), timerController.getTimerType(), timerController.getTime() );
 		
-	}, 200 );
-	
-}
-
-function interfaceUpdate( completedPomodoros, timerState, actualTime ) {
-	
-	htmlElementUpdate( "pomodoroNumber", completedPomodoros );
-	
-	htmlElementUpdate( "caption", timerState );
-	
-	htmlElementUpdate( "clock", actualTime );
-	
-}
-
-function htmlElementUpdate( id, value ) {
-	
-	document.getElementById( id ).innerHTML = value;
+	}, 100 );
 	
 }
 
@@ -61,23 +29,21 @@ function clickListener() {
 		
 		let id = e.target.getAttribute( "id" );
 		
-		if( id == "play"){
+		if( id == "play") {
 			
-			background.timer.play();
+			timerController.play();
 			
 		} else if( id == "pause" ) {
 			
-			background.timer.pause();
+			timerController.pause();
 			
 		} else if( id == "reset" ) {
 			
-			background.reset();
-			
-			interfaceUpdate( background.timer.completedPomodoros, background.timer.type, background.getActualTime() );
+			timerController.reset();
 			
 		}
 		
-		updateButtonState();
+		interfaceService.updateButtonState( timerController.getPlaying() );
 		
 	})
 	

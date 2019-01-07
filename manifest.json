@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "StudyTimer",
 	"version": "1.1",
-	"description": "Wants to make progress on your studies without getting overwhelm? StudyTimer is a extension which implements Pomodoro Technique in an effective and simplified way to manage your studies properly. Pomodoro Technique consists in split your study time into 25 minutes time cores called 'pomodoros' interleaved with small breaks of 5 minutes, when you complete 4 pomodoros you have a longer break of 30 minutes to rest more. Using this technique you can boost your focus without getting tired over a long time.",
+	"description": "StudyTimer is a browser extension which implements Pomodoro Technique in an effective and simplified way to manage your studies/work properly. Using this technique you can boost your focus without getting tired over a long time.",
 	"icons": 
 	{
 		"96": "icons/icone.png"
