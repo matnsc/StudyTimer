@@ -7,13 +7,7 @@ class ShortBreakTimer extends Timer {
 		this._badgeColor 		  = "#006504";
 		this._notificationMessage = "It's time to take a break and do other things.\n\nIf you are really busy and can't stop right now, you can pause the clock meanwhile.";
 		this._notificationImage   = "../icons/breakIcon.png";
-		this._type = "Short Break";
-		
-	}
-	
-	get badgeColor() {
-		
-		return this._badgeColor;
+		this._type 				  = "Short Break";
 		
 	}
 	

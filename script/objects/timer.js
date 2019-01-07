@@ -3,17 +3,20 @@ class Timer {
 	constructor( time, completedPomodoros ) {
 		
 		this._time = time;
-		this._init = new Date().getTime();
+		this._completedPomodoros = completedPomodoros;
+		
+		this._init    = new Date().getTime();
 		this._endtime = this._init + this._time;
 		this._playing = false;
-		this._completedPomodoros = completedPomodoros;
-		this._type = "";
+		
+		this._badgeColor = "";
+		this._type       = "";
 		
 	}
 	
-	get playing() {
+	get badgeColor() {
 		
-		return this._playing;
+		return this._badgeColor;
 		
 	}
 	
@@ -23,6 +26,12 @@ class Timer {
 		
 	}
 	
+	get playing() {
+		
+		return this._playing;
+		
+	}
+
 	get type() {
 		
 		return this._type;

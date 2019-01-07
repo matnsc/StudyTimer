@@ -1,14 +1,42 @@
-//objects
 let settings = new UserSettings( 4, "00:30", "00:30", "30:00" );
-let badge    = new Badge();
 
-var timer = new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), 0 );
+let timer    = new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), 0 );
 
-badge.updateColor( timer.badgeColor );
+let badge    = new Badge( timer.badgeColor );
 
-function getActualTime() {
+function getCompletedPomodoros() {
+	
+	return timer.completedPomodoros;
+	
+}
+
+function getPlaying() {
+	
+	return timer.playing;
+	
+}
+
+function getTime() {
 	
 	return TimerFormat.formatMilToText( timer.time );
+	
+}
+
+function getTimerType() {
+	
+	return timer.type;
+	
+}
+
+function play() {
+	
+	return timer.play();
+	
+}
+
+function pause() {
+	
+	return timer.pause();
 	
 }
 
@@ -20,7 +48,7 @@ function reset() {
 	
 }
 
-function backgroundTimer() {
+function init() {
 	
 	setInterval( function() {
 		
