@@ -1,0 +1,144 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Segoe UI;
+	font-weight: 400;
+	text-align: center;
+}
+
+body{
+	background-color: #f9f9fa;
+}
+
+h1{	
+	margin-bottom: 36px;
+	font-size: 28px;
+	font-weight: 300;
+	color: #737373;
+}
+
+h2{	
+	margin-bottom: 8px;
+	font-size: 17px;
+	color: #737373;
+}
+
+.clock-line{
+	margin-bottom: 16px;
+	font-size: 28px;
+	color: #38383d;
+}
+
+.caption{
+	font-size: 13px;
+	color: #737373;
+}
+
+#settings-icon{
+	width: 20px;
+}
+
+#box{
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	box-shadow: 0 1px 16px rgba(12, 12, 13, 0.1);
+	background-color: #ffffff;
+}
+
+#github-icon{
+	width: 12px;
+}
+
+/* Responsive adaptation for different screen sizes */
+@media(max-width: 1280px){
+	
+	#box{
+		width: 50%;
+		height: 95%;
+		top: 2.5%;
+		left: 25%;
+	}
+	
+}
+
+@media(min-width: 1281px) and (max-width: 1600px){
+	
+	#box{
+		width: 40%;
+		height: 80%;
+		top: 10%;
+		left: 30%;
+	}
+	
+}
+
+@media(min-width: 1601px) and (max-width: 1799px){
+	
+	#box{
+		width: 35%;
+		height: 70%;
+		top: 15%;
+		left: 32.5%;
+	}
+	
+}
+
+@media(min-width: 1800px){
+	
+	#box{
+		width: 35%;
+		height: 62%;
+		top: 19%;
+		left: 32.5%;
+	}
+	
+}
+
+/* Text Input Style */
+input[type=text]{
+	padding: 8px 0;
+	font-size: 28px;
+	border: 1px  solid rgba(12, 12, 13, 0.2);
+	border-radius: 2px;
+	color: #38383d;
+}
+
+/* Button Style */
+input[type=submit]{
+	width: 40%;
+	margin: 28px 0 36px 0;
+	padding: 8px;
+	font-size: 14px;
+	border: 0;
+	border-radius: 2px;
+	color: #ffffff;
+	background-color: #0060df;
+	cursor: pointer;
+}
+
+input[type=submit]:hover{
+	background-color: #003eaa;
+}
+
+input[type=submit]:active{
+	background-color: #002275;
+}
+
+/* GitHub link style */
+a{
+	padding: 8px 12px;
+	text-decoration: none;
+	border-radius: 2px;
+	color: rgba(12, 12, 13, 0.8);
+}
+
+a:hover{
+	background-color: rgba(12, 12, 13, 0.1);
+}
+
+a:active{
+	background-color: rgba(12, 12, 13, 0.2);
+}

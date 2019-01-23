@@ -18,5 +18,5 @@
 		"default_title": "StudyTimer",
 		"default_popup": "popup/popup.html"
 	},
-	"permissions": [ "notifications" ]
+	"permissions": [ "notifications", "storage" ]
 }
