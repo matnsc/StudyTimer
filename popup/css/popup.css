@@ -2,7 +2,6 @@ body{
 	padding: 16px 16px 8px 16px;
 	font-family: Segoe UI;
 	text-align: center;
-	clear: both;
 }
 
 #clock{
@@ -34,11 +33,6 @@ body{
 }
 
 #settings{
-	float: left;
-	clear: both;
-}
-
-#github{
 	float: right;
 }
 
