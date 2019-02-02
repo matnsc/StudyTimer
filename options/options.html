@@ -12,23 +12,27 @@
 					<h1><img src="../icons/settings.png" alt="Settings icon" id="settings-icon"/> Settings</h1>
 				</div>
 				<form>
-					<div class="clock-line">
-						<h2>Study</h2>
-						<input type="text" id="studyMinutes" class="minutes" value="30" size="3" maxlength="3"/> : <input type="text" id="studySeconds" class="seconds" value="00" size="3" maxlength="2"/>
+					<div>
+						<div class="clock-line" style="margin-right: 18px;">
+							<h2>Study</h2>
+							<input type="text" id="studyMinutes" class="minutes" value="30" size="3" maxlength="3"/> : <input type="text" id="studySeconds" class="seconds" value="00" size="3" maxlength="2"/>
+						</div>
+						<div class="clock-line" style="margin-right: 18px;">
+							<h2>Short Break</h2>
+							<input type="text" id="shortBreakMinutes" class="minutes" value="15" size="3" maxlength="3"/> : <input type="text" id="shortBreakSeconds" class="seconds" value="00" size="3" maxlength="2"/>
+						</div>
+						<div class="clock-line">
+							<h2>Long Break</h2>
+							<input type="text" id="longBreakMinutes" class="minutes" value="30" size="3" maxlength="3"/> : <input type="text" id="longBreakSeconds" class="seconds" value="00" size="3" maxlength="2"/>
+						</div>
 					</div>
-					<div class="clock-line">
-						<h2>Short Break</h2>
-						<input type="text" id="shortBreakMinutes" class="minutes" value="15" size="3" maxlength="3"/> : <input type="text" id="shortBreakSeconds" class="seconds" value="00" size="3" maxlength="2"/>
-					</div>
-					<div class="clock-line">
-						<h2>Long Break</h2>
-						<input type="text" id="longBreakMinutes" class="minutes" value="30" size="3" maxlength="3"/> : <input type="text" id="longBreakSeconds" class="seconds" value="00" size="3" maxlength="2"/>
-					</div>
+					<p class="caption" style="padding-top: 48px;">Number of pomodoro sessions per cycle: <input id="numberPomodoros" type="text" class="pomodoros" size="1" value="4" maxlength="1"/></p>
 					<input type="submit" value="Save"/>
-					<p id="feedback-message" class="caption">To report issues and make suggestions: <a href="https://github.com/MatNascimento/StudyTimer" target="_blank"><img src="../icons/github.png" alt="Github icon" id="github-icon"/> GitHub</a></p>
+					<input type="submit" id="reset" value="Reset"/>
 				</form>
 			</div>
 		</div>
+		<p id="feedback-message" class="caption">To report issues and make suggestions: <a href="https://github.com/MatNascimento/StudyTimer" target="_blank"><img src="../icons/github.png" alt="Github icon" id="github-icon"/> GitHub</a></p>
 	</body>
 	<script src="js/options.js"></script>
 </html>
