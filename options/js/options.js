@@ -56,7 +56,21 @@ function focusOutValidation() {
 		}
 		
 	}
-
-	this.value = this.value.padStart( 2, '0' );
+	
+	if( this.className == "pomodoros" ) {
+		
+		if( this.value == "" ) {
+			
+			this.value = 1;
+			
+		}
+		
+	}
+	
+	if( this.className != "pomodoros" ) {
+		
+		this.value = this.value.padStart( 2, '0' );
+		
+	}
 	
 }

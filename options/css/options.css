@@ -11,7 +11,7 @@ body{
 }
 
 h1{	
-	margin-bottom: 36px;
+	margin-bottom: 48px;
 	font-size: 28px;
 	font-weight: 300;
 	color: #737373;
@@ -19,19 +19,20 @@ h1{
 
 h2{	
 	margin-bottom: 8px;
-	font-size: 17px;
+	font-size: 14px;
 	color: #737373;
 }
 
 .clock-line{
-	margin-bottom: 16px;
-	font-size: 28px;
+	float: left;
+	font-size: 18px;
 	color: #38383d;
 }
 
 .caption{
 	font-size: 13px;
 	color: #737373;
+	clear: both;
 }
 
 #settings-icon{
@@ -57,9 +58,13 @@ h2{
 	
 	#box{
 		width: 50%;
-		height: 95%;
-		top: 2.5%;
+		height: 85%;
+		top: 7.5%;
 		left: 25%;
+	}
+	
+	#feedback-message{
+		margin-top: 45%;
 	}
 	
 }
@@ -73,6 +78,10 @@ h2{
 		left: 30%;
 	}
 	
+	#feedback-message{
+		margin-top: 45%;
+	}
+	
 }
 
 @media(min-width: 1601px) and (max-width: 1799px){
@@ -84,15 +93,23 @@ h2{
 		left: 32.5%;
 	}
 	
+	#feedback-message{
+		margin-top: 43%;
+	}
+	
 }
 
 @media(min-width: 1800px){
 	
 	#box{
-		width: 35%;
-		height: 62%;
-		top: 19%;
-		left: 32.5%;
+		width: 30%;
+		height: 55%;
+		top: 22.5%;
+		left: 35%;
+	}
+	
+	#feedback-message{
+		margin-top: 40%;
 	}
 	
 }
@@ -100,16 +117,21 @@ h2{
 /* Text Input Style */
 input[type=text]{
 	padding: 8px 0;
-	font-size: 28px;
+	font-size: 18px;
 	border: 1px  solid rgba(12, 12, 13, 0.2);
 	border-radius: 2px;
 	color: #38383d;
 }
 
+#numberPomodoros{
+	margin-left: 8px;
+	padding: 4px 0;
+}
+
 /* Button Style */
 input[type=submit]{
-	width: 40%;
-	margin: 28px 0 36px 0;
+	width: 30%;
+	margin-top: 48px;
 	padding: 8px;
 	font-size: 14px;
 	border: 0;
@@ -125,6 +147,19 @@ input[type=submit]:hover{
 
 input[type=submit]:active{
 	background-color: #002275;
+}
+
+#reset{
+	background-color: rgba(12, 12, 13, 0.1);
+	color: #0c0c0d;
+}
+
+#reset:hover{
+	background-color: rgba(12, 12, 13, 0.2);
+}
+
+#reset:active{
+	background-color: rgba(12, 12, 13, 0.3);
 }
 
 /* GitHub link style */
