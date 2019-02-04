@@ -23,22 +23,6 @@ h2{
 	color: #737373;
 }
 
-.clock-line{
-	float: left;
-	font-size: 18px;
-	color: #38383d;
-}
-
-.caption{
-	font-size: 13px;
-	color: #737373;
-	clear: both;
-}
-
-#settings-icon{
-	width: 20px;
-}
-
 #box{
 	position: absolute;
 	display: flex;
@@ -49,8 +33,28 @@ h2{
 	background-color: #ffffff;
 }
 
-#github-icon{
+#pomodorosMessage{
+	padding-top: 48px;
+}
+
+#settingsIcon{
+	width: 20px;
+}
+
+#githubIcon{
 	width: 12px;
+}
+
+.clockLine{
+	float: left;
+	font-size: 18px;
+	color: #38383d;
+}
+
+.caption{
+	font-size: 13px;
+	color: #737373;
+	clear: both;
 }
 
 /* Responsive adaptation for different screen sizes */
@@ -63,7 +67,7 @@ h2{
 		left: 25%;
 	}
 	
-	#feedback-message{
+	#feedbackMessage{
 		margin-top: 45%;
 	}
 	
@@ -78,7 +82,7 @@ h2{
 		left: 30%;
 	}
 	
-	#feedback-message{
+	#feedbackMessage{
 		margin-top: 45%;
 	}
 	
@@ -93,7 +97,7 @@ h2{
 		left: 32.5%;
 	}
 	
-	#feedback-message{
+	#feedbackMessage{
 		margin-top: 43%;
 	}
 	
@@ -108,7 +112,7 @@ h2{
 		left: 35%;
 	}
 	
-	#feedback-message{
+	#feedbackMessage{
 		margin-top: 40%;
 	}
 	
@@ -128,41 +132,7 @@ input[type=text]{
 	padding: 4px 0;
 }
 
-/* Button Style */
-input[type=submit]{
-	width: 30%;
-	margin-top: 48px;
-	padding: 8px;
-	font-size: 14px;
-	border: 0;
-	border-radius: 2px;
-	color: #ffffff;
-	background-color: #0060df;
-	cursor: pointer;
-}
-
-input[type=submit]:hover{
-	background-color: #003eaa;
-}
-
-input[type=submit]:active{
-	background-color: #002275;
-}
-
-#reset{
-	background-color: rgba(12, 12, 13, 0.1);
-	color: #0c0c0d;
-}
-
-#reset:hover{
-	background-color: rgba(12, 12, 13, 0.2);
-}
-
-#reset:active{
-	background-color: rgba(12, 12, 13, 0.3);
-}
-
-/* GitHub link style */
+/* Link Style */
 a{
 	padding: 8px 12px;
 	text-decoration: none;
@@ -176,4 +146,41 @@ a:hover{
 
 a:active{
 	background-color: rgba(12, 12, 13, 0.2);
+}
+
+/* Button Style */
+.button{
+	width: 30%;
+	margin-top: 48px;
+	padding: 8px;
+	border: 0;
+	border-radius: 2px;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.primary{
+	color: #ffffff;
+	background-color: #0060df;
+}
+
+.primary:hover{
+	background-color: #003eaa;
+}
+
+.primary:active{
+	background-color: #002275;
+}
+
+.default{
+	color: #0c0c0d;
+	background-color: rgba(12, 12, 13, 0.1);
+}
+
+.default:hover{
+	background-color: rgba(12, 12, 13, 0.2);
+}
+
+.default:active{
+	background-color: rgba(12, 12, 13, 0.3);
 }
