@@ -1,76 +1,29 @@
-let inputs = document.querySelectorAll( "input[type=text]" );
+const minutesInputs  = Array.from( document.getElementsByClassName( "minutes" ) );
+const secondsInputs  = Array.from( document.getElementsByClassName( "seconds" ) );
+const pomodorosInput = document.getElementById( "numberPomodoros" );
 
-for( let i = 0; i < inputs.length; i++ ) {
-	
-	inputs[i].addEventListener( "keypress", keyPressedValidation );
-	inputs[i].addEventListener( "focusout", focusOutValidation );
-	
-}
+document.addEventListener( "keypress", function( keyEvent ){
 
-function isNumber( e ) {
-	
-	return e.key >= 0 && e.key <= 9;
+	const keyPressed = new Key( keyEvent.key );
 
-}
-
-function isSpecialKey( e ) {
+	if( !keyPressed.isNumber() && !keyPressed.isSpecial() && !keyPressed.isDirectional() ) {
 	
-	return e.key == "Backspace" || e.key == "Tab";
-	
-}
-
-function isDirectionalKey( e ) {
-	
-	return e.key.includes( "Arrow" );
-	
-}
-
-function keyPressedValidation( e ) {
-	
-	if( !isNumber( e ) && !isSpecialKey( e ) && !isDirectionalKey( e ) ) {
-		
-		e.preventDefault();
+		keyEvent.preventDefault();
 		
 	}
-	
-}
 
-function focusOutValidation() {
+} );
+
+minutesInputs.forEach( input => {
 	
-	if( this.className == "seconds" ) {
-		
-		if( this.value > 59 ) {
-		
-			this.value = 59;
-			
-		}
-		
-	}
+	input.addEventListener( "focusout", () => input.value = new MinutesInput( input.value ).format() );
+
+});
+
+secondsInputs.forEach( input => {
 	
-	if( this.className == "minutes" ) {
-		
-		if( this.value.length > 2 && this.value[0] == "0" ) {
-			
-			this.value = this.value.substring(1);
-			
-		}
-		
-	}
-	
-	if( this.className == "pomodoros" ) {
-		
-		if( this.value == "" ) {
-			
-			this.value = 1;
-			
-		}
-		
-	}
-	
-	if( this.className != "pomodoros" ) {
-		
-		this.value = this.value.padStart( 2, '0' );
-		
-	}
-	
-}
+	input.addEventListener( "focusout", () => input.value = new SecondsInput( input.value ).format() );
+
+});
+
+pomodorosInput.addEventListener( "focusout", () => pomodorosInput.value = new PomodorosInput( pomodorosInput.value ).format() );
