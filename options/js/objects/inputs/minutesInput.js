@@ -14,7 +14,7 @@ class MinutesInput extends Input {
 			
         } 
         
-        this._value = this._value.padStart( 2, '0' );
+        this._value = this._value.padStart( 2, "0" );
 
         return this._value; 
 

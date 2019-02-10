@@ -1,6 +1,12 @@
 let timerController  = browser.extension.getBackgroundPage();
 let interfaceService = new InterfaceService();
 
+document.getElementById( "settings" ).addEventListener( "click", function() {
+
+	browser.tabs.create( { url: "../options/options.html" } );
+
+} );
+
 function init() {
 	
 	timerController.init()
@@ -27,7 +33,7 @@ function clickListener() {
 	
 	document.addEventListener( "click", ( e ) => {
 		
-		let id = e.target.getAttribute( "id" );
+		const id = e.target.getAttribute( "id" );
 		
 		if( id == "play") {
 			
@@ -45,7 +51,7 @@ function clickListener() {
 		
 		interfaceService.updateButtonState( timerController.getPlaying() );
 		
-	})
+	} );
 	
 }
 

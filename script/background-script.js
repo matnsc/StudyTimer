@@ -1,8 +1,8 @@
-let settings = new UserSettings( 4, "00:30", "00:30", "30:00" );
+const settingStorage = new UserSettingsStorage();
+const settings 		 = settingStorage.userSettings || ( settingStorage.userSettings = new UserSettings( 4, "00:15", "00:15", "00:30" ) );
 
-let timer    = new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), 0 );
-
-let badge    = new Badge( timer.badgeColor );
+let   timer = new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), 0 );
+const badge = new Badge( timer.badgeColor );
 
 function getCompletedPomodoros() {
 	
@@ -42,9 +42,9 @@ function pause() {
 
 function reset() {
 	
-	timer.pause();
-	badge.updateText( null );
 	timer = new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), 0 );
+	badge.updateText( null );
+	badge.updateColor( timer.badgeColor );
 	
 }
 
