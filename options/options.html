@@ -28,17 +28,21 @@
 					</div>
 					<p id="pomodorosMessage" class="caption">Number of pomodoro sessions per cycle: <input type="text" id="numberPomodoros" size="1" maxlength="1" value="4"/></p>
 					<input class="button primary" type="submit" value="Save"/>
-					<input class="button default" type="submit" value="Reset"/>
+					<input class="button default" type="button" value="Reset"/>
 				</form>
 			</div>
 		</div>
 		<p id="feedbackMessage" class="caption">To report issues and make suggestions: <a href="https://github.com/MatNascimento/StudyTimer" target="_blank"><img id="githubIcon" src="../icons/github.png" alt="Github icon"/> GitHub</a></p>
 	</body>
 	<!-- Page Scripts -->
+	<script src="../script/objects/userSettings.js"></script>
+	<script src="../script/objects/userSettingsStorage.js"></script>
+	<script src="js/objects/interfaceService.js"></script>
 	<script src="js/objects/key.js"></script>
-	<script src="js/objects/input.js"></script>
-	<script src="js/objects/minutesInput.js"></script>
-	<script src="js/objects/secondsInput.js"></script>
-	<script src="js/objects/pomodorosInput.js"></script>
+	<script src="js/objects/clockLineFormat.js"></script>
+	<script src="js/objects/inputs/input.js"></script>
+	<script src="js/objects/inputs/minutesInput.js"></script>
+	<script src="js/objects/inputs/secondsInput.js"></script>
+	<script src="js/objects/inputs/pomodorosInput.js"></script>
 	<script src="js/options.js"></script>
 </html>

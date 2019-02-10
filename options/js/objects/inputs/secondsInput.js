@@ -10,11 +10,11 @@ class SecondsInput extends Input {
 
         if( this._value > 59 ) {
 		
-			this._value = 59;
+			this._value = "59";
 			
         }
         
-        this._value = this._value.padStart( 2, '0' );
+        this._value = this._value.padStart( 2, "0" );
 
         return this._value; 
 
