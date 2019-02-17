@@ -1,11 +1,13 @@
 const settingStorage = new UserSettingsStorage();
 let	  settings 		 = settingStorage.userSettings;
+let   backgroundPage = browser.extension.getBackgroundPage();
 
 const allInputs 	 = Array.from( document.querySelectorAll( "input[type=text]" ) );
-const clockLine 	 = Array.from( document.getElementsByClassName( "clockLine" ) );
+let clockLine 	 = Array.from( document.getElementsByClassName( "clockLine" ) );
 const minutesInputs  = Array.from( document.getElementsByClassName( "minutes" ) );
 const secondsInputs  = Array.from( document.getElementsByClassName( "seconds" ) );
 const pomodorosInput = document.getElementById( "numberPomodoros" );
+const buttons 		 = Array.from( document.getElementsByClassName( "button" ) );
 
 init();
 
@@ -55,5 +57,54 @@ function addValidationListeners() {
 	} );
 	
 	pomodorosInput.addEventListener( "focusout", () => pomodorosInput.value = new PomodorosInput( pomodorosInput.value ).format() );
+
+	buttons.forEach( button => {
+
+		if( button.value == "Save" ) {
+
+			button.addEventListener( "click", function() {
+
+				let values    = new Array();
+				let pomodoros = pomodorosInput.value;
+
+				for( let i = 0; i < clockLine.length; i++ ) {
+					
+					const minutes = clockLine[i].getElementsByClassName( "minutes" )[0].value;
+					const seconds = clockLine[i].getElementsByClassName( "seconds" )[0].value;
+
+					values.push( ClockFormat.formatValuesToString( minutes, seconds ) );
+		
+				}
+
+				InterfaceService.updateClockLines( clockLine, values );
+				InterfaceService.updatePomodorosValue( pomodoros );
+
+				settings = new UserSettings( pomodoros, values[0], values[1], values[2] );
+				settingStorage.userSettings = settings;
+
+				backgroundPage.updateSettings();
+
+			} );
+
+		} else if( button.value == "Reset" ) {
+
+			button.addEventListener( "click", function() {
+				
+				let values = { 0: "25:00", 1: "15:00", 2: "45:00" };
+				let pomodoros = 4;
+
+				InterfaceService.updateClockLines( clockLine, values );
+				InterfaceService.updatePomodorosValue( pomodoros );
+
+				settings = new UserSettings( pomodoros, values[0], values[1], values[2] );
+				settingStorage.userSettings = settings;
+
+				backgroundPage.updateSettings();
+
+			} );
+
+		}
+
+	} );
 
 }

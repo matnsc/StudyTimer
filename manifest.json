@@ -10,15 +10,15 @@
 	"background": 
 	{
 		"scripts": [ 
-					 "script/objects/timer.js", 
+					 "script/objects/timers/timer.js", 
 					 "script/objects/timerFormat.js", 
-					 "script/objects/userSettings.js", 
-					 "script/objects/userSettingsStorage.js", 
+					 "script/objects/settings/userSettings.js", 
+					 "script/objects/settings/userSettingsStorage.js", 
 					 "script/objects/badge.js", 
 					 "script/objects/notification.js", 
-					 "script/objects/shortBreakTimer.js", 
-					 "script/objects/longBreakTimer.js", 
-					 "script/objects/studyTimer.js", 
+					 "script/objects/timers/shortBreakTimer.js", 
+					 "script/objects/timers/longBreakTimer.js", 
+					 "script/objects/timers/studyTimer.js", 
 					 "script/background-script.js" 
 					]
 	},

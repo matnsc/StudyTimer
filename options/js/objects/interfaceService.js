@@ -25,7 +25,7 @@ class InterfaceService {
 
         const secondsInput = clockLine.getElementsByClassName( "seconds" )[0];
 
-        if( minutesInput.value == "00" && secondsInput.value == "00" ) {
+        if( ( minutesInput.value == "00" || minutesInput.value == "" ) && ( secondsInput.value == "00" || secondsInput.value == "" ) ) {
 
             secondsInput.value = "01";
 
