@@ -5,7 +5,7 @@ class Notification {
 		this._title   = title;
 		this._message = message;
 		this._image   = image;
-		
+
 	}
 	
 	show() {

@@ -1,5 +1,5 @@
 const settingStorage = new UserSettingsStorage();
-const settings 		 = settingStorage.userSettings || ( settingStorage.userSettings = new UserSettings( 4, "00:15", "00:15", "00:30" ) );
+let   settings 		 = settingStorage.userSettings || ( settingStorage.userSettings = new UserSettings( 4, "00:15", "00:15", "00:30" ) );
 
 let   timer = new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), 0 );
 const badge = new Badge( timer.badgeColor );
@@ -82,4 +82,11 @@ function dueTimeVerifier( value ) {
 		
 	}
 	
+}
+
+function updateSettings() {
+
+	settings = settingStorage.userSettings;
+	timer = new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), 0 );
+
 }

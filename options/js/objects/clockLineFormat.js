@@ -15,4 +15,10 @@ class ClockFormat {
 
     }
 
+    static formatValuesToString( minutes, seconds ) {
+
+        return minutes + ":" + seconds;
+
+    }
+
 }
