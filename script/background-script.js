@@ -88,5 +88,8 @@ function updateSettings() {
 
 	settings = settingStorage.userSettings;
 	timer = new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), 0 );
+	badge.updateText( null );
+	badge.updateColor( timer.badgeColor );
+
 
 }
