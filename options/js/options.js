@@ -1,9 +1,9 @@
 const settingStorage = new UserSettingsStorage();
 let	  settings 		 = settingStorage.userSettings;
-let   backgroundPage = browser.extension.getBackgroundPage();
+const backgroundPage = browser.extension.getBackgroundPage();
 
 const allInputs 	 = Array.from( document.querySelectorAll( "input[type=text]" ) );
-let clockLine 	 = Array.from( document.getElementsByClassName( "clockLine" ) );
+const clockLine 	 = Array.from( document.getElementsByClassName( "clockLine" ) );
 const minutesInputs  = Array.from( document.getElementsByClassName( "minutes" ) );
 const secondsInputs  = Array.from( document.getElementsByClassName( "seconds" ) );
 const pomodorosInput = document.getElementById( "numberPomodoros" );
