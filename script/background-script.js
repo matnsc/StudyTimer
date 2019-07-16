@@ -1,8 +1,10 @@
 const settingStorage = new UserSettingsStorage();
-let   settings 		 = settingStorage.userSettings || ( settingStorage.userSettings = new UserSettings( 4, "00:15", "00:15", "00:30" ) );
+let	  settings		 = settingStorage.userSettings || ( settingStorage.userSettings = new UserSettings( 4, "00:15", "00:15", "00:30" ) );
 
 let   timer = new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), 0 );
 const badge = new Badge( timer.badgeColor );
+
+const sound = new Audio("../sounds/notification.ogg");
 
 function getCompletedPomodoros() {
 	
@@ -66,12 +68,18 @@ function dueTimeVerifier( value ) {
 	
 	if( value <= 0 ) {
 		
+		sound.pause();
+
+		sound.currentTime = 0;
+
+		sound.play();
+
 		timer = timer.change( settings );
 		
 		badge.updateColor( timer.badgeColor );
 		
 		timer.showNotification();
-		
+
 		timer.play();
 		
 	}
@@ -90,6 +98,5 @@ function updateSettings() {
 	timer = new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), 0 );
 	badge.updateText( null );
 	badge.updateColor( timer.badgeColor );
-
 
 }
