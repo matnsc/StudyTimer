@@ -2,10 +2,10 @@ class TimerFormat{
 		
 	static formatTextToMil( value ) {
 		
-		let valueSplit = value.split( ":" );
+		const valueSplit = value.split( ":" );
 		
-		let minutes = parseInt( valueSplit[0] );
-		let seconds = parseInt( valueSplit[1] );
+		const minutes = parseInt( valueSplit[0] );
+		const seconds = parseInt( valueSplit[1] );
 		
 		return ( ( minutes * 60 ) * 1000 ) + ( seconds * 1000 );
 		
@@ -13,7 +13,7 @@ class TimerFormat{
 	
 	static formatMilToText( value ) {
 		
-		let qtSeconds = value / 1000;
+		const qtSeconds = value / 1000;
 		
 		let minutes = qtSeconds / 60 ;
 		let seconds = qtSeconds % 60 ;
@@ -39,7 +39,7 @@ class TimerFormat{
 	
 	static formatMilToMinuteText( value ) {
 		
-		let minutes = value / 1000 / 60;
+		const minutes = value / 1000 / 60;
 		
 		return Math.ceil( minutes );
 		

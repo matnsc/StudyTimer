@@ -68,7 +68,7 @@ class Timer {
 		
 		if( this._playing ) {
 			
-			let now = new Date().getTime();
+			const now = new Date().getTime();
 		
 			if( now <= this._endtime ) {
 				

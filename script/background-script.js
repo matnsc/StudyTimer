@@ -1,5 +1,5 @@
 const settingStorage = new UserSettingsStorage();
-let	  settings		 = settingStorage.userSettings || ( settingStorage.userSettings = new UserSettings( 4, "00:15", "00:15", "00:30" ) );
+let   settings       = settingStorage.userSettings || ( settingStorage.userSettings = new UserSettings( 4, "25:00", "05:00", "30:00" ) );
 
 let   timer = new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), 0 );
 const badge = new Badge( timer.badgeColor );

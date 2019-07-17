@@ -1,5 +1,5 @@
-let timerController  = browser.extension.getBackgroundPage();
-let interfaceService = new InterfaceService();
+const timerController  = browser.extension.getBackgroundPage();
+const interfaceService = new InterfaceService();
 
 document.getElementById( "settings" ).addEventListener( "click", function() {
 
