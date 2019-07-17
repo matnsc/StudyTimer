@@ -1,13 +1,14 @@
 const settingStorage = new UserSettingsStorage();
-let	  settings 		 = settingStorage.userSettings;
 const backgroundPage = browser.extension.getBackgroundPage();
 
-const allInputs 	 = Array.from( document.querySelectorAll( "input[type=text]" ) );
-const clockLine 	 = Array.from( document.getElementsByClassName( "clockLine" ) );
+const allInputs      = Array.from( document.querySelectorAll( "input[type=text]" ) );
+const clockLine      = Array.from( document.getElementsByClassName( "clockLine" ) );
 const minutesInputs  = Array.from( document.getElementsByClassName( "minutes" ) );
 const secondsInputs  = Array.from( document.getElementsByClassName( "seconds" ) );
 const pomodorosInput = document.getElementById( "numberPomodoros" );
-const buttons 		 = Array.from( document.getElementsByClassName( "button" ) );
+const buttons        = Array.from( document.getElementsByClassName( "button" ) );
+
+let settings = settingStorage.userSettings;
 
 init();
 
@@ -90,7 +91,7 @@ function addValidationListeners() {
 
 			button.addEventListener( "click", function() {
 				
-				let values = { 0: "25:00", 1: "15:00", 2: "45:00" };
+				let values = { 0: "25:00", 1: "05:00", 2: "30:00" };
 				let pomodoros = 4;
 
 				InterfaceService.updateClockLines( clockLine, values );

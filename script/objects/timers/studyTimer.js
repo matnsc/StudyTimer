@@ -4,10 +4,10 @@ class StudyTimer extends Timer {
 		
 		super( time, completedPomodoros );
 		
-		this._badgeColor 		  = "#737373";
+		this._badgeColor          = "#737373";
 		this._notificationMessage = "Your time to rest has ended.\nGo back to work!";
 		this._notificationImage   = "../icons/studyIcon.png";
-		this._type 				  = "Study";
+		this._type                = "Study";
 		
 	}
 	
