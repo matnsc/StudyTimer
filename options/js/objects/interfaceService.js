@@ -4,7 +4,7 @@ class InterfaceService {
 
         for( let i = 0; i < clockLines.length; i++ ) {
 
-            let clockValues = ClockFormat.formatStringToValues( values[i] );
+            const clockValues = ClockFormat.formatStringToValues( values[i] );
 
             clockLines[i].getElementsByClassName( "minutes" )[0].value = clockValues["minutes"];
             clockLines[i].getElementsByClassName( "seconds" )[0].value = clockValues["seconds"];

@@ -5,7 +5,7 @@ class LongBreakTimer extends Timer {
 		super( time, completedPomodoros );
 		
 		this._badgeColor          = "#0060df";
-		this._notificationMessage = "You completed the pomodoro cycle! Now is time for the long break. Enjoy.";
+		this._notificationMessage = "You completed the pomodoro cycle! Enjoy your longer break.";
 		this._notificationImage   = "../icons/breakIcon.png";
 		this._type                = "Long Break";
 		
