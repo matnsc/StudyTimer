@@ -35,7 +35,7 @@ function addValidationListeners() {
 	
 	} );
 	
-	allInputs.filter( element => element.id != "numberPomodoros" ).forEach( input => {
+	allInputs.filter( element => element.id != "numberPomodoros" ).map( input => {
 	
 		input.addEventListener( "focusout", function() {
 	
@@ -45,13 +45,13 @@ function addValidationListeners() {
 	
 	} );
 	
-	minutesInputs.forEach( input => {
+	minutesInputs.map( input => {
 		
 		input.addEventListener( "focusout", () => input.value = new MinutesInput( input.value ).format() );
 	
 	} );
 	
-	secondsInputs.forEach( input => {
+	secondsInputs.map( input => {
 		
 		input.addEventListener( "focusout", () => input.value = new SecondsInput( input.value ).format() );
 	
@@ -59,7 +59,7 @@ function addValidationListeners() {
 	
 	pomodorosInput.addEventListener( "focusout", () => pomodorosInput.value = new PomodorosInput( pomodorosInput.value ).format() );
 
-	buttons.forEach( button => {
+	buttons.map( button => {
 
 		if( button.value == "Save" ) {
 

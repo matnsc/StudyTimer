@@ -1,11 +1,11 @@
 {
 	"manifest_version": 2,
 	"name": "StudyTimer",
-	"version": "1.1",
+	"version": "2.0",
 	"description": "StudyTimer is a browser extension created to help you manage your studies and tasks using the Pomodoro Technique",
 	"icons": 
 	{
-		"96": "icons/icone.png"
+		"96": "icons/logo.png"
 	},
 	"background": 
 	{
@@ -24,7 +24,7 @@
 	},
 	"browser_action": {
 		"default_icon": {
-			"96": "icons/icone.png"
+			"96": "icons/logo.png"
 		},
 		"default_title": "StudyTimer",
 		"default_popup": "popup/popup.html"
