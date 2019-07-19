@@ -2,6 +2,8 @@
 	<img src="icons/title.png" alt="StudyTimer Logo" width="400px">
 </p>
 
+<br/>
+
 [![Extension version](https://img.shields.io/github/manifest-json/v/MatNascimento/StudyTimer.svg)](https://github.com/MatNascimento/StudyTimer "Extension version")
 [![Firefox Addon Rating](https://img.shields.io/amo/rating/studytimer.svg "Mozilla Add-ons Rating")](https://addons.mozilla.org/en-US/firefox/addon/studytimer/) 
 [![Donate!](https://img.shields.io/badge/donate-PayPal-yellow.svg "Donate!")](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=RFKBP9KSQ6XRE&item_name=Donate+any+amount+to+support+StudyTimer&currency_code=USD&source=url) 
