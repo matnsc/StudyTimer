@@ -19,7 +19,7 @@ class LongBreakTimer extends Timer {
 	
 	change( settings ) {
 		
-		return new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), 0 );
+		return new StudyTimer( TimerFormat.textToMilliseconds( settings.studytime ), 0 );
 		
 	}
 	
