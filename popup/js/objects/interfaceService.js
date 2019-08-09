@@ -28,7 +28,7 @@ class InterfaceService {
 	
 	_changeElementValue( id, value ) {
 		
-		document.getElementById( id ).innerHTML = value;
+		document.getElementById( id ).textContent = value;
 		
 	}
 	

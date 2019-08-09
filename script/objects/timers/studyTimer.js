@@ -25,11 +25,11 @@ class StudyTimer extends Timer {
 		
 		if( this._completedPomodoros < settings.pomodoros ) {
 			
-			breakTimer = new ShortBreakTimer( TimerFormat.formatTextToMil( settings.shortbreak ), this._completedPomodoros );
+			breakTimer = new ShortBreakTimer( TimerFormat.textToMilliseconds( settings.shortbreak ), this._completedPomodoros );
 			
 		} else {
 			
-			breakTimer = new LongBreakTimer( TimerFormat.formatTextToMil( settings.longbreak ), 0 );
+			breakTimer = new LongBreakTimer( TimerFormat.textToMilliseconds( settings.longbreak ), 0 );
 			
 		}
 		

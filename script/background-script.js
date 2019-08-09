@@ -1,7 +1,7 @@
 const settingStorage = new UserSettingsStorage();
 let   settings       = settingStorage.userSettings || ( settingStorage.userSettings = new UserSettings( 4, "25:00", "05:00", "30:00" ) );
 
-let   timer = new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), 0 );
+let   timer = new StudyTimer( TimerFormat.textToMilliseconds( settings.studytime ), 0 );
 const badge = new Badge( timer.badgeColor );
 
 const sound = new Audio("../sounds/notification.ogg");
@@ -20,7 +20,7 @@ function getPlaying() {
 
 function getTime() {
 	
-	return TimerFormat.formatMilToText( timer.time );
+	return TimerFormat.millisecondsToText( timer.time );
 	
 }
 
@@ -44,7 +44,7 @@ function pause() {
 
 function reset() {
 	
-	timer = new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), 0 );
+	timer = new StudyTimer( TimerFormat.textToMilliseconds( settings.studytime ), 0 );
 	badge.updateText( null );
 	badge.updateColor( timer.badgeColor );
 	
@@ -86,7 +86,7 @@ function dueTimeVerifier( value ) {
 	
 	if( value > 0 ) {
 		
-		badge.updateText( TimerFormat.formatMilToMinuteText( value ).toString() );
+		badge.updateText( TimerFormat.millisecondsToMinutes( value ).toString() );
 		
 	}
 	
@@ -95,7 +95,7 @@ function dueTimeVerifier( value ) {
 function updateSettings() {
 
 	settings = settingStorage.userSettings;
-	timer = new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), 0 );
+	timer = new StudyTimer( TimerFormat.textToMilliseconds( settings.studytime ), 0 );
 	badge.updateText( null );
 	badge.updateColor( timer.badgeColor );
 

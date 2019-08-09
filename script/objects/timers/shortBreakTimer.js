@@ -19,7 +19,7 @@ class ShortBreakTimer extends Timer {
 	
 	change( settings ) {
 		
-		return new StudyTimer( TimerFormat.formatTextToMil( settings.studytime ), this._completedPomodoros );
+		return new StudyTimer( TimerFormat.textToMilliseconds( settings.studytime ), this._completedPomodoros );
 		
 	}
 	

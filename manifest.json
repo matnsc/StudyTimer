@@ -10,8 +10,8 @@
 	"background": 
 	{
 		"scripts": [ 
+					 "../utils/timerFormat.js", 
 					 "script/objects/timers/timer.js", 
-					 "script/objects/timerFormat.js", 
 					 "script/objects/settings/userSettings.js", 
 					 "script/objects/settings/userSettingsStorage.js", 
 					 "script/objects/badge.js", 
