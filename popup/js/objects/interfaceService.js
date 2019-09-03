@@ -2,11 +2,11 @@ class InterfaceService {
 	
 	updateTimerValues( completedPomodoros, timerState, actualTime ) {
 		
-		this._changeElementValue( "pomodoroNumber", completedPomodoros );
+		this._changeElementText( "pomodoroNumber", completedPomodoros );
 	
-		this._changeElementValue( "caption", timerState );
+		this._changeElementText( "caption", timerState );
 		
-		this._changeElementValue( "clock", actualTime );
+		this._changeElementText( "clock", actualTime );
 		
 	}
 	
@@ -26,7 +26,7 @@ class InterfaceService {
 		
 	}
 	
-	_changeElementValue( id, value ) {
+	_changeElementText( id, value ) {
 		
 		document.getElementById( id ).textContent = value;
 		
