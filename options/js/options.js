@@ -23,25 +23,23 @@ function init() {
 
 function addValidationListeners() {
 
-	document.addEventListener( "keypress", function( keyEvent ) {
+	document.addEventListener( "keypress", ( keyEvent ) => {
 
 		const keyPressed = new Key( keyEvent.key );
 	
-		if( !keyPressed.isNumber() && !keyPressed.isSpecial() && !keyPressed.isDirectional() ) {
-		
-			keyEvent.preventDefault();
-			
-		}
+		const isValid = !keyPressed.isNumber() && !keyPressed.isSpecial() && !keyPressed.isDirectional();
+
+		isValid && keyEvent.preventDefault();
 	
 	} );
 	
 	allInputs.filter( element => element.id != "numberPomodoros" ).map( input => {
 	
 		input.addEventListener( "focusout", function() {
-	
+
 			InterfaceService.preventBothClocksBeingZero( this.parentElement );
-	
-		} );
+
+		 } );
 	
 	} );
 	
