@@ -1,15 +1,11 @@
 class InterfaceService {
 
-    static updateClockLines( clockLines, values ) {
+    static updateClockLine( clockLine, value ) {
 
-        for( let i = 0; i < clockLines.length; i++ ) {
+        const clockValue = TimerFormat.textToMinutesAndSeconds( value );
 
-            const clockValues = ClockFormat.formatStringToValues( values[i] );
-
-            clockLines[i].getElementsByClassName( "minutes" )[0].value = clockValues["minutes"];
-            clockLines[i].getElementsByClassName( "seconds" )[0].value = clockValues["seconds"];
-
-        }
+        clockLine.getElementsByClassName( "minutes" )[0].value = clockValue["minutes"];
+        clockLine.getElementsByClassName( "seconds" )[0].value = clockValue["seconds"];
 
     }
 
@@ -19,13 +15,9 @@ class InterfaceService {
 
     }
 
-    static preventBothClocksBeingZero( clockLine ) {
+    static preventBothClocksBeingZero( minutesInput, secondsInput ) {
 
-        const minutesInput = clockLine.getElementsByClassName( "minutes" )[0];
-
-        const secondsInput = clockLine.getElementsByClassName( "seconds" )[0];
-
-        if( ( minutesInput.value == "00" || minutesInput.value == "" ) && ( secondsInput.value == "00" || secondsInput.value == "" ) ) {
+        if ( ( minutesInput.value == "00" || minutesInput.value == "" ) && ( secondsInput.value == "00" || secondsInput.value == "" ) ) {
 
             secondsInput.value = "01";
 
