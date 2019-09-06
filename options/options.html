@@ -27,8 +27,8 @@
 						</div>
 					</div>
 					<p id="pomodorosMessage" class="caption">Number of pomodoro sessions per cycle: <input type="text" id="numberPomodoros" size="1" maxlength="1"/></p>
-					<input class="button primary" type="button" value="Save"/>
-					<input class="button default" type="button" value="Reset"/>
+					<input id="saveButton" class="button primary" type="button" value="Save"/>
+					<input id="resetButton" class="button default" type="button" value="Reset"/>
 				</form>
 			</div>
 			<p id="feedbackMessage" class="caption">To report issues and make suggestions: <a href="https://github.com/MatNascimento/StudyTimer" target="_blank"><img class="buttonIcon" src="../icons/github.png" alt="Github icon"/> GitHub</a> | <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=RFKBP9KSQ6XRE&item_name=Donate+any+amount+to+support+StudyTimer&currency_code=USD&source=url" target="_blank"><img class="buttonIcon" src="../icons/donate.png" alt="Donate icon"/> Donate!</a></p>
@@ -37,6 +37,7 @@
 	<!-- Page Scripts -->
 	<script src="../script/objects/settings/userSettings.js"></script>
 	<script src="../script/objects/settings/userSettingsStorage.js"></script>
+	<script src="../utils/timerFormat.js"></script>
 	<script src="js/objects/interfaceService.js"></script>
 	<script src="js/objects/key.js"></script>
 	<script src="js/objects/clockLineFormat.js"></script>

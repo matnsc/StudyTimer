@@ -1,6 +1,6 @@
 class InterfaceService {
 	
-	static updateTimerValues( completedPomodoros, timerState, actualTime ) {
+	updateTimerValues( completedPomodoros, timerState, actualTime ) {
 		
 		this._changeElementText( "pomodoroNumber", completedPomodoros );
 	
@@ -10,7 +10,7 @@ class InterfaceService {
 		
 	}
 	
-	static updateButtonState( running ) {
+	updateButtonState( running ) {
 		
 		if( running ) {
 			
