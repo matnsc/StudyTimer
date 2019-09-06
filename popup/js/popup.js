@@ -1,4 +1,5 @@
 const timerController  = browser.extension.getBackgroundPage();
+const interfaceService = new InterfaceService();
 
 document.getElementById( "settings" ).addEventListener( "click", function() {
 
@@ -16,13 +17,13 @@ function init() {
 
 function interfaceUpdater() {
 	
-	InterfaceService.updateButtonState( timerController.getPlaying() );
+	interfaceService.updateButtonState( timerController.getPlaying() );
 	
-	InterfaceService.updateTimerValues( timerController.getCompletedPomodoros(), timerController.getTimerType(), timerController.getTime() );
+	interfaceService.updateTimerValues( timerController.getCompletedPomodoros(), timerController.getTimerType(), timerController.getTime() );
 
 	setInterval( function() {
 		
-		InterfaceService.updateTimerValues( timerController.getCompletedPomodoros(), timerController.getTimerType(), timerController.getTime() );
+		interfaceService.updateTimerValues( timerController.getCompletedPomodoros(), timerController.getTimerType(), timerController.getTime() );
 		
 	}, 100 );
 	
@@ -48,7 +49,7 @@ function clickListener() {
 			
 		}
 		
-		InterfaceService.updateButtonState( timerController.getPlaying() );
+		interfaceService.updateButtonState( timerController.getPlaying() );
 		
 	} );
 	

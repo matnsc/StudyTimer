@@ -4,11 +4,13 @@ const backgroundPage = browser.extension.getBackgroundPage();
 const minutesInputs  = Array.from( document.getElementsByClassName( "minutes" ) );
 const secondsInputs  = Array.from( document.getElementsByClassName( "seconds" ) );
 const pomodorosInput = document.getElementById( "numberPomodoros" );
-const buttons        = Array.from( document.getElementsByClassName( "button" ) );
 
-const studyClockLine 	  = Array.from( document.getElementById( "study" ) );
-const shortBreakClockLine = Array.from( document.getElementById( "shortBreak" ) );
-const longBreakClockLine  = Array.from( document.getElementById( "longBreak" ) );
+const studyClockLine 	  = document.getElementById( "study" );
+const shortBreakClockLine = document.getElementById( "shortBreak" );
+const longBreakClockLine  = document.getElementById( "longBreak" );
+
+const saveButton  = document.getElementById( "saveButton" );
+const resetButton = document.getElementById( "resetButton" );
 
 let settings = settingStorage.userSettings;
 
@@ -16,10 +18,7 @@ init();
 
 function init() {
 
-	InterfaceService.updateClockLine( studyClockLine, settings.studytime );
-	InterfaceService.updateClockLine( shortBreakClockLine, settings.shortbreak );
-	InterfaceService.updateClockLine( longBreakClockLine, settings.longbreak );
-	InterfaceService.updatePomodorosValue( settings.pomodoros );
+	updateInputsWithSettingsContent();
 
 	addValidationListeners();
 
@@ -37,12 +36,12 @@ function addValidationListeners() {
 	
 	} );
 
-	[...minutes, ...seconds].map( input => {
+	[...minutesInputs, ...secondsInputs].map( input => {
 
-		input.addEventListener( "focusout", () => {
+		input.addEventListener( "focusout", function() {
 
-			const minutesInput = this.parentElement.getElementsByClassName( "minutes" );
-			const secondsInput = this.parentElement.getElementsByClassName( "seconds" );
+			const minutesInput = this.parentElement.getElementsByClassName( "minutes" )[0];
+			const secondsInput = this.parentElement.getElementsByClassName( "seconds" )[0];
 
 			InterfaceService.preventBothClocksBeingZero( minutesInput, secondsInput );
 
@@ -64,53 +63,41 @@ function addValidationListeners() {
 	
 	pomodorosInput.addEventListener( "focusout", () => pomodorosInput.value = new PomodorosInput( pomodorosInput.value ).format() );
 
-	buttons.map( button => {
-	//fixing that part later (there's no more "clockLine")
-		if( button.value == "Save" ) {
+	saveButton.addEventListener( "click", () => {
 
-			button.addEventListener( "click", function() {
+		const study 	 = TimerFormat.minutesAndSecondsToText( studyClockLine.getElementsByClassName( "minutes" )[0].value, studyClockLine.getElementsByClassName( "seconds" )[0].value );
+		const shortBreak = TimerFormat.minutesAndSecondsToText( shortBreakClockLine.getElementsByClassName( "minutes" )[0].value, shortBreakClockLine.getElementsByClassName( "seconds" )[0].value );
+		const longBreak  = TimerFormat.minutesAndSecondsToText( longBreakClockLine.getElementsByClassName( "minutes" )[0].value, longBreakClockLine.getElementsByClassName( "seconds" )[0].value );
 
-				let values    = new Array();
-				let pomodoros = pomodorosInput.value;
+		const pomodoros  = pomodorosInput.value;
 
-				for( let i = 0; i < clockLine.length; i++ ) {
-					
-					const minutes = clockLine[i].getElementsByClassName( "minutes" )[0].value;
-					const seconds = clockLine[i].getElementsByClassName( "seconds" )[0].value;
+		settings = new UserSettings( pomodoros, study, shortBreak, longBreak );
+		settingStorage.userSettings = settings;
 
-					values.push( TimerFormat.minutesAndSecondsToText( minutes, seconds ) );
-		
-				}
+		updateInputsWithSettingsContent();
 
-				InterfaceService.updateClockLines( clockLine, values );
-				InterfaceService.updatePomodorosValue( pomodoros );
-
-				settings = new UserSettings( pomodoros, values[0], values[1], values[2] );
-				settingStorage.userSettings = settings;
-
-				backgroundPage.updateSettings();
-
-			} );
-
-		} else if( button.value == "Reset" ) {
-
-			button.addEventListener( "click", function() {
-				
-				let values = { 0: "25:00", 1: "05:00", 2: "30:00" };
-				let pomodoros = 4;
-
-				InterfaceService.updateClockLines( clockLine, values );
-				InterfaceService.updatePomodorosValue( pomodoros );
-
-				settings = new UserSettings( pomodoros, values[0], values[1], values[2] );
-				settingStorage.userSettings = settings;
-
-				backgroundPage.updateSettings();
-
-			} );
-
-		}
+		backgroundPage.updateSettings();
 
 	} );
+
+	resetButton.addEventListener( "click", () => {
+
+		settings = new UserSettings( 4, "25:00", "05:00", "30:00" );
+		settingStorage.userSettings = settings;
+
+		updateInputsWithSettingsContent();
+
+		backgroundPage.updateSettings();
+
+	} );
+
+}
+
+function updateInputsWithSettingsContent(){
+
+	InterfaceService.updateClockLine( studyClockLine, settings.studytime );
+	InterfaceService.updateClockLine( shortBreakClockLine, settings.shortbreak );
+	InterfaceService.updateClockLine( longBreakClockLine, settings.longbreak );
+	InterfaceService.updatePomodorosValue( settings.pomodoros );
 
 }
