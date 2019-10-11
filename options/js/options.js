@@ -12,8 +12,6 @@ const longBreakClockLine  = document.getElementById( "longBreak" );
 const saveButton  = document.getElementById( "saveButton" );
 const resetButton = document.getElementById( "resetButton" );
 
-let settings = settingStorage.userSettings;
-
 init();
 
 function init() {
@@ -71,8 +69,7 @@ function addValidationListeners() {
 
 		const pomodoros  = pomodorosInput.value;
 
-		settings = new UserSettings( pomodoros, study, shortBreak, longBreak );
-		settingStorage.userSettings = settings;
+		settingStorage.userSettings = new UserSettings( pomodoros, study, shortBreak, longBreak );
 
 		updateInputsWithSettingsContent();
 
@@ -82,8 +79,7 @@ function addValidationListeners() {
 
 	resetButton.addEventListener( "click", () => {
 
-		settings = new UserSettings( 4, "25:00", "05:00", "30:00" );
-		settingStorage.userSettings = settings;
+		settingStorage.userSettings = new UserSettings( 4, "25:00", "05:00", "30:00" );;
 
 		updateInputsWithSettingsContent();
 
@@ -95,9 +91,9 @@ function addValidationListeners() {
 
 function updateInputsWithSettingsContent(){
 
-	InterfaceService.updateClockLine( studyClockLine, settings.studytime );
-	InterfaceService.updateClockLine( shortBreakClockLine, settings.shortbreak );
-	InterfaceService.updateClockLine( longBreakClockLine, settings.longbreak );
-	InterfaceService.updatePomodorosValue( settings.pomodoros );
+	InterfaceService.updateClockLine( studyClockLine, settingStorage.userSettings.studytime );
+	InterfaceService.updateClockLine( shortBreakClockLine, settingStorage.userSettings.shortbreak );
+	InterfaceService.updateClockLine( longBreakClockLine, settingStorage.userSettings.longbreak );
+	InterfaceService.updatePomodorosValue( settingStorage.userSettings.pomodoros );
 
 }
