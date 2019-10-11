@@ -9,7 +9,7 @@ document.getElementById( "settings" ).addEventListener( "click", function() {
 
 function init() {
 	
-	timerController.init()
+	timerController.init();
 	interfaceUpdater();
 	clickListener();
 	

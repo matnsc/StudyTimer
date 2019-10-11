@@ -1,5 +1,5 @@
 const settingStorage = new UserSettingsStorage();
-const backgroundPage = browser.extension.getBackgroundPage();
+const timerController = browser.extension.getBackgroundPage();
 
 const minutesInputs  = Array.from( document.getElementsByClassName( "minutes" ) );
 const secondsInputs  = Array.from( document.getElementsByClassName( "seconds" ) );
@@ -76,7 +76,7 @@ function addValidationListeners() {
 
 		updateInputsWithSettingsContent();
 
-		backgroundPage.updateSettings();
+		timerController.updateSettings();
 
 	} );
 
@@ -87,7 +87,7 @@ function addValidationListeners() {
 
 		updateInputsWithSettingsContent();
 
-		backgroundPage.updateSettings();
+		timerController.updateSettings();
 
 	} );
 
