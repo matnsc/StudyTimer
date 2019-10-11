@@ -10,17 +10,17 @@
 	"background": 
 	{
 		"scripts": [ 
-					 "../utils/timerFormat.js", 
-					 "script/objects/timers/timer.js", 
-					 "script/objects/settings/userSettings.js", 
-					 "script/objects/settings/userSettingsStorage.js", 
-					 "script/objects/badge.js", 
-					 "script/objects/notification.js", 
-					 "script/objects/timers/shortBreakTimer.js", 
-					 "script/objects/timers/longBreakTimer.js", 
-					 "script/objects/timers/studyTimer.js", 
-					 "script/background-script.js" 
-					]
+			"model/badge.js", 
+			"model/notification.js", 
+			"model/timerFormat.js", 
+			"model/settings/userSettings.js", 
+			"model/settings/userSettingsStorage.js", 
+			"model/timers/timer.js", 
+			"model/timers/studyTimer.js", 
+			"model/timers/shortBreakTimer.js", 
+			"model/timers/longBreakTimer.js", 
+			"script/background.js"
+		]
 	},
 	"browser_action": {
 		"default_icon": {
