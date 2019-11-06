@@ -46,18 +46,18 @@ h2{
 	width: 20px;
 }
 
-.buttonIcon{
-	width: 10px;
-}
-
 #feedbackMessage{
 	margin-top: 16px;
 }
 
-.clockLine{
+#study, #shortBreak, #longBreak{
 	margin-bottom: 24px;
 	font-size: 18px;
 	color: #38383d;
+}
+
+.buttonIcon{
+	width: 10px;
 }
 
 .caption{

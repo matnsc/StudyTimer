@@ -1,9 +1,9 @@
-const timerController  = browser.extension.getBackgroundPage();
+const timerController  = chrome.extension.getBackgroundPage();
 const interfaceService = new InterfaceService();
 
 document.getElementById( "settings" ).addEventListener( "click", function() {
 
-	browser.tabs.create( { url: "../options/options.html" } );
+	chrome.tabs.create( { url: "../options/options.html" } );
 
 } );
 

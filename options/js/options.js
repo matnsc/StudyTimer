@@ -1,5 +1,5 @@
 const settingStorage = new UserSettingsStorage();
-const timerController = browser.extension.getBackgroundPage();
+const timerController = chrome.extension.getBackgroundPage();
 
 const minutesInputs  = Array.from( document.getElementsByClassName( "minutes" ) );
 const secondsInputs  = Array.from( document.getElementsByClassName( "seconds" ) );
