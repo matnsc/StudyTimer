@@ -16,10 +16,10 @@ class Notification {
 	
 	_create( title, message, image ) {
 		
-		browser.notifications.create( {
+		chrome.notifications.create( {
 			
 			"type"	  : "basic",
-			"iconUrl" : browser.extension.getURL( image ),
+			"iconUrl" : chrome.extension.getURL( image ),
 			"title"   : title,
 			"message" : message
 				

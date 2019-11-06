@@ -45,7 +45,7 @@ function pause() {
 function reset() {
 	
 	timer = new StudyTimer( TimerFormat.textToMilliseconds( settings.studytime ), 0 );
-	badge.updateText( null );
+	badge.updateText( "" );
 	badge.updateColor( timer.badgeColor );
 	
 }
