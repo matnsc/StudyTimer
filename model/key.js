@@ -6,12 +6,6 @@ class Key {
 
     }
 
-    get value() {
-
-        return this._value;
-
-    }
-
     isNumber() {
 
         return this._value >= 0 && this._value <= 9;

@@ -4,8 +4,6 @@ let   settings       = settingStorage.userSettings || ( settingStorage.userSetti
 let   timer = new StudyTimer( TimerFormat.textToMilliseconds( settings.studytime ), 0 );
 const badge = new Badge( timer.badgeColor );
 
-const sound = new Audio("../sounds/notification.ogg");
-
 function getCompletedPomodoros() {
 	
 	return timer.completedPomodoros;
@@ -68,12 +66,6 @@ function dueTimeVerifier( value ) {
 	
 	if( value <= 0 ) {
 		
-		sound.pause();
-
-		sound.currentTime = 0;
-
-		sound.play();
-
 		timer = timer.change( settings );
 		
 		badge.updateColor( timer.badgeColor );
