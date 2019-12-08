@@ -13,7 +13,7 @@ class UserSettingsStorage {
         const shortbreak = this._getItem( "shortbreak" );
         const longbreak  = this._getItem( "longbreak" );
 
-        return pomodoros ? new UserSettings( pomodoros, studytime, shortbreak, longbreak ) : new UserSettings( 4, "25:00", "05:00", "30:00" );
+        return pomodoros ? new UserSettings( pomodoros, studytime, shortbreak, longbreak ) : this.settings = new UserSettings( 4, "25:00", "05:00", "30:00" );
 
     }
 
@@ -24,7 +24,7 @@ class UserSettingsStorage {
         this._setItem( "shortbreak", userSettings.shortbreak );
         this._setItem( "longbreak",  userSettings.longbreak );
 
-        return this.userSettings;
+        return this.settings;
 
     }
 
