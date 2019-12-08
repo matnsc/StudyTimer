@@ -35,20 +35,32 @@ function clickListener() {
 		
 		const id = e.target.getAttribute( "id" );
 		
-		if( id == "play") {
-			
-			timerController.play();
-			
-		} else if( id == "pause" ) {
-			
-			timerController.pause();
-			
-		} else if( id == "reset" ) {
-			
-			timerController.reset();
-			
+		const buttonActions = {
+
+			play() {
+
+				timerController.play();
+
+			},
+
+			pause() {
+
+				timerController.pause();
+
+			},
+
+			reset() {
+
+				timerController.reset();
+
+			}
+
 		}
 		
+		const executeAction = buttonActions[id];
+
+		executeAction();
+
 		interfaceService.updateButtonState( timerController.getPlaying() );
 		
 	} );

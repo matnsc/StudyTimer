@@ -6,18 +6,18 @@ class UserSettingsStorage {
 
     }
 
-    get userSettings() {
+    get settings() {
 
         const pomodoros  = this._getItem( "pomodoros" );
         const studytime  = this._getItem( "studytime" );
         const shortbreak = this._getItem( "shortbreak" );
         const longbreak  = this._getItem( "longbreak" );
 
-        return pomodoros ? new UserSettings( pomodoros, studytime, shortbreak, longbreak ) : null;
+        return pomodoros ? new UserSettings( pomodoros, studytime, shortbreak, longbreak ) : new UserSettings( 4, "25:00", "05:00", "30:00" );
 
     }
 
-    set userSettings( userSettings ) {
+    set settings( userSettings ) {
 
         this._setItem( "pomodoros",  userSettings.pomodoros );
         this._setItem( "studytime",  userSettings.studytime );
