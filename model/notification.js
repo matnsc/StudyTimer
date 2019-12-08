@@ -5,26 +5,38 @@ class Notification {
 		this._title   = title;
 		this._message = message;
 		this._image   = image;
+		this._alert   = new Audio("../sounds/notification.ogg");
 
 	}
 	
 	show() {
 		
-		this._create( this._title, this._message, this._image );
+		this._createNotification();
+		this._playNotificationAlert();
 		
 	}
 	
-	_create( title, message, image ) {
+	_createNotification() {
 		
 		chrome.notifications.create( {
 			
 			"type"	  : "basic",
-			"iconUrl" : chrome.extension.getURL( image ),
-			"title"   : title,
-			"message" : message
+			"iconUrl" : chrome.extension.getURL( this._image ),
+			"title"   : this._title,
+			"message" : this._message
 				
 		} );
 		
 	}
 	
+	_playNotificationAlert() {
+
+		this._alert.pause();
+
+		this._alert.currentTime = 0;
+
+		this._alert.play();
+
+	}
+
 }
