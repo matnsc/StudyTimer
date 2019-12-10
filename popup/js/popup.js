@@ -59,7 +59,11 @@ function clickListener() {
 		
 		const executeAction = buttonActions[id];
 
-		executeAction();
+		if ( executeAction ) {
+
+			executeAction();
+			
+		}
 
 		interfaceService.updateButtonState( timerController.getPlaying() );
 		

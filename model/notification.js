@@ -31,8 +31,6 @@ class Notification {
 	
 	_playNotificationAlert() {
 
-		this._alert.pause();
-
 		this._alert.currentTime = 0;
 
 		this._alert.play();
