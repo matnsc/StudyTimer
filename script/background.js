@@ -85,7 +85,7 @@ function dueTimeVerifier( value ) {
 function updateSettings() {
 
 	timer = new StudyTimer( TimerFormat.textToMilliseconds( settingStorage.settings.studytime ), 0 );
-	badge.updateText( null );
+	badge.updateText( "" );
 	badge.updateColor( timer.badgeColor );
 
 }
