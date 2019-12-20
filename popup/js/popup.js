@@ -10,22 +10,7 @@ document.getElementById( "settings" ).addEventListener( "click", function() {
 function init() {
 	
 	timerController.init();
-	interfaceUpdater();
 	clickListener();
-	
-}
-
-function interfaceUpdater() {
-	
-	interfaceService.updateButtonState( timerController.getPlaying() );
-	
-	interfaceService.updateTimerValues( timerController.getCompletedPomodoros(), timerController.getTimerType(), timerController.getTime() );
-
-	setInterval( function() {
-		
-		interfaceService.updateTimerValues( timerController.getCompletedPomodoros(), timerController.getTimerType(), timerController.getTime() );
-		
-	}, 100 );
 	
 }
 
@@ -33,42 +18,30 @@ function clickListener() {
 	
 	document.addEventListener( "click", ( e ) => {
 		
-		const id = e.target.getAttribute( "id" );
-		
-		const buttonActions = {
+		const action = e.target.getAttribute( "id" );
 
-			play() {
+		sendMessageToBackground(action);
 
-				timerController.play();
-
-			},
-
-			pause() {
-
-				timerController.pause();
-
-			},
-
-			reset() {
-
-				timerController.reset();
-
-			}
-
-		}
-		
-		const executeAction = buttonActions[id];
-
-		if ( executeAction ) {
-
-			executeAction();
-			
-		}
-
-		interfaceService.updateButtonState( timerController.getPlaying() );
-		
 	} );
 	
 }
+
+function sendMessageToBackground(message) {
+
+	chrome.runtime.sendMessage({ "action": message });
+
+}
+
+chrome.runtime.onMessage.addListener((message) => {
+
+	if (!message.timer) return;
+
+	const timer = message.timer;
+
+	interfaceService.updateButtonState( timer.playing );
+	
+	interfaceService.updateTimerValues( timer.completedPomodoros, timer.timerType, timer.time );
+
+});
 
 window.onload = init;
