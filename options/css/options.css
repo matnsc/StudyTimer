@@ -1,5 +1,5 @@
 /* Chrome style (Material) */
-*{
+* {
 	margin: 0;
 	padding: 0;
 	font-family: "Segoe UI", "Ubuntu", "San Francisco", "Arial";
@@ -8,22 +8,22 @@
 	color: #424242;
 }
 
-body{
+body {
 	background-color: #EEEEEE;
 }
 
-h1{	
+h1 {
 	margin-bottom: 32px;
 	font-size: 28px;
 	color: #737373
 }
 
-h2{	
+h2 {
 	margin-bottom: 8px;
 	font-size: 14px;
 }
 
-#box{
+#box {
 	position: absolute;
 	display: flex;
 	align-items: center;
@@ -31,43 +31,45 @@ h2{
 	flex-direction: column;
 }
 
-#content{
+#content {
 	width: calc(100% - 64px);
 	padding: 26px;
 	border-radius: 10px;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	background-color: #ffffff;
 }
 
-#pomodorosMessage{
+#pomodorosMessage {
 	padding-top: 8px;
 }
 
-#settingsIcon{
+#settingsIcon {
 	width: 20px;
 }
 
-#feedbackMessage{
+#feedbackMessage {
 	margin-top: 16px;
 }
 
-#study, #shortBreak, #longBreak{
+#study,
+#shortBreak,
+#longBreak {
 	margin-bottom: 24px;
 	font-size: 18px;
 }
 
-.buttonIcon{
+.buttonIcon {
 	width: 10px;
 }
 
-.caption{
+.caption {
 	font-size: 13px;
 	color: #737373;
 	clear: both;
 }
 
 /* Text Input Style */
-input[type=text]{
+input[type=text] {
 	padding: 8px 8px;
 	font-size: 18px;
 	border: 0;
@@ -75,17 +77,17 @@ input[type=text]{
 	outline: none;
 }
 
-input[type=text]:focus{
+input[type=text]:focus {
 	border-bottom: 1px solid #3e65e7;
 }
 
-#numberPomodoros{
+#numberPomodoros {
 	margin-left: 8px;
 	padding: 4px 0;
 }
 
 /* Link Style */
-a{
+a {
 	padding: 8px 12px;
 	text-decoration: none;
 	border-radius: 5px;
@@ -93,16 +95,16 @@ a{
 	outline: 0;
 }
 
-a:hover{
+a:hover {
 	background-color: rgba(12, 12, 13, 0.1);
 }
 
-a:active{
+a:active {
 	background-color: rgba(12, 12, 13, 0.2);
 }
 
 /* Button Style */
-.button{
+.button {
 	width: 25%;
 	margin-top: 32px;
 	padding: 8px;
@@ -113,38 +115,38 @@ a:active{
 	outline: none;
 }
 
-.primary{
+.primary {
 	color: #ffffff;
 	background-color: #3e65e7;
-	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
-.primary:hover{
+.primary:hover {
 	background-color: #5174e9;
-	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .primary:active {
 	background-color: #d2c2fd;
 }
 
-.default{
+.default {
 	color: #3e65e7;
 	background-color: white
 }
 
-.default:hover{
+.default:hover {
 	background-color: #EEEEEE;
 }
 
-.default:active{
+.default:active {
 	background-color: #efe5fd;
 }
 
 /* Responsive adaptation for different screen sizes */
-@media(max-width: 1280px){
-	
-	#box{
+@media(max-width: 1280px) {
+
+	#box {
 		width: 50%;
 		height: 85%;
 		top: 7.5%;
@@ -153,9 +155,9 @@ a:active{
 
 }
 
-@media(min-width: 1281px) and (max-width: 1600px){
-	
-	#box{
+@media(min-width: 1281px) and (max-width: 1600px) {
+
+	#box {
 		width: 40%;
 		height: 80%;
 		top: 10%;
@@ -164,9 +166,9 @@ a:active{
 
 }
 
-@media(min-width: 1601px) and (max-width: 1799px){
-	
-	#box{
+@media(min-width: 1601px) and (max-width: 1799px) {
+
+	#box {
 		width: 35%;
 		height: 70%;
 		top: 15%;
@@ -175,20 +177,20 @@ a:active{
 
 }
 
-@media(min-width: 1800px){
-	
-	#box{
+@media(min-width: 1800px) {
+
+	#box {
 		width: 30%;
 		height: 55%;
 		top: 22.5%;
 		left: 35%;
 	}
-	
+
 }
 
 /* Hack for Firefox specific style (Quantum) */
-@supports (-moz-appearance:meterbar){
-	*{
+@supports (-moz-appearance:meterbar) {
+	* {
 		margin: 0;
 		padding: 0;
 		font-family: "Segoe UI", "Ubuntu", "San Francisco", "Arial";
@@ -196,23 +198,23 @@ a:active{
 		text-align: center;
 	}
 
-	body{
+	body {
 		background-color: #f9f9fa;
 	}
 
-	h1{	
+	h1 {
 		margin-bottom: 32px;
 		font-size: 28px;
 		color: #737373;
 	}
 
-	h2{	
+	h2 {
 		margin-bottom: 8px;
 		font-size: 14px;
 		color: #737373;
 	}
 
-	#box{
+	#box {
 		position: absolute;
 		display: flex;
 		align-items: center;
@@ -220,7 +222,7 @@ a:active{
 		flex-direction: column;
 	}
 
-	#content{
+	#content {
 		width: calc(100% - 64px);
 		padding: 32px;
 		border-radius: 4px;
@@ -228,50 +230,56 @@ a:active{
 		background-color: #ffffff;
 	}
 
-	#pomodorosMessage{
+	#pomodorosMessage {
 		padding-top: 8px;
 	}
 
-	#settingsIcon{
+	#settingsIcon {
 		width: 20px;
 	}
 
-	#feedbackMessage{
+	#feedbackMessage {
 		margin-top: 16px;
 	}
 
-	#study, #shortBreak, #longBreak{
+	#study,
+	#shortBreak,
+	#longBreak {
 		margin-bottom: 24px;
 		font-size: 18px;
 		color: #38383d;
 	}
 
-	.buttonIcon{
+	.buttonIcon {
 		width: 10px;
 	}
 
-	.caption{
+	.caption {
 		font-size: 13px;
 		color: #737373;
 		clear: both;
 	}
 
 	/* Text Input Style */
-	input[type=text]{
+	input[type=text] {
 		padding: 8px 0;
 		font-size: 18px;
-		border: 1px  solid rgba(12, 12, 13, 0.2);
+		border: 1px solid rgba(12, 12, 13, 0.2);
 		border-radius: 2px;
 		color: #38383d;
 	}
 
-	#numberPomodoros{
+	input[type=text]:focus {
+		border-bottom: 1px solid rgba(12, 12, 13, 0.2);
+	}
+
+	#numberPomodoros {
 		margin-left: 8px;
 		padding: 4px 0;
 	}
 
 	/* Link Style */
-	a{
+	a {
 		padding: 8px 12px;
 		text-decoration: none;
 		border-radius: 2px;
@@ -279,16 +287,16 @@ a:active{
 		outline: 0;
 	}
 
-	a:hover{
+	a:hover {
 		background-color: rgba(12, 12, 13, 0.1);
 	}
 
-	a:active{
+	a:active {
 		background-color: rgba(12, 12, 13, 0.2);
 	}
 
 	/* Button Style */
-	.button{
+	.button {
 		width: 30%;
 		margin-top: 32px;
 		padding: 8px;
@@ -302,74 +310,30 @@ a:active{
 		border: 0;
 	}
 
-	.primary{
+	.primary {
 		color: #ffffff;
 		background-color: #0060df;
 	}
 
-	.primary:hover{
+	.primary:hover {
 		background-color: #003eaa;
 	}
 
-	.primary:active{
+	.primary:active {
 		background-color: #002275;
 	}
 
-	.default{
+	.default {
 		color: #0c0c0d;
 		background-color: rgba(12, 12, 13, 0.1);
 	}
 
-	.default:hover{
+	.default:hover {
 		background-color: rgba(12, 12, 13, 0.2);
 	}
 
-	.default:active{
+	.default:active {
 		background-color: rgba(12, 12, 13, 0.3);
 	}
 
-	/* Responsive adaptation for different screen sizes */
-	@media(max-width: 1280px){
-		
-		#box{
-			width: 50%;
-			height: 85%;
-			top: 7.5%;
-			left: 25%;
-		}
-
-	}
-
-	@media(min-width: 1281px) and (max-width: 1600px){
-		
-		#box{
-			width: 40%;
-			height: 80%;
-			top: 10%;
-			left: 30%;
-		}
-
-	}
-
-	@media(min-width: 1601px) and (max-width: 1799px){
-		
-		#box{
-			width: 35%;
-			height: 70%;
-			top: 15%;
-			left: 32.5%;
-		}
-
-	}
-
-	@media(min-width: 1800px){
-		
-		#box{
-			width: 30%;
-			height: 55%;
-			top: 22.5%;
-			left: 35%;
-		}
-		
-	}
 }
