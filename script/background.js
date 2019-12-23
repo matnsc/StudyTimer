@@ -1,85 +1,104 @@
-const settingStorage = new UserSettingsStorage();
-let timer = new StudyTimer(TimerFormat.textToMilliseconds(settingStorage.settings.studytime), 0);
-const badge = new Badge(timer.badgeColor);
+class Controller {
 
-function play() {
+	constructor() {
 
-	return timer.play();
+		this._settingsStorage = new UserSettingsStorage();
+		this._timer = new StudyTimer(TimerFormat.textToMilliseconds(this._settingsStorage.settings.studytime), 0);
+		this._badge = new Badge(this._timer.badgeColor);
 
-}
+	}
 
-function pause() {
+	get play() {
 
-	return timer.pause();
+		return this._timer.play();
 
-}
+	}
 
-function reset() {
+	get pause() {
 
-	timer = new StudyTimer(TimerFormat.textToMilliseconds(settingStorage.settings.studytime), 0);
-	badge.updateText("");
-	badge.updateColor(timer.badgeColor);
+		return this._timer.pause();
 
-}
+	}
 
-function init() {
+	reset() {
 
-	setInterval(function () {
+		this._timer = new StudyTimer(TimerFormat.textToMilliseconds(this._settingsStorage.settings.studytime), 0);
+		this._badge.updateText("");
+		this._badge.updateColor(this._timer.badgeColor);
 
-		if (timer.playing) {
+	}
 
-			dueTimeVerifier(timer.update());
+	init() {
+
+		this._update();
+
+		setInterval(() => {
+
+			this._update();
+	
+		}, 200);
+
+	}
+
+	_update() {
+
+		if (this._timer.playing) {
+	
+			this._dueTimeVerifier(this._timer.update());
 
 		}
 
-		const popupIsOpened = chrome.extension.getViews({ type: "popup" }).length > 0;
+		const popupIsOpened = chrome.extension.getViews({
+			type: "popup"
+		}).length > 0;
 
 		if (popupIsOpened) {
 
-			sendMessageToPopup({
+			this._sendMessageToPopup({
 
-				playing: timer.playing,
-				completedPomodoros: timer.completedPomodoros,
-				timerType: timer.timerType,
-				time: TimerFormat.millisecondsToText(timer.time)
-				
+				playing: this._timer.playing,
+				completedPomodoros: this._timer.completedPomodoros,
+				timerType: this._timer.timerType,
+				time: TimerFormat.millisecondsToText(this._timer.time)
+
 			});
 
 		}
 
-	}, 200);
+	}
 
-}
+	_dueTimeVerifier(value) {
 
-function dueTimeVerifier(value) {
+		if (value <= 0) {
 
-	if (value <= 0) {
+			this._timer = this._timer.change(this._settingsStorage.settings);
+	
+			this._badge.updateColor(this._timer.badgeColor);
+	
+			this._timer.showNotification();
+	
+			this._timer.play();
+	
+		}
+	
+		if (value > 0) {
+	
+			this._badge.updateText(TimerFormat.millisecondsToMinutes(value).toString());
+	
+		}
+	}
 
-		timer = timer.change(settingStorage.settings);
+	_sendMessageToPopup(message) {
 
-		badge.updateColor(timer.badgeColor);
-
-		timer.showNotification();
-
-		timer.play();
+		chrome.runtime.sendMessage({
+			"timer": message
+		});
 
 	}
 
-	if (value > 0) {
-
-		badge.updateText(TimerFormat.millisecondsToMinutes(value).toString());
-
-	}
-
 }
 
-function updateSettings() {
-
-	timer = new StudyTimer(TimerFormat.textToMilliseconds(settingStorage.settings.studytime), 0);
-	badge.updateText("");
-	badge.updateColor(timer.badgeColor);
-
-}
+const controller = new Controller();
 
 chrome.runtime.onMessage.addListener((message) => {
 
@@ -88,15 +107,19 @@ chrome.runtime.onMessage.addListener((message) => {
 	const commands = {
 
 		play() {
-			play();
+			controller.play;
 		},
 
 		pause() {
-			pause();
+			controller.pause;
 		},
 
 		reset() {
-			reset();
+			controller.reset();
+		},
+
+		init() {
+			controller.init();
 		}
 
 	}
@@ -104,15 +127,9 @@ chrome.runtime.onMessage.addListener((message) => {
 	const executeCommand = commands[message.action];
 
 	if (executeCommand) {
-		
+
 		executeCommand();
 
 	}
 
 });
-
-function sendMessageToPopup(message) {
-
-	chrome.runtime.sendMessage({ "timer": message });
-
-}
