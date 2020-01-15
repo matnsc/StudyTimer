@@ -11,17 +11,15 @@ const longBreakClockLine = document.getElementById("longBreak");
 const saveButton = document.getElementById("saveButton");
 const resetButton = document.getElementById("resetButton");
 
-init();
+const sendMessageToBackground = (message) => {
 
-function init() {
-
-	updateInputsWithSettingsContent();
-
-	addValidationListeners();
+	chrome.runtime.sendMessage({
+		"action": message
+	});
 
 }
 
-function addValidationListeners() {
+const addValidationListeners = () => {
 
 	document.addEventListener("keypress", (keyEvent) => {
 
@@ -88,7 +86,7 @@ function addValidationListeners() {
 
 }
 
-function updateInputsWithSettingsContent() {
+const updateInputsWithSettingsContent = () => {
 
 	InterfaceService.updateClockLine(studyClockLine, settingStorage.settings.studytime);
 	InterfaceService.updateClockLine(shortBreakClockLine, settingStorage.settings.shortbreak);
@@ -97,10 +95,9 @@ function updateInputsWithSettingsContent() {
 
 }
 
-function sendMessageToBackground(message) {
+window.onload = () => {
 
-	chrome.runtime.sendMessage({
-		"action": message
-	});
+	updateInputsWithSettingsContent();
+	addValidationListeners();
 
-}
+};
