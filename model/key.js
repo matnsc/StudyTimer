@@ -1,6 +1,6 @@
 class Key {
 
-    constructor( value ) {
+    constructor(value) {
 
         this._value = value;
 
@@ -20,7 +20,7 @@ class Key {
 
     isDirectional() {
 
-        return this._value.includes( "Arrow" );
+        return this._value.includes("Arrow");
 
     }
 

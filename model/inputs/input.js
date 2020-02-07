@@ -1,8 +1,8 @@
 class Input {
 
-    constructor( value ) {
+    constructor(value) {
 
-        this._value  = value;
+        this._value = value;
         this._length = value.length;
 
     }
@@ -10,21 +10,21 @@ class Input {
     get value() {
 
         return this._value;
-        
+
     }
 
-    set value( value ) {
+    set value(value) {
 
         this._value = value;
 
     }
-    
+
     get length() {
 
         return this._length;
-        
+
     }
 
-    format(){};
+    format() {};
 
 }
