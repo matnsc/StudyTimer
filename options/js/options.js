@@ -1,3 +1,5 @@
+const connection = chrome.runtime.connect({name: "background-settings"});
+
 const settingStorage = new UserSettingsStorage();
 
 const minutesInputs = Array.from(document.getElementsByClassName("minutes"));
@@ -13,7 +15,7 @@ const resetButton = document.getElementById("resetButton");
 
 const sendMessageToBackground = (message) => {
 
-	chrome.runtime.sendMessage({
+	connection.postMessage({
 		"action": message
 	});
 

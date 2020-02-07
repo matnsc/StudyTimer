@@ -1,5 +1,5 @@
 class UserSettingsStorage {
-    
+
     constructor() {
 
         this._localStorage = window.localStorage;
@@ -8,35 +8,35 @@ class UserSettingsStorage {
 
     get settings() {
 
-        const pomodoros  = this._getItem( "pomodoros" );
-        const studytime  = this._getItem( "studytime" );
-        const shortbreak = this._getItem( "shortbreak" );
-        const longbreak  = this._getItem( "longbreak" );
+        const pomodoros = this._getItem("pomodoros");
+        const studytime = this._getItem("studytime");
+        const shortbreak = this._getItem("shortbreak");
+        const longbreak = this._getItem("longbreak");
 
-        return pomodoros ? new UserSettings( pomodoros, studytime, shortbreak, longbreak ) : this.settings = new UserSettings( 4, "25:00", "05:00", "30:00" );
+        return pomodoros ? new UserSettings(pomodoros, studytime, shortbreak, longbreak) : this.settings = new UserSettings(4, "25:00", "05:00", "30:00");
 
     }
 
-    set settings( userSettings ) {
+    set settings(userSettings) {
 
-        this._setItem( "pomodoros",  userSettings.pomodoros );
-        this._setItem( "studytime",  userSettings.studytime );
-        this._setItem( "shortbreak", userSettings.shortbreak );
-        this._setItem( "longbreak",  userSettings.longbreak );
+        this._setItem("pomodoros", userSettings.pomodoros);
+        this._setItem("studytime", userSettings.studytime);
+        this._setItem("shortbreak", userSettings.shortbreak);
+        this._setItem("longbreak", userSettings.longbreak);
 
         return this.settings;
 
     }
 
-    _getItem( name ) {
+    _getItem(name) {
 
-        return this._localStorage.getItem( name );
+        return this._localStorage.getItem(name);
 
     }
 
-    _setItem( name, value ) {
+    _setItem(name, value) {
 
-        this._localStorage.setItem( name, value );
+        this._localStorage.setItem(name, value);
 
     }
 

@@ -1,14 +1,18 @@
+const connection = chrome.runtime.connect({
+	name: "background-popup"
+});
+
 const interfaceService = new InterfaceService();
 
 const sendMessageToBackground = (message) => {
 
-	chrome.runtime.sendMessage({
+	connection.postMessage({
 		"action": message
 	});
 
 }
 
-chrome.runtime.onMessage.addListener((message) => {
+connection.onMessage.addListener((message) => {
 
 	if (!message.timer) return;
 
@@ -16,7 +20,7 @@ chrome.runtime.onMessage.addListener((message) => {
 
 	interfaceService.updateButtonState(timer.playing);
 
-	interfaceService.updateTimerValues(timer.completedPomodoros, timer.timerType, timer.time);
+	interfaceService.updateTimerValues(timer.completedPomodoros, timer.type, timer.time);
 
 });
 

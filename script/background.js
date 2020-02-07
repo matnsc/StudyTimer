@@ -1,135 +1,109 @@
-class Controller {
+const settingsStorage = new UserSettingsStorage();
+let timer = new StudyTimer(TimerFormat.textToMilliseconds(settingsStorage.settings.studytime), 0);
+const badge = new Badge(timer.badgeColor);
 
-	constructor() {
+chrome.extension.onConnect.addListener((connection) => {
 
-		this._settingsStorage = new UserSettingsStorage();
-		this._timer = new StudyTimer(TimerFormat.textToMilliseconds(this._settingsStorage.settings.studytime), 0);
-		this._badge = new Badge(this._timer.badgeColor);
+	const sendMessageToPopup = (message) => {
 
-	}
+		try {
 
-	get play() {
-
-		return this._timer.play();
-
-	}
-
-	get pause() {
-
-		return this._timer.pause();
-
-	}
-
-	reset() {
-
-		this._timer = new StudyTimer(TimerFormat.textToMilliseconds(this._settingsStorage.settings.studytime), 0);
-		this._badge.updateText("");
-		this._badge.updateColor(this._timer.badgeColor);
-
-	}
-
-	init() {
-
-		this._update();
-
-		setInterval(() => {
-
-			this._update();
-	
-		}, 200);
-
-	}
-
-	_update() {
-
-		if (this._timer.playing) {
-	
-			this._dueTimeVerifier(this._timer.update());
-
-		}
-
-		const popupIsOpened = chrome.extension.getViews({
-			type: "popup"
-		}).length > 0;
-
-		if (popupIsOpened) {
-
-			this._sendMessageToPopup({
-
-				playing: this._timer.playing,
-				completedPomodoros: this._timer.completedPomodoros,
-				timerType: this._timer.timerType,
-				time: TimerFormat.millisecondsToText(this._timer.time)
-
+			connection.postMessage({
+				"timer": message
 			});
 
-		}
+		} catch (error) {}
 
 	}
 
-	_dueTimeVerifier(value) {
+	const dueTimeVerifier = (value) => {
 
 		if (value <= 0) {
 
-			this._timer = this._timer.change(this._settingsStorage.settings);
-	
-			this._badge.updateColor(this._timer.badgeColor);
-	
-			this._timer.showNotification();
-	
-			this._timer.play();
-	
+			timer = timer.change(settingsStorage.settings);
+
+			badge.updateColor(timer.badgeColor);
+
+			timer.showNotification();
+
+			timer.play();
+
 		}
-	
+
 		if (value > 0) {
-	
-			this._badge.updateText(TimerFormat.millisecondsToMinutes(value).toString());
-	
+
+			badge.updateText(TimerFormat.millisecondsToMinutes(value).toString());
+
 		}
 	}
 
-	_sendMessageToPopup(message) {
+	const update = () => {
 
-		chrome.runtime.sendMessage({
-			"timer": message
+		if (timer.playing) {
+
+			dueTimeVerifier(timer.update());
+
+		}
+
+		sendMessageToPopup({
+
+			playing: timer.playing,
+			completedPomodoros: timer.completedPomodoros,
+			type: timer.type,
+			time: TimerFormat.millisecondsToText(timer.time)
+
 		});
 
 	}
 
-}
+	connection.onMessage.addListener((message) => {
 
-const controller = new Controller();
+		if (!message.action) return;
 
-chrome.runtime.onMessage.addListener((message) => {
+		const commands = {
 
-	if (!message.action) return;
+			play() {
 
-	const commands = {
+				timer.play();
 
-		play() {
-			controller.play;
-		},
+			},
 
-		pause() {
-			controller.pause;
-		},
+			pause() {
 
-		reset() {
-			controller.reset();
-		},
+				timer.pause();
 
-		init() {
-			controller.init();
+			},
+
+			reset() {
+
+				timer = new StudyTimer(TimerFormat.textToMilliseconds(settingsStorage.settings.studytime), 0);
+				badge.updateText("");
+				badge.updateColor(timer.badgeColor);
+
+			},
+
+			init() {
+
+				update();
+
+				setInterval(() => {
+
+					update();
+
+				}, 200);
+
+			}
+
 		}
 
-	}
+		const executeCommand = commands[message.action];
 
-	const executeCommand = commands[message.action];
+		if (executeCommand) {
 
-	if (executeCommand) {
+			executeCommand();
 
-		executeCommand();
+		}
 
-	}
+	});
 
-});
+})
