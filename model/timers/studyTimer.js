@@ -13,7 +13,7 @@ class StudyTimer extends Timer {
 
 	showNotification() {
 
-		new Notification("Study Time", this._notificationMessage, this._notificationImage).show();
+		new Notification("Study time", this._notificationMessage, this._notificationImage).show();
 
 	}
 
