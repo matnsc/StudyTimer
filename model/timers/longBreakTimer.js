@@ -13,7 +13,7 @@ class LongBreakTimer extends Timer {
 
 	showNotification() {
 
-		new Notification("Long Break Time!", this._notificationMessage, this._notificationImage).show();
+		new Notification("Long break!", this._notificationMessage, this._notificationImage).show();
 
 	}
 

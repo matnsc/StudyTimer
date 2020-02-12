@@ -5,7 +5,7 @@ class ShortBreakTimer extends Timer {
 		super(time, completedPomodoros);
 
 		this._badgeColor = "#006504";
-		this._notificationMessage = "It's time to take a break and relax.";
+		this._notificationMessage = "It's time to take a break.";
 		this._notificationImage = "../icons/breakIcon.png";
 		this._type = "Short Break";
 
@@ -13,7 +13,7 @@ class ShortBreakTimer extends Timer {
 
 	showNotification() {
 
-		new Notification("Short Break Time", this._notificationMessage, this._notificationImage).show();
+		new Notification("Short break", this._notificationMessage, this._notificationImage).show();
 
 	}
 
