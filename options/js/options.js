@@ -1,4 +1,6 @@
-const connection = chrome.runtime.connect({name: "background-settings"});
+const connection = chrome.runtime.connect({
+	name: "background-settings"
+});
 
 const settingStorage = new UserSettingsStorage();
 
@@ -68,7 +70,9 @@ const addValidationListeners = () => {
 
 		const pomodoros = pomodorosInput.value;
 
-		settingStorage.settings = new UserSettings(pomodoros, study, shortBreak, longBreak);
+		const soundEnabled = document.getElementById("sound").checked;
+
+		settingStorage.settings = new UserSettings(pomodoros, study, shortBreak, longBreak, soundEnabled);
 
 		updateInputsWithSettingsContent();
 
@@ -78,7 +82,7 @@ const addValidationListeners = () => {
 
 	resetButton.addEventListener("click", () => {
 
-		settingStorage.settings = new UserSettings(4, "25:00", "05:00", "30:00");;
+		settingStorage.settings = new UserSettings(4, "25:00", "05:00", "30:00", true);
 
 		updateInputsWithSettingsContent();
 
@@ -94,6 +98,7 @@ const updateInputsWithSettingsContent = () => {
 	InterfaceService.updateClockLine(shortBreakClockLine, settingStorage.settings.shortbreak);
 	InterfaceService.updateClockLine(longBreakClockLine, settingStorage.settings.longbreak);
 	InterfaceService.updatePomodorosValue(settingStorage.settings.pomodoros);
+	InterfaceService.updateNotificationSoundOption(settingStorage.settings.soundEnabled);
 
 }
 

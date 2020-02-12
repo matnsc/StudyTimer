@@ -23,6 +23,10 @@ h2 {
 	font-size: 14px;
 }
 
+label:hover {
+	cursor: pointer;
+}
+
 #box {
 	position: absolute;
 	display: flex;
@@ -63,9 +67,14 @@ h2 {
 }
 
 .caption {
+	margin-bottom: 18px;
 	font-size: 13px;
 	color: #737373;
 	clear: both;
+}
+
+.caption label {
+	color: #737373;
 }
 
 /* Text Input Style */
@@ -106,7 +115,7 @@ a:active {
 /* Button Style */
 .button {
 	width: 25%;
-	margin-top: 32px;
+	margin-top: 18px;
 	padding: 8px;
 	border: 0;
 	border-radius: 5px;
