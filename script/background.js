@@ -2,7 +2,7 @@ const settingsStorage = new UserSettingsStorage();
 let timer = new StudyTimer(TimerFormat.textToMilliseconds(settingsStorage.settings.studytime), 0);
 const badge = new Badge(timer.badgeColor);
 
-chrome.extension.onConnect.addListener((connection) => {
+chrome.runtime.onConnect.addListener((connection) => {
 
 	const sendMessageToPopup = (message) => {
 
