@@ -15,6 +15,12 @@ class InterfaceService {
 
     }
 
+    static updateNotificationSoundOption(value) {
+
+        document.getElementById("sound").checked = value == "true";
+
+    }
+
     static preventBothClocksBeingZero(minutesInput, secondsInput) {
 
         if ((minutesInput.value == "00" || minutesInput.value == "") && (secondsInput.value == "00" || secondsInput.value == "")) {

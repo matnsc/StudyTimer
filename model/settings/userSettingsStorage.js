@@ -12,8 +12,9 @@ class UserSettingsStorage {
         const studytime = this._getItem("studytime");
         const shortbreak = this._getItem("shortbreak");
         const longbreak = this._getItem("longbreak");
+        const soundEnabled = this._getItem("soundEnabled");
 
-        return pomodoros ? new UserSettings(pomodoros, studytime, shortbreak, longbreak) : this.settings = new UserSettings(4, "25:00", "05:00", "30:00");
+        return pomodoros ? new UserSettings(pomodoros, studytime, shortbreak, longbreak, soundEnabled) : this.settings = new UserSettings(4, "25:00", "05:00", "30:00", true);
 
     }
 
@@ -23,6 +24,7 @@ class UserSettingsStorage {
         this._setItem("studytime", userSettings.studytime);
         this._setItem("shortbreak", userSettings.shortbreak);
         this._setItem("longbreak", userSettings.longbreak);
+        this._setItem("soundEnabled", userSettings.soundEnabled);
 
         return this.settings;
 

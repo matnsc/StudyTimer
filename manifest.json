@@ -1,8 +1,8 @@
 {
 	"manifest_version": 2,
 	"name": "StudyTimer",
-	"version": "2.1",
-	"description": "StudyTimer is a browser extension created to help you manage your studies and tasks using the Pomodoro Technique",
+	"version": "2.2",
+	"description": "StudyTimer helps you manage your studies and tasks using the Pomodoro Technique.",
 	"icons": 
 	{
 		"96": "icons/logo.png"
@@ -10,11 +10,11 @@
 	"background": 
 	{
 		"scripts": [ 
+			"model/settings/userSettings.js", 
+			"model/settings/userSettingsStorage.js", 
 			"model/badge.js", 
 			"model/notification.js", 
 			"model/timerFormat.js", 
-			"model/settings/userSettings.js", 
-			"model/settings/userSettingsStorage.js", 
 			"model/timers/timer.js", 
 			"model/timers/studyTimer.js", 
 			"model/timers/shortBreakTimer.js", 

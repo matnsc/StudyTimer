@@ -3,9 +3,7 @@ class InterfaceService {
 	updateTimerValues(completedPomodoros, timerState, actualTime) {
 
 		this._changeElementText("pomodoroNumber", completedPomodoros);
-
 		this._changeElementText("caption", timerState);
-
 		this._changeElementText("clock", actualTime);
 
 	}

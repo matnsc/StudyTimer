@@ -31,9 +31,15 @@ class Notification {
 
 	_playNotificationAlert() {
 
-		this._alert.currentTime = 0;
+		const settingsStorage = new UserSettingsStorage();
 
-		this._alert.play();
+		if (settingsStorage.settings.soundEnabled == "true") {
+
+			this._alert.currentTime = 0;
+
+			this._alert.play();
+
+		}
 
 	}
 
