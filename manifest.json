@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "StudyTimer",
-	"version": "2.2",
+	"version": "2.2.1",
 	"description": "StudyTimer helps you manage your studies and tasks using the Pomodoro Technique.",
 	"icons": 
 	{
