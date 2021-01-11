@@ -19,15 +19,18 @@ You can also use your own custom work periods, break periods and even the number
 
 ## What is Pomodoro Technique?
 
-For information about the Pomodoro Technique, please visit Cirillo Consulting official webpage: [https://francescocirillo.com]
+For information about the Pomodoro Technique, please visit Cirillo Consulting official webpage: https://francescocirillo.com
 
 ## Installation
 
 ### From the Store
 StudyTimer is available on:
-Mozilla Add-ons Store: [https://addons.mozilla.org/firefox/addon/studytimer/]
-Opera Store (Only for Developer/Beta): [https://addons.opera.com/en/extensions/details/studytimer/]
-Donate US$5.00 to pay for Chrome Store's registration fee so I can publish the extension for Chrome users.
+
+Mozilla Add-ons Store: https://addons.mozilla.org/firefox/addon/studytimer/
+
+Opera Store (Only for Developer/Beta): https://addons.opera.com/en/extensions/details/studytimer/
+
+Donate US$5.00 so I can pay Chrome Store's registration fee and publish the extension for Chrome users.
 
 Versions for Safari and Edge may be released in the future.
 
@@ -35,9 +38,12 @@ Versions for Safari and Edge may be released in the future.
 Download the zip file by clicking on the button **Clone or Download**. After done, extract it in any folder you want.
 
 Follow the instructions to load extension in debug mode on your browser:
-Firefox: [https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/]
-Chrome: [https://developer.chrome.com/docs/extensions/mv3/tut_debugging/#debug_bg]
-Opera: [https://dev.opera.com/extensions/testing/]
+
+Firefox: https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/
+
+Chrome: https://developer.chrome.com/docs/extensions/mv3/tut_debugging/#debug_bg
+
+Opera: https://dev.opera.com/extensions/testing/
 
 ## Donation
 StudyTimer is entirely free and open-source. It was designed to be modular and extensible, giving freedom of modification (in agreement with GPLv3) for anyone.
