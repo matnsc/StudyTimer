@@ -28,7 +28,7 @@ StudyTimer is available on:
 
 Mozilla Add-ons Store: https://addons.mozilla.org/firefox/addon/studytimer/
 
-Opera Store (Only for Developer/Beta): https://addons.opera.com/en/extensions/details/studytimer/
+Opera Store: https://addons.opera.com/en/extensions/details/studytimer/
 
 Donate US$5.00 so I can pay Chrome Store's registration fee and publish the extension for Chrome users.
 
