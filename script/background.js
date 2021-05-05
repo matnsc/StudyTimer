@@ -1,57 +1,39 @@
-const settingsStorage = new UserSettingsStorage();
-let timer = new StudyTimer(TimerFormat.textToMilliseconds(settingsStorage.settings.studytime), 0);
-const badge = new Badge(timer.badgeColor);
+controller.timer = timer.create();
+badge.update({ color: controller.timer.badge.color });
 
 chrome.runtime.onConnect.addListener((connection) => {
-
 	const sendMessageToPopup = (message) => {
-
 		try {
-
 			connection.postMessage({
 				"timer": message
 			});
-
 		} catch (error) {}
-
 	}
 
 	const dueTimeVerifier = (value) => {
-
 		if (value <= 0) {
+			controller.timer = controller.change(controller.timer, settings.get());
+			controller.timer.play();
 
-			timer = timer.change(settingsStorage.settings);
-
-			badge.updateColor(timer.badgeColor);
-
-			timer.showNotification();
-
-			timer.play();
-
+			notification.show({ title: controller.timer.type, ...controller.timer.notification });
+			badge.update({ color: controller.timer.badge.color });
 		}
 
 		if (value > 0) {
-
-			badge.updateText(TimerFormat.millisecondsToMinutes(value).toString());
-
+			badge.update({ text: TimerFormat.millisecondsToMinutes(value) });
 		}
 	}
 
 	const update = () => {
-
 		if (timer.playing) {
-
 			dueTimeVerifier(timer.update());
-
 		}
 
 		sendMessageToPopup({
-
 			playing: timer.playing,
 			completedPomodoros: timer.completedPomodoros,
 			type: timer.type,
 			time: TimerFormat.millisecondsToText(timer.time)
-
 		});
 
 	}
