@@ -1,12 +1,13 @@
 class UserSettings {
 
-	constructor(pomodoros, studytime, shortbreak, longbreak, soundEnabled) {
+	constructor(pomodoros, studytime, shortbreak, longbreak, soundEnabled, notificationsEnabled) {
 
 		this._pomodoros = pomodoros;
 		this._studytime = studytime;
 		this._shortbreak = shortbreak;
 		this._longbreak = longbreak;
 		this._soundEnabled = soundEnabled;
+		this._notificationsEnabled = notificationsEnabled;
 
 	}
 
@@ -37,6 +38,12 @@ class UserSettings {
 	get soundEnabled() {
 
 		return this._soundEnabled;
+
+	}
+
+	get notificationsEnabled() {
+
+		return this._notificationsEnabled;
 
 	}
 

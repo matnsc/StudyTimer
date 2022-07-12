@@ -72,7 +72,9 @@ const addValidationListeners = () => {
 
 		const soundEnabled = document.getElementById("sound").checked;
 
-		settingStorage.settings = new UserSettings(pomodoros, study, shortBreak, longBreak, soundEnabled);
+		const notificationsEnabled = document.getElementById("notificationAreaOpt").checked;
+
+		settingStorage.settings = new UserSettings(pomodoros, study, shortBreak, longBreak, soundEnabled, notificationsEnabled);
 
 		updateInputsWithSettingsContent();
 
@@ -82,7 +84,7 @@ const addValidationListeners = () => {
 
 	resetButton.addEventListener("click", () => {
 
-		settingStorage.settings = new UserSettings(4, "25:00", "05:00", "30:00", true);
+		settingStorage.settings = new UserSettings(4, "25:00", "05:00", "30:00", true, true);
 
 		updateInputsWithSettingsContent();
 
@@ -99,6 +101,7 @@ const updateInputsWithSettingsContent = () => {
 	InterfaceService.updateClockLine(longBreakClockLine, settingStorage.settings.longbreak);
 	InterfaceService.updatePomodorosValue(settingStorage.settings.pomodoros);
 	InterfaceService.updateNotificationSoundOption(settingStorage.settings.soundEnabled);
+	InterfaceService.updateNotificationAreaOption(settingStorage.settings.notificationsEnabled);
 
 }
 

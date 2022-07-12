@@ -17,16 +17,18 @@ class Notification {
 	}
 
 	_createNotification() {
+		const settingsStorage = new UserSettingsStorage();
 
-		chrome.notifications.create({
+		if (settingsStorage.settings.notificationsEnabled == "true") {
+			chrome.notifications.create({
 
-			"type": "basic",
-			"iconUrl": chrome.extension.getURL(this._image),
-			"title": this._title,
-			"message": this._message
+				"type": "basic",
+				"iconUrl": chrome.extension.getURL(this._image),
+				"title": this._title,
+				"message": this._message
 
-		});
-
+			});
+		}
 	}
 
 	_playNotificationAlert() {
