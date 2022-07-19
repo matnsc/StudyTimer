@@ -13,9 +13,9 @@ class UserSettingsStorage {
         const shortbreak = this._getItem("shortbreak");
         const longbreak = this._getItem("longbreak");
         const soundEnabled = this._getItem("soundEnabled");
+        const notificationsEnabled = this._getItem("notificationAreaOpt")
 
-        return pomodoros ? new UserSettings(pomodoros, studytime, shortbreak, longbreak, soundEnabled) : this.settings = new UserSettings(4, "25:00", "05:00", "30:00", true);
-
+        return pomodoros ? new UserSettings(pomodoros, studytime, shortbreak, longbreak, soundEnabled, notificationsEnabled) : this.settings = new UserSettings(4, "25:00", "05:00", "30:00", true, true);
     }
 
     set settings(userSettings) {
@@ -25,6 +25,7 @@ class UserSettingsStorage {
         this._setItem("shortbreak", userSettings.shortbreak);
         this._setItem("longbreak", userSettings.longbreak);
         this._setItem("soundEnabled", userSettings.soundEnabled);
+        this._setItem("notificationAreaOpt", userSettings.notificationsEnabled);
 
         return this.settings;
 

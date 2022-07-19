@@ -21,6 +21,12 @@ class InterfaceService {
 
     }
 
+    static updateNotificationAreaOption(value) {
+
+        document.getElementById("notificationAreaOpt").checked = value == "true";
+
+    }
+
     static preventBothClocksBeingZero(minutesInput, secondsInput) {
 
         if ((minutesInput.value == "00" || minutesInput.value == "") && (secondsInput.value == "00" || secondsInput.value == "")) {
