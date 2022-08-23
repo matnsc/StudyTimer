@@ -15,12 +15,6 @@ class InterfaceService {
 
     }
 
-    static updateNotificationSoundOption(value) {
-
-        document.getElementById("sound").checked = value == "true";
-
-    }
-
     static updateNotificationAreaOption(value) {
 
         document.getElementById("notificationAreaOpt").checked = value == "true";
@@ -34,6 +28,13 @@ class InterfaceService {
             secondsInput.value = "01";
 
         }
+
+    }
+
+    static updateVolume(value) {
+
+        document.getElementById("volume").value = value;
+        document.getElementById("volumeSpan").innerHTML = value + "%";
 
     }
 

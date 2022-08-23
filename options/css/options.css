@@ -1,15 +1,13 @@
-/* Chrome style (Material) */
 * {
 	margin: 0;
 	padding: 0;
 	font-family: "Segoe UI", "Ubuntu", "San Francisco", "Arial";
 	font-weight: 400;
 	text-align: center;
-	color: #424242;
 }
 
 body {
-	background-color: #EEEEEE;
+	background-color: #f9f9fa;
 }
 
 h1 {
@@ -21,6 +19,7 @@ h1 {
 h2 {
 	margin-bottom: 8px;
 	font-size: 14px;
+	color: #737373;
 }
 
 label:hover {
@@ -37,9 +36,9 @@ label:hover {
 
 #content {
 	width: calc(100% - 64px);
-	padding: 26px;
-	border-radius: 10px;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	padding: 32px;
+	border-radius: 4px;
+	box-shadow: 0 1px 16px rgba(12, 12, 13, 0.1);
 	background-color: #ffffff;
 }
 
@@ -60,6 +59,7 @@ label:hover {
 #longBreak {
 	margin-bottom: 24px;
 	font-size: 18px;
+	color: #38383d;
 }
 
 .buttonIcon {
@@ -77,17 +77,17 @@ label:hover {
 	color: #737373;
 }
 
-/* Text Input Style */
+/* Text Input */
 input[type=text] {
-	padding: 8px 8px;
+	padding: 8px 0;
 	font-size: 18px;
-	border: 0;
-	border-bottom: 1px solid rgba(12, 12, 13, 0.2);
-	outline: none;
+	border: 1px solid rgba(12, 12, 13, 0.2);
+	border-radius: 2px;
+	color: #38383d;
 }
 
 input[type=text]:focus {
-	border-bottom: 1px solid #3e65e7;
+	border-bottom: 1px solid rgba(12, 12, 13, 0.2);
 }
 
 #numberPomodoros {
@@ -95,11 +95,11 @@ input[type=text]:focus {
 	padding: 4px 0;
 }
 
-/* Link Style */
+/* Hyperlink */
 a {
 	padding: 8px 12px;
 	text-decoration: none;
-	border-radius: 5px;
+	border-radius: 2px;
 	color: rgba(12, 12, 13, 0.8);
 	outline: 0;
 }
@@ -112,237 +112,99 @@ a:active {
 	background-color: rgba(12, 12, 13, 0.2);
 }
 
-/* Button Style */
+/* Button */
 .button {
-	width: 25%;
-	margin-top: 18px;
+	width: 30%;
+	margin-top: 32px;
 	padding: 8px;
 	border: 0;
-	border-radius: 5px;
+	border-radius: 2px;
 	font-size: 13px;
 	cursor: pointer;
 	outline: none;
 }
 
+.button::-moz-focus-inner {
+	border: 0;
+}
+
 .primary {
 	color: #ffffff;
-	background-color: #3e65e7;
+	background-color: #0060df;
 	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
 .primary:hover {
-	background-color: #5174e9;
+	background-color: #003eaa;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .primary:active {
-	background-color: #d2c2fd;
+	background-color: #002275;
 }
 
 .default {
-	color: #3e65e7;
-	background-color: white
+	color: #0c0c0d;
+	background-color: rgba(12, 12, 13, 0.1);
 }
 
 .default:hover {
-	background-color: #EEEEEE;
+	background-color: rgba(12, 12, 13, 0.2);
 }
 
 .default:active {
-	background-color: #efe5fd;
+	background-color: rgba(12, 12, 13, 0.3);
+}
+
+/* Slider */
+#slider {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+}
+
+#slider label, #slider span {
+	padding: 0px 8px;
+}
+
+#slider span {
+	width: 5px;
 }
 
 /* Responsive adaptation for different screen sizes */
 @media(max-width: 1280px) {
-
 	#box {
 		width: 50%;
 		height: 85%;
 		top: 7.5%;
 		left: 25%;
 	}
-
 }
 
 @media(min-width: 1281px) and (max-width: 1600px) {
-
 	#box {
 		width: 40%;
 		height: 80%;
 		top: 10%;
 		left: 30%;
 	}
-
 }
 
 @media(min-width: 1601px) and (max-width: 1799px) {
-
 	#box {
 		width: 35%;
 		height: 70%;
 		top: 15%;
 		left: 32.5%;
 	}
-
 }
 
 @media(min-width: 1800px) {
-
 	#box {
 		width: 30%;
 		height: 55%;
 		top: 22.5%;
 		left: 35%;
 	}
-
-}
-
-/* Hack for Firefox specific style (Quantum) */
-@supports (-moz-appearance:meterbar) {
-	* {
-		margin: 0;
-		padding: 0;
-		font-family: "Segoe UI", "Ubuntu", "San Francisco", "Arial";
-		font-weight: 400;
-		text-align: center;
-	}
-
-	body {
-		background-color: #f9f9fa;
-	}
-
-	h1 {
-		margin-bottom: 32px;
-		font-size: 28px;
-		color: #737373;
-	}
-
-	h2 {
-		margin-bottom: 8px;
-		font-size: 14px;
-		color: #737373;
-	}
-
-	#box {
-		position: absolute;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-	}
-
-	#content {
-		width: calc(100% - 64px);
-		padding: 32px;
-		border-radius: 4px;
-		box-shadow: 0 1px 16px rgba(12, 12, 13, 0.1);
-		background-color: #ffffff;
-	}
-
-	#pomodorosMessage {
-		padding-top: 8px;
-	}
-
-	#settingsIcon {
-		width: 20px;
-	}
-
-	#feedbackMessage {
-		margin-top: 16px;
-	}
-
-	#study,
-	#shortBreak,
-	#longBreak {
-		margin-bottom: 24px;
-		font-size: 18px;
-		color: #38383d;
-	}
-
-	.buttonIcon {
-		width: 10px;
-	}
-
-	.caption {
-		font-size: 13px;
-		color: #737373;
-		clear: both;
-	}
-
-	/* Text Input Style */
-	input[type=text] {
-		padding: 8px 0;
-		font-size: 18px;
-		border: 1px solid rgba(12, 12, 13, 0.2);
-		border-radius: 2px;
-		color: #38383d;
-	}
-
-	input[type=text]:focus {
-		border-bottom: 1px solid rgba(12, 12, 13, 0.2);
-	}
-
-	#numberPomodoros {
-		margin-left: 8px;
-		padding: 4px 0;
-	}
-
-	/* Link Style */
-	a {
-		padding: 8px 12px;
-		text-decoration: none;
-		border-radius: 2px;
-		color: rgba(12, 12, 13, 0.8);
-		outline: 0;
-	}
-
-	a:hover {
-		background-color: rgba(12, 12, 13, 0.1);
-	}
-
-	a:active {
-		background-color: rgba(12, 12, 13, 0.2);
-	}
-
-	/* Button Style */
-	.button {
-		width: 30%;
-		margin-top: 32px;
-		padding: 8px;
-		border: 0;
-		border-radius: 2px;
-		font-size: 13px;
-		cursor: pointer;
-	}
-
-	.button::-moz-focus-inner {
-		border: 0;
-	}
-
-	.primary {
-		color: #ffffff;
-		background-color: #0060df;
-	}
-
-	.primary:hover {
-		background-color: #003eaa;
-	}
-
-	.primary:active {
-		background-color: #002275;
-	}
-
-	.default {
-		color: #0c0c0d;
-		background-color: rgba(12, 12, 13, 0.1);
-	}
-
-	.default:hover {
-		background-color: rgba(12, 12, 13, 0.2);
-	}
-
-	.default:active {
-		background-color: rgba(12, 12, 13, 0.3);
-	}
-
 }

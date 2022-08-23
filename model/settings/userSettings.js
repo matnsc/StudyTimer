@@ -1,13 +1,13 @@
 class UserSettings {
 
-	constructor(pomodoros, studytime, shortbreak, longbreak, soundEnabled, notificationsEnabled) {
+	constructor(pomodoros, studytime, shortbreak, longbreak, notificationsEnabled, volume) {
 
 		this._pomodoros = pomodoros;
 		this._studytime = studytime;
 		this._shortbreak = shortbreak;
 		this._longbreak = longbreak;
-		this._soundEnabled = soundEnabled;
 		this._notificationsEnabled = notificationsEnabled;
+		this._volume = volume;
 
 	}
 
@@ -35,46 +35,15 @@ class UserSettings {
 
 	}
 
-	get soundEnabled() {
-
-		return this._soundEnabled;
-
-	}
-
 	get notificationsEnabled() {
 
 		return this._notificationsEnabled;
 
 	}
 
-	set pomodoros(pomodoros) {
+	get volume() {
 
-		this._pomodoros = pomodoros;
-
-	}
-
-	set studytime(studytime) {
-
-		this._studytime = studytime;
+		return this._volume;
 
 	}
-
-	set shortbreak(shortbreak) {
-
-		this._shortbreak = shortbreak;
-
-	}
-
-	set longbreak(longbreak) {
-
-		this._longbreak = longbreak;
-
-	}
-
-	set soundEnabled(soundEnabled) {
-
-		this._soundEnabled = soundEnabled;
-
-	}
-
 }

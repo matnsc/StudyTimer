@@ -15,6 +15,9 @@ const longBreakClockLine = document.getElementById("longBreak");
 const saveButton = document.getElementById("saveButton");
 const resetButton = document.getElementById("resetButton");
 
+const volume = document.getElementById("volume");
+const volumeSpan = document.getElementById("volumeSpan");
+
 const sendMessageToBackground = (message) => {
 
 	connection.postMessage({
@@ -62,6 +65,10 @@ const addValidationListeners = () => {
 
 	pomodorosInput.addEventListener("focusout", () => pomodorosInput.value = new PomodorosInput(pomodorosInput.value).format());
 
+	volume.addEventListener("input", () => {
+		volumeSpan.innerHTML = volume.value + "%";
+	});
+
 	saveButton.addEventListener("click", () => {
 
 		const study = TimerFormat.minutesAndSecondsToText(studyClockLine.getElementsByClassName("minutes")[0].value, studyClockLine.getElementsByClassName("seconds")[0].value);
@@ -70,11 +77,11 @@ const addValidationListeners = () => {
 
 		const pomodoros = pomodorosInput.value;
 
-		const soundEnabled = document.getElementById("sound").checked;
-
 		const notificationsEnabled = document.getElementById("notificationAreaOpt").checked;
 
-		settingStorage.settings = new UserSettings(pomodoros, study, shortBreak, longBreak, soundEnabled, notificationsEnabled);
+		const volumeValue = document.getElementById("volume").value;
+
+		settingStorage.settings = new UserSettings(pomodoros, study, shortBreak, longBreak, notificationsEnabled, volumeValue);
 
 		updateInputsWithSettingsContent();
 
@@ -84,7 +91,7 @@ const addValidationListeners = () => {
 
 	resetButton.addEventListener("click", () => {
 
-		settingStorage.settings = new UserSettings(4, "25:00", "05:00", "30:00", true, true);
+		settingStorage.settings = new UserSettings(4, "25:00", "05:00", "30:00", true, 50);
 
 		updateInputsWithSettingsContent();
 
@@ -100,8 +107,8 @@ const updateInputsWithSettingsContent = () => {
 	InterfaceService.updateClockLine(shortBreakClockLine, settingStorage.settings.shortbreak);
 	InterfaceService.updateClockLine(longBreakClockLine, settingStorage.settings.longbreak);
 	InterfaceService.updatePomodorosValue(settingStorage.settings.pomodoros);
-	InterfaceService.updateNotificationSoundOption(settingStorage.settings.soundEnabled);
 	InterfaceService.updateNotificationAreaOption(settingStorage.settings.notificationsEnabled);
+	InterfaceService.updateVolume(settingStorage.settings.volume);
 
 }
 

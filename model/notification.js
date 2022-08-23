@@ -32,17 +32,12 @@ class Notification {
 	}
 
 	_playNotificationAlert() {
-
 		const settingsStorage = new UserSettingsStorage();
+		let volume = parseInt(settingsStorage.settings.volume);
+		(volume > 0) ? volume /= 100 : 0;
 
-		if (settingsStorage.settings.soundEnabled == "true") {
-
-			this._alert.currentTime = 0;
-
-			this._alert.play();
-
-		}
-
+		this._alert.volume = volume;
+		this._alert.currentTime = 0;
+		this._alert.play();
 	}
-
 }
