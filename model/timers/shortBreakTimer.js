@@ -1,26 +1,18 @@
 class ShortBreakTimer extends Timer {
-
-	constructor(time, completedPomodoros) {
-
+	constructor(time, completedPomodoros, settings) {
 		super(time, completedPomodoros);
 
 		this._badgeColor = "#006504";
-		this._notificationMessage = "It's time to take a break.";
+		this._notificationMessage = settings.sbNotification;
 		this._notificationImage = "../icons/breakIcon.png";
 		this._type = "Short Break";
-
 	}
 
 	showNotification() {
-
 		new Notification("Short break", this._notificationMessage, this._notificationImage).show();
-
 	}
 
 	change(settings) {
-
-		return new StudyTimer(TimerFormat.textToMilliseconds(settings.studytime), this._completedPomodoros);
-
+		return new StudyTimer(TimerFormat.textToMilliseconds(settings.studytime), this._completedPomodoros, settings);
 	}
-
 }

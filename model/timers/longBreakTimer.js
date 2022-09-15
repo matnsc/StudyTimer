@@ -1,26 +1,18 @@
 class LongBreakTimer extends Timer {
-
-	constructor(time, completedPomodoros) {
-
+	constructor(time, completedPomodoros, settings) {
 		super(time, completedPomodoros);
 
 		this._badgeColor = "#0060df";
-		this._notificationMessage = "You completed the pomodoro cycle! Enjoy your longer break.";
+		this._notificationMessage = settings.lbNotification;
 		this._notificationImage = "../icons/breakIcon.png";
 		this._type = "Long Break";
-
 	}
 
 	showNotification() {
-
 		new Notification("Long break!", this._notificationMessage, this._notificationImage).show();
-
 	}
 
 	change(settings) {
-
-		return new StudyTimer(TimerFormat.textToMilliseconds(settings.studytime), 0);
-
+		return new StudyTimer(TimerFormat.textToMilliseconds(settings.studytime), 0, settings);
 	}
-
 }

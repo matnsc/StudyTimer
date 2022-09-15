@@ -8,27 +8,48 @@
 	<body>
 		<div id="box">
 			<div id="content">
-				<div id="title">
-					<h1><img id="settingsIcon" src="../icons/settings.png" alt="Settings icon"/> Settings</h1>
-				</div>
 				<form>
-					<div>
-						<div id="study">
+					<div id="title">
+						<h1><!--<img id="settingsIcon" src="../icons/settings.png" alt="Settings icon"/> -->Timer</h1>
+					</div>
+					<div id="timer">
+						<div id="study" class="textInput">
 							<h2>Study</h2>
 							<input type="text" class="minutes" size="3" maxlength="3"/> : <input type="text" class="seconds" size="3" maxlength="2"/>
 						</div>
-						<div id="shortBreak">
+						<div id="shortBreak" class="textInput">
 							<h2>Short Break</h2>
 							<input type="text" class="minutes" size="3" maxlength="3"/> : <input type="text" class="seconds" size="3" maxlength="2"/>
 						</div>
-						<div id="longBreak">
+						<div id="longBreak" class="textInput">
 							<h2>Long Break</h2>
 							<input type="text" class="minutes" size="3" maxlength="3"/> : <input type="text" class="seconds" size="3" maxlength="2"/>
 						</div>
+						<p id="pomodorosMessage" class="caption">Number of pomodoro sessions per cycle: <input type="text" id="numberPomodoros" size="2" maxlength="2"/></p>
 					</div>
-					<p id="pomodorosMessage" class="caption">Number of pomodoro sessions per cycle: <input type="text" id="numberPomodoros" size="2" maxlength="2"/></p>
-					<p class="caption"><input type="checkbox" id="notificationAreaOpt"> <label for="notificationAreaOpt">Enable notifications</label></p>
-					<p class="caption" id="slider"><label>Volume:</label> <input type="range" min="0" max="100" value="50" id="volume"> <span id="volumeSpan"></span></p>
+
+					<hr/>
+
+					<div id="title" style="padding-top: 14px;">
+						<h1><!--<img id="settingsIcon" src="../icons/settings.png" alt="Settings icon"/> -->Notifications</h1>
+					</div>
+					<div id="notification">
+						<p class="caption"><input type="checkbox" id="notificationAreaOpt"> <label for="notificationAreaOpt">Enable notifications</label></p>
+						<p class="caption" id="slider"><label>Volume:</label> <input type="range" min="0" max="100" value="50" id="volume"> <span id="volumeSpan"></span></p>
+						<div class="textInput">
+							<h2><label for="studyNotification">Studying</label></h2>
+							<input type="text" id="studyNotification"></input>
+						</div>
+						<div class="textInput">
+							<h2><label for="sbNotification">Short Break</label></h2>
+							<input type="text" id="sbNotification"></input>
+						</div>
+						<div class="textInput" style="margin-bottom: 0px;">
+							<h2><label for="lbNotification">Long Break</label></h2>
+							<input type="text" id="lbNotification"></input>
+						</div>
+					</div>
+					
 					<input id="saveButton" class="button primary" type="button" value="Save"/>
 					<input id="resetButton" class="button default" type="button" value="Reset"/>
 				</form>
