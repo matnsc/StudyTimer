@@ -67,8 +67,9 @@ const addListeners = () => {
 		const studyNotification = document.getElementById("studyNotification").value;
 		const sbNotification = document.getElementById("sbNotification").value;
 		const lbNotification = document.getElementById("lbNotification").value;
+		const autorunEnabled = document.getElementById("autorunOpt").checked;
 
-		settingStorage.settings = new UserSettings(pomodoros, study, shortBreak, longBreak, notificationsEnabled, volumeValue, studyNotification, sbNotification, lbNotification);
+		settingStorage.settings = new UserSettings(pomodoros, study, shortBreak, longBreak, notificationsEnabled, volumeValue, studyNotification, sbNotification, lbNotification, autorunEnabled);
 
 		updateInputs();
 		sendMessageToBackground("reset");
@@ -91,6 +92,7 @@ const updateInputs = () => {
 	InterfaceService.updateNotificationMessage(studyNotification, settingStorage.settings.studyNotification);
 	InterfaceService.updateNotificationMessage(sbNotification, settingStorage.settings.sbNotification);
 	InterfaceService.updateNotificationMessage(lbNotification, settingStorage.settings.lbNotification);
+	InterfaceService.updateAutorunOption(settingStorage.settings.autorunEnabled);
 }
 
 window.onload = () => {

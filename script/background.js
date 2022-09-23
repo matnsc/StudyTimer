@@ -1,6 +1,48 @@
 const settingsStorage = new UserSettingsStorage();
 let timer = new StudyTimer(TimerFormat.textToMilliseconds(settingsStorage.settings.studytime), 0, settingsStorage.settings);
+let activated = false;
+let sendFunction;
 const badge = new Badge(timer.badgeColor);
+
+const dueTimeVerifier = (value) => {
+	if (value <= 0) {
+		timer = timer.change(settingsStorage.settings);
+
+		badge.updateColor(timer.badgeColor);
+
+		timer.showNotification();
+		timer.play();
+	}
+
+	if (value > 0) {
+		badge.updateText(TimerFormat.millisecondsToMinutes(value).toString());
+	}
+};
+
+const update = () => {
+	if (timer.playing) {
+		dueTimeVerifier(timer.update());
+	}
+
+	if (!sendFunction) return;
+	sendFunction();
+};
+
+const activate = () => {
+	if (activated) return;
+
+	update();
+	setInterval(() => {
+		update();
+	}, 200);
+
+	activated = true;
+};
+
+if (settingsStorage.settings.autorunEnabled === "true") {
+	timer.play();
+	activate();
+}
 
 chrome.runtime.onConnect.addListener((connection) => {
 	const sendMessageToPopup = (message) => {
@@ -9,35 +51,16 @@ chrome.runtime.onConnect.addListener((connection) => {
 				"timer": message
 			});
 		} catch (error) {}
-	}
+	};
 
-	const dueTimeVerifier = (value) => {
-		if (value <= 0) {
-			timer = timer.change(settingsStorage.settings);
-
-			badge.updateColor(timer.badgeColor);
-
-			timer.showNotification();
-			timer.play();
-		}
-
-		if (value > 0) {
-			badge.updateText(TimerFormat.millisecondsToMinutes(value).toString());
-		}
-	}
-
-	const update = () => {
-		if (timer.playing) {
-			dueTimeVerifier(timer.update());
-		}
-
+	sendFunction = () => {
 		sendMessageToPopup({
 			playing: timer.playing,
 			completedPomodoros: timer.completedPomodoros,
 			type: timer.type,
 			time: TimerFormat.millisecondsToText(timer.time)
-		});
-	}
+		})
+	};
 
 	connection.onMessage.addListener((message) => {
 		if (!message.action) return;
@@ -58,10 +81,7 @@ chrome.runtime.onConnect.addListener((connection) => {
 			},
 
 			init() {
-				update();
-				setInterval(() => {
-					update();
-				}, 200);
+				activate();
 			}
 		}
 

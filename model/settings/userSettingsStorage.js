@@ -8,7 +8,7 @@ class UserSettingsStorage {
         const sbNotification = "It's time to take a break.";
         const lbNotification = "You completed the pomodoro cycle! Enjoy your longer break.";
 
-        return new UserSettings(4, "25:00", "05:00", "30:00", true, 50, studyNotification, sbNotification, lbNotification);
+        return new UserSettings(4, "25:00", "05:00", "30:00", true, 50, studyNotification, sbNotification, lbNotification, false);
     }
 
     get settings() {
@@ -23,8 +23,9 @@ class UserSettingsStorage {
         const studyNotification     = this._getItem("studyNotification")    ?? defaultObj.studyNotification;
         const sbNotification        = this._getItem("sbNotification")       ?? defaultObj.sbNotification;
         const lbNotification        = this._getItem("lbNotification")       ?? defaultObj.lbNotification;
+        const autorunEnabled        = this._getItem("autorunEnabled")       ?? defaultObj.autorunEnabled;
 
-        return new UserSettings(pomodoros, studytime, shortbreak, longbreak, notificationsEnabled, volume, studyNotification, sbNotification, lbNotification);
+        return new UserSettings(pomodoros, studytime, shortbreak, longbreak, notificationsEnabled, volume, studyNotification, sbNotification, lbNotification, autorunEnabled);
     }
 
     set settings(userSettings) {
@@ -37,7 +38,8 @@ class UserSettingsStorage {
         this._setItem("studyNotification", userSettings.studyNotification);
         this._setItem("sbNotification", userSettings.sbNotification);
         this._setItem("lbNotification", userSettings.lbNotification);
-
+        this._setItem("autorunEnabled", userSettings.autorunEnabled);
+        
         return this.settings;
     }
 

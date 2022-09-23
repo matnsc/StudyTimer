@@ -1,5 +1,5 @@
 class UserSettings {
-	constructor(pomodoros, studytime, shortbreak, longbreak, notificationsEnabled, volume, studyNotification, sbNotification, lbNotification) {
+	constructor(pomodoros, studytime, shortbreak, longbreak, notificationsEnabled, volume, studyNotification, sbNotification, lbNotification, autorunEnabled) {
 		this._pomodoros = pomodoros;
 		this._studytime = studytime;
 		this._shortbreak = shortbreak;
@@ -9,6 +9,7 @@ class UserSettings {
 		this._studyNotification = studyNotification;
 		this._sbNotification = sbNotification;
 		this._lbNotification = lbNotification;
+		this._autorunEnabled = autorunEnabled;
 	}
 
 	get pomodoros() {
@@ -45,5 +46,9 @@ class UserSettings {
 
 	get lbNotification() {
 		return this._lbNotification;
+	}
+
+	get autorunEnabled() {
+		return this._autorunEnabled;
 	}
 }

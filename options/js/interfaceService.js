@@ -28,4 +28,8 @@ class InterfaceService {
             secondsInput.value = "01";
         }
     }
+
+    static updateAutorunOption(value) {
+        document.getElementById("autorunOpt").checked = value == "true";
+    }
 }
