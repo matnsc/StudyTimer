@@ -18,7 +18,7 @@ class Notification {
 			chrome.notifications.create({
 
 				"type": "basic",
-				"iconUrl": chrome.extension.getURL(this._image),
+				"iconUrl": chrome.runtime.getURL(this._image),
 				"title": this._title,
 				"message": this._message
 

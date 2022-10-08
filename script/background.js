@@ -2,6 +2,7 @@ const settingsStorage = new UserSettingsStorage();
 let timer = new StudyTimer(TimerFormat.textToMilliseconds(settingsStorage.settings.studytime), 0, settingsStorage.settings);
 let activated = false;
 let sendFunction;
+let interval;
 const badge = new Badge(timer.badgeColor);
 
 const dueTimeVerifier = (value) => {
@@ -32,11 +33,19 @@ const activate = () => {
 	if (activated) return;
 
 	update();
-	setInterval(() => {
+	interval = setInterval(() => {
 		update();
 	}, 200);
 
 	activated = true;
+};
+
+const deactivate = () => {
+	if (!activated) return;
+
+	clearInterval(interval);
+
+	activated = false;
 };
 
 if (settingsStorage.settings.autorunEnabled === "true") {
@@ -68,20 +77,25 @@ chrome.runtime.onConnect.addListener((connection) => {
 		const commands = {
 			play() {
 				timer.play();
+				activate();
 			},
 
 			pause() {
 				timer.pause();
+				deactivate();
+				update();
 			},
 
 			reset() {
+				deactivate();
 				timer = new StudyTimer(TimerFormat.textToMilliseconds(settingsStorage.settings.studytime), 0, settingsStorage.settings);
 				badge.updateText("");
 				badge.updateColor(timer.badgeColor);
+				update();
 			},
 
 			init() {
-				activate();
+				update();
 			}
 		}
 
