@@ -1,6 +1,7 @@
 class Timer {
 	constructor(time, completedPomodoros) {
-		this._time = time;
+		this._total = time + 990;
+		this._time = time + 990;
 		this._completedPomodoros = completedPomodoros;
 
 		this._init = new Date().getTime();
@@ -25,6 +26,10 @@ class Timer {
 
 	get type() {
 		return this._type;
+	}
+
+	get total() {
+		return this._total;
 	}
 
 	get time() {

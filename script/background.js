@@ -67,7 +67,9 @@ chrome.runtime.onConnect.addListener((connection) => {
 			playing: timer.playing,
 			completedPomodoros: timer.completedPomodoros,
 			type: timer.type,
-			time: TimerFormat.millisecondsToText(timer.time)
+			time: TimerFormat.millisecondsToText(timer.time),
+			total: TimerFormat.millisecondsToText(timer.total),
+			color: timer.badgeColor
 		})
 	};
 

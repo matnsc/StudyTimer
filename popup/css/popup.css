@@ -1,105 +1,71 @@
-/* Chrome style (Material) */
+:root {
+	--progress-stroke: 0;
+	--progress-opacity: 1;
+	--progress-color: #000;
+}  
+
 * {
 	font-family: "Segoe UI", "Ubuntu", "San Francisco", "Arial";
 	text-align: center;
 }
 
 body {
-	padding: 16px 16px 8px 16px;
-}
-
-#clock {
-	width: 100%;
-	font-size: 52px;
-	font-weight: 400;
+	padding: 8px 20px;
 	color: #737373;
-	margin-bottom: 4px;
 }
 
 #caption {
-	font-size: 13px;
-	color: #737373;
-	margin-bottom: 20px;
+	font-size: 22px;
+	margin-bottom: 6px;
 }
 
 #pomodoros {
 	height: 16px;
 	padding: 10px 0;
-	float: left;
-	font-size: 11px;
-	color: #737373;
+	font-size: 12px;
+	margin-bottom: 10px;
 }
 
-#footer {
+#action {
 	width: 100%;
-	height: 32px;
-	margin-top: 20px;
-}
-
-#settings {
-	float: right;
-}
-
-/* Button Style */
-.button {
-	width: auto;
-	height: 24px;
-	padding-top: 8px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 	margin-bottom: 8px;
-	border-radius: 5px;
-	font-size: 13px;
-	cursor: pointer;
+}
+
+/* Buttons */
+.button {
+	width: 51px;
+	height: 39px;
+	padding-top: 16px;
+	padding-left: 4px;
+	margin: 0 16px 0px 16px;
+	border-radius: 50%;
 	cursor: pointer;
 	outline: none;
 }
 
+#pause {
+	width: 55px;
+	padding-left: 0;
+}
+
 .primary {
 	color: #ffffff;
-	background-color: #3e65e7;
+	background-color: var(--progress-color);
 	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
 .primary:hover {
-	background-color: #5174e9;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-.primary:active {
-	background-color: #d2c2fd;
-}
-
-.primary[disabled],
-.primary[disabled]:hover {
-	background-color: rgba(62, 101, 231, 0.5);
-	opacity: 0.4;
-	cursor: default;
-	box-shadow: none;
-}
-
-.default {
-	color: #3e65e7;
-	background-color: white;
-}
-
-.default:hover {
-	background-color: #EEEEEE;
-}
-
-.default:active {
-	background-color: #efe5fd;
-}
-
-.default[disabled] {
-	color: #9E9E9E;
-	background-color: #EEEEEE;
-	cursor: default;
-}
-
 .ghost {
-	width: 16px;
-	height: 16px;
-	padding: 8px;
-	border-radius: 5px;
+	width: 28px;
+	padding: 6px 4px 4px 4px;
+	border-radius: 50%;
 	cursor: pointer;
 }
 
@@ -111,119 +77,46 @@ body {
 	background-color: rgba(12, 12, 13, 0.2);
 }
 
-.ghost img {
-	width: 16px;
+.ghost svg {
+	width: 22px;
+	fill: #737373;
 }
 
-/* Hack for Firefox specific style (Quantum) */
-@supports (-moz-appearance:meterbar) {
-	* {
-		font-family: "Segoe UI", "Ubuntu", "San Francisco", "Arial";
-		text-align: center;
-	}
+.primary svg {
+	width: 22px;
+	fill: white;
+}
 
-	body {
-		padding: 16px 16px 8px 16px;
-	}
+/* Progress Bar */
+.progress-bar {
+	position: relative;
+	width: 180px;
+	height: 180px;
+	transform: rotate(-90deg);
+}
 
-	#clock {
-		width: 100%;
-		font-size: 52px;
-		font-weight: 400;
-		color: #737373;
-		margin-bottom: 4px;
-	}
+.progress-bar .svg {
+	width: 100%;
+	height: 100%;
+}
 
-	#caption {
-		font-size: 13px;
-		color: #737373;
-		margin-bottom: 20px;
-	}
+.progress-bar .circle {
+	fill: none;
+	stroke: var(--progress-color);
+	stroke-width: 8;
+	stroke-dasharray: 470;
+	stroke-dashoffset: var(--progress-stroke);
+	stroke-opacity: var(--progress-opacity);
+	stroke-linecap: square;
+	transform: translate(4px, 4px);
+	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
 
-	#pomodoros {
-		height: 16px;
-		padding: 10px 0;
-		float: left;
-		font-size: 11px;
-		color: #737373;
-	}
-
-	#footer {
-		width: 100%;
-		height: 32px;
-		margin-top: 20px;
-	}
-
-	#settings {
-		float: right;
-	}
-
-	/* Button Style */
-	.button {
-		width: auto;
-		height: 24px;
-		padding-top: 8px;
-		margin-bottom: 8px;
-		border-radius: 2px;
-		font-size: 13px;
-		cursor: pointer;
-	}
-
-	.primary {
-		color: #ffffff;
-		background-color: #0060df;
-	}
-
-	.primary:hover {
-		background-color: #003eaa;
-	}
-
-	.primary:active {
-		background-color: #002275;
-	}
-
-	.primary[disabled] {
-		background-color: #0060df;
-		opacity: 0.4;
-		cursor: default;
-	}
-
-	.default {
-		color: #0c0c0d;
-		background-color: rgba(12, 12, 13, 0.1);
-	}
-
-	.default:hover {
-		background-color: rgba(12, 12, 13, 0.2);
-	}
-
-	.default:active {
-		background-color: rgba(12, 12, 13, 0.3);
-	}
-
-	.default[disabled] {
-		background-color: rgba(12, 12, 13, 0.1);
-		opacity: 0.4;
-		cursor: default;
-	}
-
-	.ghost {
-		width: 16px;
-		height: 16px;
-		padding: 8px;
-		border-radius: 2px;
-		cursor: pointer;
-	}
-
-	.ghost:hover {
-		background-color: rgba(12, 12, 13, 0.1);
-	}
-
-	.ghost:active {
-		background-color: rgba(12, 12, 13, 0.2);
-	}
-
-	.ghost img {
-		width: 16px;
-	}
+.progress-bar .text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: #828282;
+	font-size: 38px;
+	transform: translate(-50%, -50%) rotate(90deg);
 }
