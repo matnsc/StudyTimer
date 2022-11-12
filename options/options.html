@@ -9,8 +9,9 @@
 		<div id="box">
 			<div id="content">
 				<form>
-					<div id="title">
-						<h1><!--<img id="settingsIcon" src="../icons/settings.png" alt="Settings icon"/> -->Timer</h1>
+					<div id="navbar">
+						<button id="timerTab" class="button transparent active">Timer</button>
+						<button id="notificationTab" class="button transparent">Notification</button>
 					</div>
 					<div id="timer">
 						<div id="study" class="textInput">
@@ -26,15 +27,9 @@
 							<input type="text" class="minutes" size="3" maxlength="3"/> : <input type="text" class="seconds" size="3" maxlength="2"/>
 						</div>
 						<p id="pomodorosMessage" class="caption">Number of pomodoro sessions per cycle: <input type="text" id="numberPomodoros" size="2" maxlength="2"/></p>
-						<p class="caption"><input type="checkbox" id="autorunOpt"> <label for="autorunOpt">Enable autorun</label></p>
+						<p class="caption" style="margin-bottom: 0px;" title="Start timer automatically when browser is open"><input type="checkbox" id="autorunOpt"> <label for="autorunOpt">Enable autorun</label></p>
 					</div>
-
-					<hr/>
-
-					<div id="title" style="padding-top: 14px;">
-						<h1><!--<img id="settingsIcon" src="../icons/settings.png" alt="Settings icon"/> -->Notifications</h1>
-					</div>
-					<div id="notification">
+					<div id="notification" style="display: none">
 						<p class="caption"><input type="checkbox" id="notificationAreaOpt"> <label for="notificationAreaOpt">Enable notifications</label></p>
 						<p class="caption" id="slider"><label>Volume:</label> <input type="range" min="0" max="100" value="50" id="volume"> <span id="volumeSpan"></span></p>
 						<div class="textInput">
@@ -50,12 +45,11 @@
 							<input type="text" id="lbNotification"></input>
 						</div>
 					</div>
-					
-					<input id="saveButton" class="button primary" type="button" value="Save"/>
-					<input id="resetButton" class="button default" type="button" value="Reset"/>
 				</form>
+				<button id="saveButton" class="button primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-save"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5l7.99.025.004-5.005"/></svg> Save</button>
+				<button id="resetButton" class="button default"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><path d="M34.1 7.002c-1.07-.056-2.1.777-2.1 1.99v3.348C20.665 14.25 12 24.13 12 36c0 13.234 10.767 24 24 24s24-10.766 24-24c0-5.67-2.015-11.172-5.672-15.494a4.001 4.001 0 0 0-6.107 5.168A16 16 0 0 1 52 36c0 8.822-7.178 16-16 16s-16-7.178-16-16c0-7.439 5.11-13.69 12-15.473v2.479c0 1.619 1.83 2.56 3.146 1.619l9.805-7.008a1.989 1.989 0 0 0 0-3.236l-9.805-7.008a1.967 1.967 0 0 0-1.046-.371z"/></svg> Reset</button>
 			</div>
-			<p id="feedbackMessage" class="caption"><a href="https://github.com/MatNascimento/StudyTimer" target="_blank"><img class="buttonIcon" src="../icons/github.png" alt="Github icon"/> Contribute</a></p>
+			<p id="feedbackMessage" class="caption"><a href="https://github.com/matnsc/StudyTimer" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path d="M15 3C8.373 3 3 8.373 3 15c0 5.623 3.872 10.328 9.092 11.63a1.751 1.751 0 0 1-.092-.583v-2.051h-1.508c-.821 0-1.551-.353-1.905-1.009-.393-.729-.461-1.844-1.435-2.526-.289-.227-.069-.486.264-.451.615.174 1.125.596 1.605 1.222.478.627.703.769 1.596.769.433 0 1.081-.025 1.691-.121.328-.833.895-1.6 1.588-1.962-3.996-.411-5.903-2.399-5.903-5.098 0-1.162.495-2.286 1.336-3.233-.276-.94-.623-2.857.106-3.587 1.798 0 2.885 1.166 3.146 1.481A8.993 8.993 0 0 1 15.495 9c1.036 0 2.024.174 2.922.483C18.675 9.17 19.763 8 21.565 8c.732.731.381 2.656.102 3.594.836.945 1.328 2.066 1.328 3.226 0 2.697-1.904 4.684-5.894 5.097C18.199 20.49 19 22.1 19 23.313v2.734c0 .104-.023.179-.035.268C23.641 24.676 27 20.236 27 15c0-6.627-5.373-12-12-12z"/></svg> Contribute</a></p>
 		</div>
 	</body>
 	<!-- Page Scripts -->

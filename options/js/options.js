@@ -12,8 +12,8 @@ const studyClockLine = document.getElementById("study");
 const shortBreakClockLine = document.getElementById("shortBreak");
 const longBreakClockLine = document.getElementById("longBreak");
 
-const saveButton = document.getElementById("saveButton");
-const resetButton = document.getElementById("resetButton");
+const timerTab = document.getElementById("timerTab");
+const notificationTab = document.getElementById("notificationTab");
 
 const volume = document.getElementById("volume");
 const volumeSpan = document.getElementById("volumeSpan");
@@ -57,7 +57,7 @@ const addListeners = () => {
 
 	volume.addEventListener("input", () => volumeSpan.innerHTML = volume.value + "%");
 
-	saveButton.addEventListener("click", () => {
+	document.getElementById("saveButton").addEventListener("click", () => {
 		const study = TimerFormat.minutesAndSecondsToText(studyClockLine.getElementsByClassName("minutes")[0].value, studyClockLine.getElementsByClassName("seconds")[0].value);
 		const shortBreak = TimerFormat.minutesAndSecondsToText(shortBreakClockLine.getElementsByClassName("minutes")[0].value, shortBreakClockLine.getElementsByClassName("seconds")[0].value);
 		const longBreak = TimerFormat.minutesAndSecondsToText(longBreakClockLine.getElementsByClassName("minutes")[0].value, longBreakClockLine.getElementsByClassName("seconds")[0].value);
@@ -75,10 +75,26 @@ const addListeners = () => {
 		sendMessageToBackground("reset");
 	});
 
-	resetButton.addEventListener("click", () => {
+	document.getElementById("resetButton").addEventListener("click", () => {
 		settingStorage.settings = settingStorage.default();
 		updateInputs();
 		sendMessageToBackground("reset");
+	});
+
+	timerTab.addEventListener("click", (e) => {
+		e.preventDefault();
+		document.getElementById("timer").style.display = "block";
+		document.getElementById("notification").style.display = "none";
+		timerTab.classList.add("active");
+		notificationTab.classList.remove("active");
+	});
+
+	notificationTab.addEventListener("click", (e) => {
+		e.preventDefault();
+		document.getElementById("timer").style.display = "none";
+		document.getElementById("notification").style.display = "block";
+		timerTab.classList.remove("active");
+		notificationTab.classList.add("active");
 	});
 }
 

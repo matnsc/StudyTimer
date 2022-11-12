@@ -10,24 +10,10 @@ body {
 	background-color: #f9f9fa;
 }
 
-h1 {
-	margin-bottom: 32px;
-	font-size: 24px;
-	color: #737373
-}
-
 h2 {
 	margin-bottom: 8px;
 	font-size: 12px;
 	color: #737373;
-}
-
-hr {
-	border-top: 1px solid rgba(12, 12, 13, 0.2);
-}
-
-label:hover {
-	cursor: pointer;
 }
 
 #box {
@@ -40,8 +26,8 @@ label:hover {
 
 #content {
 	width: calc(100% - 64px);
-	padding: 28px;
-	border-radius: 4px;
+	padding: 22px;
+	border-radius: 20px;
 	box-shadow: 0 1px 16px rgba(12, 12, 13, 0.1);
 	background-color: #ffffff;
 }
@@ -50,12 +36,12 @@ label:hover {
 	padding-top: 8px;
 }
 
-#settingsIcon {
-	width: 20px;
-}
-
 #feedbackMessage {
 	margin-top: 16px;
+}
+
+#timer, #notification {
+	min-height: 319px;
 }
 
 .textInput {
@@ -64,19 +50,27 @@ label:hover {
 	color: #38383d;
 }
 
-.buttonIcon {
-	width: 10px;
-}
-
 .caption {
 	margin-bottom: 18px;
 	font-size: 12px;
 	color: #737373;
-	clear: both;
 }
 
 .caption label {
 	color: #737373;
+}
+
+label:hover {
+	cursor: pointer;
+}
+
+svg {
+	vertical-align: middle;
+	width: 16px;
+}
+
+.caption svg {
+	width: 14px;
 }
 
 /* Text Input */
@@ -84,12 +78,13 @@ input[type=text] {
 	padding: 8px 0;
 	font-size: 16px;
 	border: 1px solid rgba(12, 12, 13, 0.2);
-	border-radius: 2px;
+	border-radius: 12px;
 	color: #38383d;
+	outline: none;
 }
 
 input[type=text]:focus {
-	border-bottom: 1px solid rgba(12, 12, 13, 0.2);
+	border-color: #0060df;
 }
 
 #numberPomodoros {
@@ -106,31 +101,36 @@ input[type=text]:focus {
 
 /* Hyperlink */
 a {
-	padding: 8px 12px;
+	padding: 8px 28px;
 	text-decoration: none;
-	border-radius: 2px;
-	color: rgba(12, 12, 13, 0.8);
+	border-radius: 12px;
+	color: #0c0c0d;
 	outline: 0;
 }
 
 a:hover {
-	background-color: rgba(12, 12, 13, 0.1);
+	background-color: rgba(12, 12, 13, 0.2);
 }
 
 a:active {
-	background-color: rgba(12, 12, 13, 0.2);
+	background-color: rgba(12, 12, 13, 0.3);
 }
 
 /* Button */
 .button {
-	width: 30%;
 	margin-top: 32px;
-	padding: 8px;
+	margin-right: 6px;
+	padding: 8px 36px;
 	border: 0;
-	border-radius: 2px;
-	font-size: 12px;
+	border-radius: 12px;
+	font-size: 14px;
 	cursor: pointer;
 	outline: none;
+}
+
+#navbar button {
+	margin-top: 0px;
+	margin-bottom: 32px;
 }
 
 .button::-moz-focus-inner {
@@ -163,6 +163,24 @@ a:active {
 
 .default:active {
 	background-color: rgba(12, 12, 13, 0.3);
+}
+
+.transparent {
+	color: rgba(12, 12, 13, 0.8);
+	background-color: #ffffff;
+}
+
+.transparent:hover {
+	background-color: rgba(12, 12, 13, 0.1);
+}
+
+.transparent:active {
+	background-color: rgba(12, 12, 13, 0.2);
+}
+
+.active {
+	color: #fff !important;
+	background-color: #0060df !important;
 }
 
 /* Slider */
