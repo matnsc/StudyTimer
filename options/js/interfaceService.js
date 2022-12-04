@@ -32,4 +32,8 @@ class InterfaceService {
     static updateAutorunOption(value) {
         document.getElementById("autorunOpt").checked = value == "true";
     }
+
+    static updateDarkModeOption(value) {
+        document.getElementById("darkOpt").checked = value == "true";
+    }
 }

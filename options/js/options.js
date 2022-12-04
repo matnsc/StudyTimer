@@ -12,8 +12,7 @@ const studyClockLine = document.getElementById("study");
 const shortBreakClockLine = document.getElementById("shortBreak");
 const longBreakClockLine = document.getElementById("longBreak");
 
-const timerTab = document.getElementById("timerTab");
-const notificationTab = document.getElementById("notificationTab");
+const tabs = Array.from(document.getElementsByClassName("tab"));
 
 const volume = document.getElementById("volume");
 const volumeSpan = document.getElementById("volumeSpan");
@@ -58,18 +57,21 @@ const addListeners = () => {
 	volume.addEventListener("input", () => volumeSpan.innerHTML = volume.value + "%");
 
 	document.getElementById("saveButton").addEventListener("click", () => {
-		const study = TimerFormat.minutesAndSecondsToText(studyClockLine.getElementsByClassName("minutes")[0].value, studyClockLine.getElementsByClassName("seconds")[0].value);
-		const shortBreak = TimerFormat.minutesAndSecondsToText(shortBreakClockLine.getElementsByClassName("minutes")[0].value, shortBreakClockLine.getElementsByClassName("seconds")[0].value);
-		const longBreak = TimerFormat.minutesAndSecondsToText(longBreakClockLine.getElementsByClassName("minutes")[0].value, longBreakClockLine.getElementsByClassName("seconds")[0].value);
-		const pomodoros = pomodorosInput.value;
-		const notificationsEnabled = document.getElementById("notificationAreaOpt").checked;
-		const volumeValue = document.getElementById("volume").value;
-		const studyNotification = document.getElementById("studyNotification").value;
-		const sbNotification = document.getElementById("sbNotification").value;
-		const lbNotification = document.getElementById("lbNotification").value;
-		const autorunEnabled = document.getElementById("autorunOpt").checked;
+		const settings = {
+			timer: TimerFormat.minutesAndSecondsToText(studyClockLine.getElementsByClassName("minutes")[0].value, studyClockLine.getElementsByClassName("seconds")[0].value),
+			shortBreak: TimerFormat.minutesAndSecondsToText(shortBreakClockLine.getElementsByClassName("minutes")[0].value, shortBreakClockLine.getElementsByClassName("seconds")[0].value),
+			longBreak: TimerFormat.minutesAndSecondsToText(longBreakClockLine.getElementsByClassName("minutes")[0].value, longBreakClockLine.getElementsByClassName("seconds")[0].value),
+			pomodoros: pomodorosInput.value,
+			notifications: document.getElementById("notificationAreaOpt").checked,
+			volume: document.getElementById("volume").value,
+			timerNotification: document.getElementById("studyNotification").value,
+			sbNotification: document.getElementById("sbNotification").value,
+			lbNotification: document.getElementById("lbNotification").value,
+			autorun: document.getElementById("autorunOpt").checked,
+			darkMode: document.getElementById("darkOpt").checked
+		}
 
-		settingStorage.settings = new UserSettings(pomodoros, study, shortBreak, longBreak, notificationsEnabled, volumeValue, studyNotification, sbNotification, lbNotification, autorunEnabled);
+		settingStorage.settings = new UserSettings(settings);
 
 		updateInputs();
 		sendMessageToBackground("reset");
@@ -81,20 +83,17 @@ const addListeners = () => {
 		sendMessageToBackground("reset");
 	});
 
-	timerTab.addEventListener("click", (e) => {
-		e.preventDefault();
-		document.getElementById("timer").style.display = "block";
-		document.getElementById("notification").style.display = "none";
-		timerTab.classList.add("active");
-		notificationTab.classList.remove("active");
-	});
-
-	notificationTab.addEventListener("click", (e) => {
-		e.preventDefault();
-		document.getElementById("timer").style.display = "none";
-		document.getElementById("notification").style.display = "block";
-		timerTab.classList.remove("active");
-		notificationTab.classList.add("active");
+	// Highlight clicked tab and show its content
+	tabs.map(function(tab) {
+		tab.addEventListener("click", function(e) {
+			e.preventDefault();
+			e.target.classList.add("active");
+			document.getElementById(e.target.getAttribute("for")).classList.remove("hide");
+			tabs.filter(x => x != tab).map(y => {
+				y.classList.remove("active");
+				document.getElementById(y.getAttribute("for")).classList.add("hide");
+			});
+		});
 	});
 }
 
@@ -109,6 +108,7 @@ const updateInputs = () => {
 	InterfaceService.updateNotificationMessage(sbNotification, settingStorage.settings.sbNotification);
 	InterfaceService.updateNotificationMessage(lbNotification, settingStorage.settings.lbNotification);
 	InterfaceService.updateAutorunOption(settingStorage.settings.autorunEnabled);
+	InterfaceService.updateDarkModeOption(settingStorage.settings.darkModeEnabled);
 }
 
 window.onload = () => {

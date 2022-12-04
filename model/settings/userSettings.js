@@ -1,15 +1,16 @@
 class UserSettings {
-	constructor(pomodoros, studytime, shortbreak, longbreak, notificationsEnabled, volume, studyNotification, sbNotification, lbNotification, autorunEnabled) {
-		this._pomodoros = pomodoros;
-		this._studytime = studytime;
-		this._shortbreak = shortbreak;
-		this._longbreak = longbreak;
-		this._notificationsEnabled = notificationsEnabled;
-		this._volume = volume;
-		this._studyNotification = studyNotification;
-		this._sbNotification = sbNotification;
-		this._lbNotification = lbNotification;
-		this._autorunEnabled = autorunEnabled;
+	constructor(settings) {
+		this._studytime = settings.timer;
+		this._shortbreak = settings.shortBreak;
+		this._longbreak = settings.longBreak;
+		this._pomodoros = settings.pomodoros;
+		this._notificationsEnabled = settings.notifications;
+		this._volume = settings.volume;
+		this._studyNotification = settings.timerNotification;
+		this._sbNotification = settings.sbNotification;
+		this._lbNotification = settings.lbNotification;
+		this._autorunEnabled = settings.autorun;
+		this._darkModeEnabled = settings.darkMode;
 	}
 
 	get pomodoros() {
@@ -50,5 +51,9 @@ class UserSettings {
 
 	get autorunEnabled() {
 		return this._autorunEnabled;
+	}
+
+	get darkModeEnabled() {
+		return this._darkModeEnabled;
 	}
 }

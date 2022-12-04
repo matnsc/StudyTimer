@@ -10,10 +10,11 @@
 			<div id="content">
 				<form>
 					<div id="navbar">
-						<button id="timerTab" class="button transparent active">Timer</button>
-						<button id="notificationTab" class="button transparent">Notification</button>
+						<button class="tab button transparent active" for="timer">Timer</button>
+						<button class="tab button transparent" for="notification">Notification</button>
+						<button class="tab button transparent" for="other">Other</button>
 					</div>
-					<div id="timer">
+					<div id="timer" class="tabContent">
 						<div id="study" class="textInput">
 							<h2>Study</h2>
 							<input type="text" class="minutes" size="3" maxlength="3"/> : <input type="text" class="seconds" size="3" maxlength="2"/>
@@ -29,7 +30,7 @@
 						<p id="pomodorosMessage" class="caption">Number of pomodoro sessions per cycle: <input type="text" id="numberPomodoros" size="2" maxlength="2"/></p>
 						<p class="caption" style="margin-bottom: 0px;" title="Start timer automatically when browser is open"><input type="checkbox" id="autorunOpt"> <label for="autorunOpt">Enable autorun</label></p>
 					</div>
-					<div id="notification" style="display: none">
+					<div id="notification" class="tabContent hide">
 						<p class="caption"><input type="checkbox" id="notificationAreaOpt"> <label for="notificationAreaOpt">Enable notifications</label></p>
 						<p class="caption" id="slider"><label>Volume:</label> <input type="range" min="0" max="100" value="50" id="volume"> <span id="volumeSpan"></span></p>
 						<div class="textInput">
@@ -44,6 +45,9 @@
 							<h2><label for="lbNotification">Long Break</label></h2>
 							<input type="text" id="lbNotification"></input>
 						</div>
+					</div>
+					<div id="other" class="tabContent hide">
+						<p class="caption"><input type="checkbox" id="darkOpt"> <label for="darkOpt">Enable dark mode</label></p>
 					</div>
 				</form>
 				<button id="saveButton" class="button primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-save"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5l7.99.025.004-5.005"/></svg> Save</button>

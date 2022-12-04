@@ -7,13 +7,15 @@
 }
 
 body {
-	background-color: #f9f9fa;
+	/* background-color: #f9f9fa; */
+	background-color: #18191a;
 }
 
 h2 {
 	margin-bottom: 8px;
 	font-size: 12px;
-	color: #737373;
+	/* color: #737373; */
+	color: #a8aab1;
 }
 
 #box {
@@ -29,7 +31,8 @@ h2 {
 	padding: 22px;
 	border-radius: 20px;
 	box-shadow: 0 1px 16px rgba(12, 12, 13, 0.1);
-	background-color: #ffffff;
+	/* background-color: #ffffff; */
+	background-color: #242526;
 }
 
 #pomodorosMessage {
@@ -40,24 +43,31 @@ h2 {
 	margin-top: 16px;
 }
 
-#timer, #notification {
+.tabContent {
 	min-height: 319px;
+}
+
+.hide {
+	display: none !important;
 }
 
 .textInput {
 	margin-bottom: 24px;
 	font-size: 18px;
-	color: #38383d;
+	/* color: #38383d; */
+	color: #a8aab1;
 }
 
 .caption {
 	margin-bottom: 18px;
 	font-size: 12px;
-	color: #737373;
+	/* color: #737373; */
+	color: #a8aab1;
 }
 
 .caption label {
-	color: #737373;
+	/* color: #737373; */
+	color: #a8aab1;
 }
 
 label:hover {
@@ -67,6 +77,20 @@ label:hover {
 svg {
 	vertical-align: middle;
 	width: 16px;
+}
+
+svg path {
+	fill: #a8aab1;
+}
+
+#saveButton svg path{
+	fill: none;
+	stroke: #fff;
+}
+
+input {
+	color: #a8aab1 !important;
+	background-color: #3a3b3c;
 }
 
 .caption svg {
@@ -104,7 +128,8 @@ a {
 	padding: 8px 28px;
 	text-decoration: none;
 	border-radius: 12px;
-	color: #0c0c0d;
+	/* color: #0c0c0d; */
+	color: #a8aab1;
 	outline: 0;
 }
 
@@ -153,29 +178,37 @@ a:active {
 }
 
 .default {
-	color: #0c0c0d;
-	background-color: rgba(12, 12, 13, 0.1);
+	/* color: #0c0c0d; */
+	color: #a8aab1;
+	/* background-color: rgba(12, 12, 13, 0.1); */
+	background-color: #3a3b3c;
 }
 
 .default:hover {
-	background-color: rgba(12, 12, 13, 0.2);
+	/* background-color: rgba(12, 12, 13, 0.2); */
+	background-color: #2d2d2d86;
 }
 
 .default:active {
-	background-color: rgba(12, 12, 13, 0.3);
+	/* background-color: rgba(12, 12, 13, 0.3); */
+	background-color: #2d2d2d86;
 }
 
 .transparent {
-	color: rgba(12, 12, 13, 0.8);
-	background-color: #ffffff;
+	/* color: rgba(12, 12, 13, 0.8); */
+	color: #a8aab1;
+	/* background-color: #ffffff; */
+	background-color: #2D2D2D;
 }
 
 .transparent:hover {
-	background-color: rgba(12, 12, 13, 0.1);
+	/* background-color: rgba(12, 12, 13, 0.1); */
+	background-color: #3a3b3c;
 }
 
 .transparent:active {
-	background-color: rgba(12, 12, 13, 0.2);
+	/* background-color: rgba(12, 12, 13, 0.2); */
+	background-color: #3a3b3c;
 }
 
 .active {
@@ -229,9 +262,9 @@ a:active {
 
 @media(min-width: 1800px) {
 	#box {
-		width: 30%;
+		width: 35%;
 		height: 55%;
 		top: 22.5%;
-		left: 35%;
+		left: 32.5%;
 	}
 }
