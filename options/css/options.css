@@ -1,3 +1,16 @@
+:root {
+	--font-color: #a8aab1;
+	--content-color: #242526;
+	--background-color: #18191a;
+	--button-color: #2D2D2D;
+	--hover-color: #3a3b3c;
+	/* --font-color: #737373;
+	--content-color: #ffffff;
+	--background-color: #f3f3f3;
+	--button-color: #f3f3f3;
+	--hover-color: #e4e4e4; */
+}  
+
 * {
 	margin: 0;
 	padding: 0;
@@ -7,15 +20,13 @@
 }
 
 body {
-	/* background-color: #f9f9fa; */
-	background-color: #18191a;
+	background-color: var(--background-color);
 }
 
 h2 {
 	margin-bottom: 8px;
 	font-size: 12px;
-	/* color: #737373; */
-	color: #a8aab1;
+	color: var(--font-color);
 }
 
 #box {
@@ -31,8 +42,7 @@ h2 {
 	padding: 22px;
 	border-radius: 20px;
 	box-shadow: 0 1px 16px rgba(12, 12, 13, 0.1);
-	/* background-color: #ffffff; */
-	background-color: #242526;
+	background-color: var(--content-color);
 }
 
 #pomodorosMessage {
@@ -54,20 +64,17 @@ h2 {
 .textInput {
 	margin-bottom: 24px;
 	font-size: 18px;
-	/* color: #38383d; */
-	color: #a8aab1;
+	color: var(--font-color);
 }
 
 .caption {
 	margin-bottom: 18px;
 	font-size: 12px;
-	/* color: #737373; */
-	color: #a8aab1;
+	color: var(--font-color);
 }
 
 .caption label {
-	/* color: #737373; */
-	color: #a8aab1;
+	color: var(--font-color);
 }
 
 label:hover {
@@ -80,7 +87,7 @@ svg {
 }
 
 svg path {
-	fill: #a8aab1;
+	fill: var(--font-color);
 }
 
 #saveButton svg path{
@@ -89,8 +96,8 @@ svg path {
 }
 
 input {
-	color: #a8aab1 !important;
-	background-color: #3a3b3c;
+	color: var(--font-color) !important;
+	background-color: var(--button-color);
 }
 
 .caption svg {
@@ -101,7 +108,7 @@ input {
 input[type=text] {
 	padding: 8px 0;
 	font-size: 16px;
-	border: 1px solid rgba(12, 12, 13, 0.2);
+	border: 1px solid rgba(12, 12, 13, 0.0);
 	border-radius: 12px;
 	color: #38383d;
 	outline: none;
@@ -128,8 +135,7 @@ a {
 	padding: 8px 28px;
 	text-decoration: none;
 	border-radius: 12px;
-	/* color: #0c0c0d; */
-	color: #a8aab1;
+	color: var(--font-color);
 	outline: 0;
 }
 
@@ -169,46 +175,25 @@ a:active {
 }
 
 .primary:hover {
-	background-color: #003eaa;
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	background-color: #0043b6;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .primary:active {
-	background-color: #002275;
-}
-
-.default {
-	/* color: #0c0c0d; */
-	color: #a8aab1;
-	/* background-color: rgba(12, 12, 13, 0.1); */
-	background-color: #3a3b3c;
-}
-
-.default:hover {
-	/* background-color: rgba(12, 12, 13, 0.2); */
-	background-color: #2d2d2d86;
-}
-
-.default:active {
-	/* background-color: rgba(12, 12, 13, 0.3); */
-	background-color: #2d2d2d86;
+	background-color: #002583;
 }
 
 .transparent {
-	/* color: rgba(12, 12, 13, 0.8); */
-	color: #a8aab1;
-	/* background-color: #ffffff; */
-	background-color: #2D2D2D;
+	color: var(--font-color);
+	background-color: var(--button-color);
 }
 
 .transparent:hover {
-	/* background-color: rgba(12, 12, 13, 0.1); */
-	background-color: #3a3b3c;
+	background-color: var(--hover-color);
 }
 
 .transparent:active {
-	/* background-color: rgba(12, 12, 13, 0.2); */
-	background-color: #3a3b3c;
+	background-color: var(--hover-color);
 }
 
 .active {

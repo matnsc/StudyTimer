@@ -2,7 +2,7 @@ class ShortBreakTimer extends Timer {
 	constructor(time, completedPomodoros, settings) {
 		super(time, completedPomodoros);
 
-		this._badgeColor = "#006504";
+		this._badgeColor = "#0f7b38";
 		this._notificationMessage = settings.sbNotification;
 		this._notificationImage = "../icons/breakIcon.png";
 		this._type = "Short Break";

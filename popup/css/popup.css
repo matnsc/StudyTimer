@@ -2,6 +2,14 @@
 	--progress-stroke: 0;
 	--progress-opacity: 1;
 	--progress-color: #000;
+	--font-color: #a8aab1;
+	--background-color: #242526;
+	--hover-color: #3a3b3c;
+	--primary-hover-color: rgba(0, 0, 0, 0.8);
+	/* --font-color: #737373;
+	--background-color: #ffffff;
+	--hover-color: #e4e4e4;
+	--primary-hover-color: rgba(0, 0, 0, 0.23); */
 }  
 
 * {
@@ -11,7 +19,12 @@
 
 body {
 	padding: 8px 20px;
-	color: #737373;
+	color: var(--font-color);
+	background-color: var(--background-color);
+}
+
+.button svg path {
+	fill: var(--background-color);
 }
 
 #caption {
@@ -59,7 +72,7 @@ body {
 }
 
 .primary:hover {
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	box-shadow: 0 3px 6px var(--primary-hover-color), 0 3px 6px var(--primary-hover-color);
 }
 
 .ghost {
@@ -70,7 +83,7 @@ body {
 }
 
 .ghost:hover {
-	background-color: #EEEEEE;
+	background-color: var(--hover-color);
 }
 
 .ghost:active {
@@ -79,7 +92,7 @@ body {
 
 .ghost svg {
 	width: 22px;
-	fill: #737373;
+	fill: var(--font-color);
 }
 
 .primary svg {
@@ -116,7 +129,7 @@ body {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	color: #828282;
+	color: var(--font-color);
 	font-size: 38px;
 	transform: translate(-50%, -50%) rotate(90deg);
 }
