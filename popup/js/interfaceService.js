@@ -59,6 +59,29 @@ class InterfaceService {
 		document.documentElement.style.setProperty('--progress-stroke', percentage * (progressMaxOffset / 100));
 	}
 
+	setSelectedTheme(darkMode) {
+		let fontColor, backgroundColor, hoverColor, primaryHoverColor;
+
+        if (darkMode == "true") { 
+            // Dark mode
+            fontColor       	= "#a8aab1";
+            backgroundColor 	= "#242526";
+            hoverColor      	= "#3a3b3c";
+			primaryHoverColor 	= "rgba(0, 0, 0, 0.8)";
+        } else { 
+            // Light mode
+            fontColor       	= "#737373";
+            backgroundColor 	= "#ffffff";
+            hoverColor      	= "#e4e4e4";
+			primaryHoverColor 	= "rgba(0, 0, 0, 0.23)";
+        }
+
+        document.documentElement.style.setProperty('--font-color', fontColor);
+        document.documentElement.style.setProperty('--background-color', backgroundColor);
+        document.documentElement.style.setProperty('--hover-color', hoverColor);
+		document.documentElement.style.setProperty('--primary-hover-color', primaryHoverColor);
+	}
+
 	_changeElementText(id, value) {
 		document.getElementById(id).textContent = value;
 	}

@@ -2,6 +2,7 @@ const connection = chrome.runtime.connect({
 	name: "background-popup"
 });
 
+const settingStorage = new UserSettingsStorage();
 const interfaceService = new InterfaceService();
 
 const sendMessageToBackground = (message) => {
@@ -40,4 +41,5 @@ document.getElementById("pause").addEventListener("click", () => {
 
 window.onload = () => {
 	sendMessageToBackground("init");
+	interfaceService.setSelectedTheme(settingStorage.settings.darkModeEnabled);
 };

@@ -109,6 +109,7 @@ const updateInputs = () => {
 	InterfaceService.updateNotificationMessage(lbNotification, settingStorage.settings.lbNotification);
 	InterfaceService.updateAutorunOption(settingStorage.settings.autorunEnabled);
 	InterfaceService.updateDarkModeOption(settingStorage.settings.darkModeEnabled);
+	InterfaceService.setSelectedTheme(settingStorage.settings.darkModeEnabled);
 }
 
 window.onload = () => {

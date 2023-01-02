@@ -36,4 +36,30 @@ class InterfaceService {
     static updateDarkModeOption(value) {
         document.getElementById("darkOpt").checked = value == "true";
     }
+
+    static setSelectedTheme(darkMode) {
+        let fontColor, contentColor, backgroundColor, buttonColor, hoverColor;
+
+        if (darkMode == "true") { 
+            // Dark mode
+            fontColor       = "#a8aab1";
+            contentColor    = "#242526";
+            backgroundColor = "#18191a";
+            buttonColor     = "#2D2D2D";
+            hoverColor      = "#3a3b3c";
+        } else { 
+            // Light mode
+            fontColor       = "#737373";
+            contentColor    = "#ffffff";
+            backgroundColor = "#f3f3f3";
+            buttonColor     = "#f3f3f3";
+            hoverColor      = "#e4e4e4";
+        }
+
+        document.documentElement.style.setProperty('--font-color', fontColor);
+        document.documentElement.style.setProperty('--content-color', contentColor);
+        document.documentElement.style.setProperty('--background-color', backgroundColor);
+        document.documentElement.style.setProperty('--button-color', buttonColor);
+        document.documentElement.style.setProperty('--hover-color', hoverColor);
+    }
 }
