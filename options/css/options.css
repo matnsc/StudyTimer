@@ -4,22 +4,20 @@
 	--background-color: #18191a;
 	--button-color: #2D2D2D;
 	--hover-color: #3a3b3c;
-	/* --font-color: #737373;
-	--content-color: #ffffff;
-	--background-color: #f3f3f3;
-	--button-color: #f3f3f3;
-	--hover-color: #e4e4e4; */
 }  
 
 * {
 	margin: 0;
 	padding: 0;
-	font-family: "Segoe UI", "Ubuntu", "San Francisco", "Arial";
+	font-family: "Arial";
 	font-weight: 400;
 	text-align: center;
 }
 
 body {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
 	background-color: var(--background-color);
 }
 
@@ -30,15 +28,13 @@ h2 {
 }
 
 #box {
-	position: absolute;
+	width: 600px;
 	display: flex;
-	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 }
 
 #content {
-	width: calc(100% - 64px);
 	padding: 22px;
 	border-radius: 20px;
 	box-shadow: 0 1px 16px rgba(12, 12, 13, 0.1);
@@ -47,6 +43,11 @@ h2 {
 
 #pomodorosMessage {
 	padding-top: 8px;
+}
+
+#numberPomodoros {
+	margin-left: 8px;
+	padding: 4px 0;
 }
 
 #feedbackMessage {
@@ -61,19 +62,9 @@ h2 {
 	display: none !important;
 }
 
-.textInput {
-	margin-bottom: 24px;
-	font-size: 18px;
-	color: var(--font-color);
-}
-
 .caption {
 	margin-bottom: 18px;
 	font-size: 12px;
-	color: var(--font-color);
-}
-
-.caption label {
 	color: var(--font-color);
 }
 
@@ -95,16 +86,22 @@ svg path {
 	stroke: #fff;
 }
 
-input {
-	color: var(--font-color) !important;
-	background-color: var(--button-color);
-}
-
 .caption svg {
 	width: 14px;
 }
 
 /* Text Input */
+.textInput {
+	margin-bottom: 24px;
+	font-size: 18px;
+	color: var(--font-color);
+}
+
+input {
+	color: var(--font-color) !important;
+	background-color: var(--button-color);
+}
+
 input[type=text] {
 	padding: 8px 0;
 	font-size: 16px;
@@ -116,11 +113,6 @@ input[type=text] {
 
 input[type=text]:focus {
 	border-color: #0060df;
-}
-
-#numberPomodoros {
-	margin-left: 8px;
-	padding: 4px 0;
 }
 
 #notification input[type=text]{
@@ -204,52 +196,25 @@ a:active {
 /* Slider */
 #slider {
 	display: flex;
-	align-items: center;
 	justify-content: center;
-	flex-direction: row;
 }
 
 #slider label, #slider span {
 	padding: 0px 8px;
 }
 
+/* Prevent slider shift when set to 100 */
 #slider span {
 	width: 5px;
 }
 
-/* Responsive adaptation for different screen sizes */
-@media(max-width: 1280px) {
-	#box {
-		width: 50%;
-		height: 85%;
-		top: 7.5%;
-		left: 25%;
+/* Responsive adaptation */
+@media(max-width: 640px) {
+	body {
+		background-color: var(--content-color);
 	}
-}
-
-@media(min-width: 1281px) and (max-width: 1600px) {
+	
 	#box {
-		width: 40%;
-		height: 80%;
-		top: 10%;
-		left: 30%;
-	}
-}
-
-@media(min-width: 1601px) and (max-width: 1799px) {
-	#box {
-		width: 35%;
-		height: 70%;
-		top: 15%;
-		left: 32.5%;
-	}
-}
-
-@media(min-width: 1800px) {
-	#box {
-		width: 35%;
-		height: 55%;
-		top: 22.5%;
-		left: 32.5%;
+		width: 100%;
 	}
 }

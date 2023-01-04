@@ -2,18 +2,15 @@
 	--progress-stroke: 0;
 	--progress-opacity: 1;
 	--progress-color: #000;
+
 	--font-color: #a8aab1;
 	--background-color: #242526;
 	--hover-color: #3a3b3c;
 	--primary-hover-color: rgba(0, 0, 0, 0.8);
-	/* --font-color: #737373;
-	--background-color: #ffffff;
-	--hover-color: #e4e4e4;
-	--primary-hover-color: rgba(0, 0, 0, 0.23); */
 }  
 
 * {
-	font-family: "Segoe UI", "Ubuntu", "San Francisco", "Arial";
+	font-family: "Arial";
 	text-align: center;
 }
 
@@ -23,26 +20,19 @@ body {
 	background-color: var(--background-color);
 }
 
-.button svg path {
-	fill: var(--background-color);
-}
-
 #caption {
 	font-size: 22px;
 	margin-bottom: 6px;
 }
 
 #pomodoros {
-	height: 16px;
 	padding: 10px 0;
 	font-size: 12px;
 	margin-bottom: 10px;
 }
 
 #action {
-	width: 100%;
 	display: flex;
-	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 8px;
@@ -52,17 +42,20 @@ body {
 .button {
 	width: 51px;
 	height: 39px;
-	padding-top: 16px;
-	padding-left: 4px;
-	margin: 0 16px 0px 16px;
+	padding: 16px 0 0 4px;
+	margin: 0 16px;
 	border-radius: 50%;
 	cursor: pointer;
 	outline: none;
 }
 
-#pause {
+.button #pause {
 	width: 55px;
 	padding-left: 0;
+}
+
+.button svg path {
+	fill: var(--background-color);
 }
 
 .primary {
@@ -73,6 +66,11 @@ body {
 
 .primary:hover {
 	box-shadow: 0 3px 6px var(--primary-hover-color), 0 3px 6px var(--primary-hover-color);
+}
+
+.primary svg {
+	width: 22px;
+	fill: white;
 }
 
 .ghost {
@@ -93,11 +91,6 @@ body {
 .ghost svg {
 	width: 22px;
 	fill: var(--font-color);
-}
-
-.primary svg {
-	width: 22px;
-	fill: white;
 }
 
 /* Progress Bar */
