@@ -216,5 +216,6 @@ a:active {
 	
 	#box {
 		width: 100%;
+		justify-content: start;
 	}
 }
