@@ -39,7 +39,7 @@ document.getElementById("pause").addEventListener("click", () => {
 	sendMessageToBackground("pause");
 });
 
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
+	interfaceService.setSelectedTheme(settingStorage.settings.darkMode);
 	sendMessageToBackground("init");
-	interfaceService.setSelectedTheme(settingStorage.settings.darkModeEnabled);
-};
+});

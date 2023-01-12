@@ -13,6 +13,6 @@ class LongBreakTimer extends Timer {
 	}
 
 	change(settings) {
-		return new StudyTimer(TimerFormat.textToMilliseconds(settings.studytime), 0, settings);
+		return new StudyTimer(TimerFormat.textToMilliseconds(settings.timer), 0, settings);
 	}
 }

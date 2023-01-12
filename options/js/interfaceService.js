@@ -11,7 +11,7 @@ class InterfaceService {
     }
 
     static updateNotificationOption(value) {
-        document.getElementById("notificationAreaOpt").checked = value == "true";
+        document.getElementById("notificationAreaOpt").checked = value;
     }
 
     static updateVolume(value) {
@@ -30,17 +30,17 @@ class InterfaceService {
     }
 
     static updateAutorunOption(value) {
-        document.getElementById("autorunOpt").checked = value == "true";
+        document.getElementById("autorunOpt").checked = value;
     }
 
     static updateDarkModeOption(value) {
-        document.getElementById("darkOpt").checked = value == "true";
+        document.getElementById("darkOpt").checked = value;
     }
 
     static setSelectedTheme(darkMode) {
         let fontColor, contentColor, backgroundColor, buttonColor, hoverColor;
 
-        if (darkMode == "true") { 
+        if (darkMode) { 
             // Dark mode
             fontColor       = "#a8aab1";
             contentColor    = "#242526";
@@ -61,5 +61,9 @@ class InterfaceService {
         document.documentElement.style.setProperty('--background-color', backgroundColor);
         document.documentElement.style.setProperty('--button-color', buttonColor);
         document.documentElement.style.setProperty('--hover-color', hoverColor);
+    }
+
+    static updateSaveSessionOption(value) {
+        document.getElementById("saveSessionOpt").checked = value;
     }
 }

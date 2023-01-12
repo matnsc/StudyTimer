@@ -68,10 +68,11 @@ const addListeners = () => {
 			sbNotification: document.getElementById("sbNotification").value,
 			lbNotification: document.getElementById("lbNotification").value,
 			autorun: document.getElementById("autorunOpt").checked,
-			darkMode: document.getElementById("darkOpt").checked
+			darkMode: document.getElementById("darkOpt").checked,
+			saveSession: document.getElementById("saveSessionOpt").checked
 		}
 
-		settingStorage.settings = new UserSettings(settings);
+		settingStorage.settings = settings;
 
 		updateInputs();
 		sendMessageToBackground("reset");
@@ -98,21 +99,23 @@ const addListeners = () => {
 }
 
 const updateInputs = () => {
-	InterfaceService.updateClockLine(studyClockLine, settingStorage.settings.studytime);
-	InterfaceService.updateClockLine(shortBreakClockLine, settingStorage.settings.shortbreak);
-	InterfaceService.updateClockLine(longBreakClockLine, settingStorage.settings.longbreak);
-	InterfaceService.updatePomodoros(settingStorage.settings.pomodoros);
-	InterfaceService.updateNotificationOption(settingStorage.settings.notificationsEnabled);
-	InterfaceService.updateVolume(settingStorage.settings.volume);
-	InterfaceService.updateNotificationMessage(studyNotification, settingStorage.settings.studyNotification);
-	InterfaceService.updateNotificationMessage(sbNotification, settingStorage.settings.sbNotification);
-	InterfaceService.updateNotificationMessage(lbNotification, settingStorage.settings.lbNotification);
-	InterfaceService.updateAutorunOption(settingStorage.settings.autorunEnabled);
-	InterfaceService.updateDarkModeOption(settingStorage.settings.darkModeEnabled);
-	InterfaceService.setSelectedTheme(settingStorage.settings.darkModeEnabled);
+	const x = settingStorage.settings;
+	InterfaceService.updateClockLine(studyClockLine, x.timer);
+	InterfaceService.updateClockLine(shortBreakClockLine, x.shortBreak);
+	InterfaceService.updateClockLine(longBreakClockLine, x.longBreak);
+	InterfaceService.updatePomodoros(x.pomodoros);
+	InterfaceService.updateNotificationOption(x.notifications);
+	InterfaceService.updateVolume(x.volume);
+	InterfaceService.updateNotificationMessage(studyNotification, x.timerNotification);
+	InterfaceService.updateNotificationMessage(sbNotification, x.sbNotification);
+	InterfaceService.updateNotificationMessage(lbNotification, x.lbNotification);
+	InterfaceService.updateAutorunOption(x.autorun);
+	InterfaceService.updateDarkModeOption(x.darkMode);
+	InterfaceService.setSelectedTheme(x.darkMode);
+	InterfaceService.updateSaveSessionOption(x.saveSession);
 }
 
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
 	updateInputs();
 	addListeners();
-};
+});

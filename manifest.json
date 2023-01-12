@@ -9,8 +9,7 @@
 	},
 	"background": 
 	{
-		"scripts": [ 
-			"model/settings/userSettings.js", 
+		"scripts": [
 			"model/settings/userSettingsStorage.js", 
 			"model/badge.js", 
 			"model/notification.js", 

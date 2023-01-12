@@ -17,9 +17,9 @@ class StudyTimer extends Timer {
 		this._completedPomodoros++;
 
 		if (this._completedPomodoros < settings.pomodoros) {
-			breakTimer = new ShortBreakTimer(TimerFormat.textToMilliseconds(settings.shortbreak), this._completedPomodoros, settings);
+			breakTimer = new ShortBreakTimer(TimerFormat.textToMilliseconds(settings.shortBreak), this._completedPomodoros, settings);
 		} else {
-			breakTimer = new LongBreakTimer(TimerFormat.textToMilliseconds(settings.longbreak), this._completedPomodoros, settings);
+			breakTimer = new LongBreakTimer(TimerFormat.textToMilliseconds(settings.longBreak), this._completedPomodoros, settings);
 		}
 
 		return breakTimer;

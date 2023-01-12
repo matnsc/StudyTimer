@@ -62,7 +62,7 @@ class InterfaceService {
 	setSelectedTheme(darkMode) {
 		let fontColor, backgroundColor, hoverColor, primaryHoverColor;
 
-        if (darkMode == "true") { 
+        if (darkMode) { 
             // Dark mode
             fontColor       	= "#a8aab1";
             backgroundColor 	= "#242526";

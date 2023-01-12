@@ -1,5 +1,5 @@
 const settingsStorage = new UserSettingsStorage();
-let timer = new StudyTimer(TimerFormat.textToMilliseconds(settingsStorage.settings.studytime), 0, settingsStorage.settings);
+let timer = new StudyTimer(TimerFormat.textToMilliseconds(settingsStorage.settings.timer), 0, settingsStorage.settings);
 let activated = false;
 let sendFunction;
 let interval;
@@ -48,7 +48,7 @@ const deactivate = () => {
 	activated = false;
 };
 
-if (settingsStorage.settings.autorunEnabled === "true") {
+if (settingsStorage.settings.autorun) {
 	timer.play();
 	activate();
 }
@@ -90,7 +90,7 @@ chrome.runtime.onConnect.addListener((connection) => {
 
 			reset() {
 				deactivate();
-				timer = new StudyTimer(TimerFormat.textToMilliseconds(settingsStorage.settings.studytime), 0, settingsStorage.settings);
+				timer = new StudyTimer(TimerFormat.textToMilliseconds(settingsStorage.settings.timer), 0, settingsStorage.settings);
 				badge.updateText("");
 				badge.updateColor(timer.badgeColor);
 				update();

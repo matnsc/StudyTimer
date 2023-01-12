@@ -13,59 +13,49 @@ class UserSettingsStorage {
 			shortBreak: "05:00",
 			longBreak: "30:00",
 			pomodoros: 4,
-			notifications: "true",
+			notifications: true,
 			volume: 50,
 			timerNotification: studyNotification,
 			sbNotification: sbNotification,
 			lbNotification: lbNotification,
-			autorun: "false",
-			darkMode: "true"
+			autorun: false,
+			darkMode: true,
+            saveSession: false
 		}
 
-        return new UserSettings(settings);
+        return settings;
     }
 
     get settings() {
         const defaultObj = this.default();
 
+        let settingsSaved = this._localStorage.getItem("settings");
+
+        if (settingsSaved != null) {
+            settingsSaved = JSON.parse(settingsSaved);
+        } else {
+            settingsSaved = this.default()
+        }
+
         const settings = {
-			timer: this._getItem("studytime") ?? defaultObj.studytime,
-			shortBreak: this._getItem("shortbreak") ?? defaultObj.shortbreak,
-			longBreak: this._getItem("longbreak") ?? defaultObj.longbreak,
-			pomodoros: this._getItem("pomodoros") ?? defaultObj.pomodoros,
-			notifications: this._getItem("notificationAreaOpt") ?? defaultObj.notificationsEnabled,
-			volume: this._getItem("volume") ?? defaultObj.volume,
-			timerNotification: this._getItem("studyNotification") ?? defaultObj.studyNotification,
-			sbNotification: this._getItem("sbNotification") ?? defaultObj.sbNotification,
-			lbNotification: this._getItem("lbNotification") ?? defaultObj.lbNotification,
-			autorun: this._getItem("autorunEnabled") ?? defaultObj.autorunEnabled,
-			darkMode: this._getItem("darkModeEnabled") ?? defaultObj.darkModeEnabled
+			timer: settingsSaved.timer ?? defaultObj.timer,
+			shortBreak: settingsSaved.shortBreak ?? defaultObj.shortBreak,
+			longBreak: settingsSaved.longBreak ?? defaultObj.longBreak,
+			pomodoros: settingsSaved.pomodoros ?? defaultObj.pomodoros,
+			notifications: settingsSaved.notifications ?? defaultObj.notifications,
+			volume: settingsSaved.volume ?? defaultObj.volume,
+			timerNotification: settingsSaved.timerNotification ?? defaultObj.timerNotification,
+			sbNotification: settingsSaved.sbNotification ?? defaultObj.sbNotification,
+			lbNotification: settingsSaved.lbNotification ?? defaultObj.lbNotification,
+			autorun: settingsSaved.autorun ?? defaultObj.autorun,
+			darkMode: settingsSaved.darkMode ?? defaultObj.darkMode,
+            saveSession: settingsSaved.saveSession ?? defaultObj.saveSession
 		}
 
-        return new UserSettings(settings);
+        return settings;
     }
 
     set settings(userSettings) {
-        this._setItem("pomodoros", userSettings.pomodoros);
-        this._setItem("studytime", userSettings.studytime);
-        this._setItem("shortbreak", userSettings.shortbreak);
-        this._setItem("longbreak", userSettings.longbreak);
-        this._setItem("notificationAreaOpt", userSettings.notificationsEnabled);
-        this._setItem("volume", userSettings.volume);
-        this._setItem("studyNotification", userSettings.studyNotification);
-        this._setItem("sbNotification", userSettings.sbNotification);
-        this._setItem("lbNotification", userSettings.lbNotification);
-        this._setItem("autorunEnabled", userSettings.autorunEnabled);
-        this._setItem("darkModeEnabled", userSettings.darkModeEnabled);
-        
-        return this.settings;
-    }
-
-    _getItem(name) {
-        return this._localStorage.getItem(name);
-    }
-
-    _setItem(name, value) {
-        this._localStorage.setItem(name, value);
+        this._localStorage.setItem("settings", JSON.stringify(userSettings));
     }
 }
