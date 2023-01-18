@@ -3,7 +3,7 @@ class StudyTimer extends Timer {
 		super(time, completedPomodoros);
 
 		this._badgeColor = "#677689";
-		this._notificationMessage = settings.studyNotification;
+		this._notificationMessage = settings.timerNotification;
 		this._notificationImage = "../icons/studyIcon.png";
 		this._type = "Study";
 	}

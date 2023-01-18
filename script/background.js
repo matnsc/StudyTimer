@@ -5,10 +5,16 @@ let sendFunction;
 let interval;
 const badge = new Badge(timer.badgeColor);
 
+const saveSession = () => {
+	if (settingsStorage.settings.saveSession) {
+		settingsStorage.session = timer;
+	}
+}
+
 const dueTimeVerifier = (value) => {
 	if (value <= 0) {
 		timer = timer.change(settingsStorage.settings);
-
+		saveSession();
 		badge.updateColor(timer.badgeColor);
 
 		timer.showNotification();
@@ -48,11 +54,6 @@ const deactivate = () => {
 	activated = false;
 };
 
-if (settingsStorage.settings.autorun) {
-	timer.play();
-	activate();
-}
-
 chrome.runtime.onConnect.addListener((connection) => {
 	const sendMessageToPopup = (message) => {
 		try {
@@ -91,6 +92,7 @@ chrome.runtime.onConnect.addListener((connection) => {
 			reset() {
 				deactivate();
 				timer = new StudyTimer(TimerFormat.textToMilliseconds(settingsStorage.settings.timer), 0, settingsStorage.settings);
+				saveSession();
 				badge.updateText("");
 				badge.updateColor(timer.badgeColor);
 				update();
@@ -108,3 +110,27 @@ chrome.runtime.onConnect.addListener((connection) => {
 		}
 	});
 });
+
+const setTimer = (value) => {
+	value._time = value._time - 990;
+	if (value._type == "Study") {
+		timer = new StudyTimer(value._time, value._completedPomodoros, settingsStorage.settings);
+	}
+
+	if (value._type == "Short Break") {
+		timer = new ShortBreakTimer(value._time, value._completedPomodoros, settingsStorage.settings);
+	}
+
+	if (value._type == "Long Break") {
+		timer = new LongBreakTimer(value._time, value._completedPomodoros, settingsStorage.settings);
+	}
+}
+
+if (settingsStorage.settings.saveSession && settingsStorage.session) {
+	setTimer(settingsStorage.session);
+}
+
+if (settingsStorage.settings.autorun) {
+	timer.play();
+	activate();
+}

@@ -58,4 +58,12 @@ class UserSettingsStorage {
     set settings(userSettings) {
         this._localStorage.setItem("settings", JSON.stringify(userSettings));
     }
+
+    get session() {
+        return JSON.parse(this._localStorage.getItem("session"));
+    }
+
+    set session(timer) {
+        this._localStorage.setItem("session", JSON.stringify(timer));
+    }
 }
