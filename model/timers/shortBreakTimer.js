@@ -9,7 +9,7 @@ class ShortBreakTimer extends Timer {
 	}
 
 	showNotification() {
-		new Notification("Short break", this._notificationMessage, this._notificationImage).show();
+		new Notification("Short Break", this._notificationMessage, this._notificationImage).show();
 	}
 
 	change(settings) {

@@ -113,7 +113,7 @@ chrome.runtime.onConnect.addListener((connection) => {
 
 const setTimer = (value) => {
 	value._time = value._time - 990;
-	if (value._type == "Study") {
+	if (value._type == "Task") {
 		timer = new StudyTimer(value._time, value._completedPomodoros, settingsStorage.settings);
 	}
 

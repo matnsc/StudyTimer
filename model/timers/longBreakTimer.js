@@ -9,7 +9,7 @@ class LongBreakTimer extends Timer {
 	}
 
 	showNotification() {
-		new Notification("Long break", this._notificationMessage, this._notificationImage).show();
+		new Notification("Long Break", this._notificationMessage, this._notificationImage).show();
 	}
 
 	change(settings) {

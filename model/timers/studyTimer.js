@@ -5,11 +5,11 @@ class StudyTimer extends Timer {
 		this._badgeColor = "#677689";
 		this._notificationMessage = settings.timerNotification;
 		this._notificationImage = "../icons/studyIcon.png";
-		this._type = "Study";
+		this._type = "Task";
 	}
 
 	showNotification() {
-		new Notification("Study time", this._notificationMessage, this._notificationImage).show();
+		new Notification("Task", this._notificationMessage, this._notificationImage).show();
 	}
 
 	change(settings) {
