@@ -22,7 +22,7 @@ const dueTimeVerifier = (value) => {
 	}
 
 	if (value > 0) {
-		badge.updateText(TimerFormat.millisecondsToMinutes(value).toString());
+		badge.updateText(TimerFormat.millisecondsToMinutes(value - 990).toString());
 	}
 };
 
@@ -124,6 +124,7 @@ const setTimer = (value) => {
 	if (value._type == "Long Break") {
 		timer = new LongBreakTimer(value._time, value._completedPomodoros, settingsStorage.settings);
 	}
+	badge.updateColor(timer.badgeColor);
 }
 
 if (settingsStorage.settings.saveSession && settingsStorage.session) {
