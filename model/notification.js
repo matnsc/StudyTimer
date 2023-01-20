@@ -14,7 +14,7 @@ class Notification {
 	_createNotification() {
 		const settingsStorage = new UserSettingsStorage();
 
-		if (settingsStorage.settings.notificationsEnabled == "true") {
+		if (settingsStorage.settings.notifications) {
 			chrome.notifications.create({
 
 				"type": "basic",
