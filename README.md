@@ -4,38 +4,39 @@
 
 <br/>
 
-[![Extension version](https://img.shields.io/github/manifest-json/v/MatNascimento/StudyTimer.svg)](https://github.com/MatNascimento/StudyTimer "Extension version")
+[![Extension version](https://img.shields.io/github/manifest-json/v/matnsc/StudyTimer.svg)](https://github.com/matnsc/StudyTimer "Extension version")
 [![Firefox Addon Rating](https://img.shields.io/amo/rating/studytimer.svg "Mozilla Add-ons Rating")](https://addons.mozilla.org/en-US/firefox/addon/studytimer/) 
-[![Donate!](https://img.shields.io/badge/donate-PayPal-yellow.svg "Donate!")](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=RFKBP9KSQ6XRE&item_name=Donate+any+amount+to+support+StudyTimer&currency_code=USD&source=url) 
-[![License](https://img.shields.io/github/license/MatNascimento/StudyTimer.svg "License")](http://www.gnu.org/licenses/gpl-3.0.en.html) 
+[![License](https://img.shields.io/github/license/matnsc/StudyTimer.svg "License")](http://www.gnu.org/licenses/gpl-3.0.en.html) 
 
 <br/>
 
-StudyTimer is a minimalistic cross-platform browser extension created to help you manage your time using the Pomodoro Technique.
+StudyTimer is a cross-platform browser extension created to help manage time and increase productivity using the Pomodoro Technique.
 
-It's UI is predictable and easy to use, well integrated with modern browsers.
+## Pomodoro Technique
 
-You can also use your own custom work periods, break periods and even the number of pomodoros per cycle you want.
+For information about the Pomodoro Technique, visit the creator's official page: https://francescocirillo.com/products/the-pomodoro-technique#info
 
-## What is Pomodoro Technique?
+## Features
 
-For information about the Pomodoro Technique, please visit Cirillo Consulting official webpage: https://francescocirillo.com
+- Automatic timer change flow (Task -> Break -> Task again -> ...)
+- Customizable timers, pomodoros and notifications
+- Sessions can be saved (No need to start again after the browser is closed)
+- Option to start automatically when the browser is open
+- Dark mode support
 
 ## Installation
 
 ### From the Store
-StudyTimer is available on:
 
-Mozilla Add-ons Store: https://addons.mozilla.org/firefox/addon/studytimer/
+<a href="https://addons.mozilla.org/firefox/addon/studytimer/" target="_blank"><img src="icons/firefox.png" alt="Firefox Add-ons"></a>
+<a href="https://addons.opera.com/extensions/details/studytimer/" target="_blank"><img src="icons/opera.png" alt="Opera Add-ons"></a>
 
-Opera Store: https://addons.opera.com/en/extensions/details/studytimer/
+*Versions for Chrome, Edge and Safari unreleased yet due to forced manifest v2 deprecation by Google. 
 
-Donate US$5.00 so I can pay Chrome Store's registration fee and publish the extension for Chrome users.
-
-Versions for Safari and Edge may be released in the future.
+**It may still be possible to run on those browsers if the extension is loaded locally.
 
 ### From Source Files (Debug)
-Download the zip file by clicking on the button **Clone or Download**. After done, extract it in any folder you want.
+Download the zip file by clicking on the button **<> Code** > **Download ZIP**. After done, extract it in any folder you want.
 
 Follow the instructions to load extension in debug mode on your browser:
 
@@ -44,13 +45,6 @@ Firefox: https://extensionworkshop.com/documentation/develop/temporary-installat
 Chrome: https://developer.chrome.com/docs/extensions/mv3/tut_debugging/#debug_bg
 
 Opera: https://dev.opera.com/extensions/testing/
-
-## Donation
-StudyTimer is entirely free and open-source. It was designed to be modular and extensible, giving freedom of modification (in agreement with GPLv3) for anyone.
-
-If you like to support that kind of stuff, or are just really satisfied by the extension, consider donate ANY amound by clicking right below:
-
-[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=RFKBP9KSQ6XRE&item_name=Donate+any+amount+to+support+StudyTimer&currency_code=USD&source=url)
 
 ## License
 StudyTimer is licensed under GNU General Public License 3.0 ([GPLv3](http://www.gnu.org/licenses/gpl-3.0.en.html "GPLv3")).
