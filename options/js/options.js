@@ -54,7 +54,7 @@ const addListeners = () => {
 
 	pomodorosInput.addEventListener("focusout", () => pomodorosInput.value = new PomodorosInput(pomodorosInput.value).format());
 
-	volume.addEventListener("input", () => volumeSpan.innerHTML = volume.value + "%");
+	volume.addEventListener("input", () => volumeSpan.innerText = volume.value + "%");
 
 	document.getElementById("saveButton").addEventListener("click", () => {
 		const settings = {

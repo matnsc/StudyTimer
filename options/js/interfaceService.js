@@ -16,7 +16,7 @@ class InterfaceService {
 
     static updateVolume(value) {
         document.getElementById("volume").value = value;
-        document.getElementById("volumeSpan").innerHTML = value + "%";
+        document.getElementById("volumeSpan").innerText = value + "%";
     }
 
     static updateNotificationMessage(element, value) {
