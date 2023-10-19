@@ -10,7 +10,7 @@
 
 <br/>
 
-StudyTimer is a cross-platform browser extension created to help manage time and increase productivity using the Pomodoro Technique.
+StudyTimer is a manifest v2 cross-platform browser extension created to help manage time and increase productivity using the Pomodoro Technique.
 
 ## Pomodoro Technique
 
@@ -31,7 +31,7 @@ For information about the Pomodoro Technique, visit the creator's official page:
 <a href="https://addons.mozilla.org/firefox/addon/studytimer/" target="_blank"><img src="icons/firefox.png" alt="Firefox Add-ons"></a>
 <a href="https://addons.opera.com/extensions/details/studytimer/" target="_blank"><img src="icons/opera.png" alt="Opera Add-ons"></a>
 
-*Versions for Chrome, Edge and Safari unreleased yet due to forced manifest v2 deprecation by Google. 
+*Versions for Chrome, Edge and Safari won't be released due to manifest v3 being a broken mess to work with
 
 **It may still be possible to run on those browsers if the extension is loaded locally.
 
