@@ -14,7 +14,7 @@ StudyTimer is a manifest v2 cross-platform browser extension created to help man
 
 ## Pomodoro Technique
 
-For information about the Pomodoro Technique, visit the creator's official page: https://francescocirillo.com/products/the-pomodoro-technique#info
+For information about the Pomodoro Technique, visit the official page: https://www.pomodorotechnique.com/what-is-the-pomodoro-technique.php
 
 ## Features
 
